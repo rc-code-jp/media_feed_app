@@ -6,10 +6,14 @@ final feedProvider = StateNotifierProvider<FeedProvider, List<FeedItem>>((ref) {
 });
 
 class FeedProvider extends StateNotifier<List<FeedItem>> {
-  FeedProvider() : super([]);
+  FeedProvider()
+      : super([
+          FeedItem(id: '1', title: 'title1', url: ''),
+          FeedItem(id: '2', title: 'title2', url: ''),
+        ]);
 
   // アイテムを追加する
   void addItem(FeedItem item) {
-    state.add(item);
+    state = [...state, item];
   }
 }
