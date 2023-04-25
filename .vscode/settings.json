@@ -14,5 +14,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.organizeImports": true
-  }
+  },
+  // dart
+  "dart.closingLabels": false,
+  "cSpell.words": [
+    "riverpod"
+  ]
 }
