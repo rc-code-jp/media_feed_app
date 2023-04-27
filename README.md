@@ -26,6 +26,7 @@ fvm flutter doctor
 │   ├── router    ... ルーター関連
 │   ├── screens   ... スクリーン（ページ）
 │   ├── widgets   ... 共通コンポーネント
+│   ├── libraries ... ライブラリの初期化やラッパーなど
 │   ├── features
 │   │   ├── xxxx  ... usersなどの機能名ディレクトリを切る
 │   │   │   ├── models    ... モデル

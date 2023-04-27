@@ -8,12 +8,26 @@ final feedProvider = StateNotifierProvider<FeedProvider, List<FeedItem>>((ref) {
 class FeedProvider extends StateNotifier<List<FeedItem>> {
   FeedProvider()
       : super([
-          FeedItem(id: '1', title: 'title1', url: ''),
-          FeedItem(id: '2', title: 'title2', url: ''),
+          FeedItem(
+              id: '1',
+              title: 'title1',
+              url:
+                  'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'),
+          FeedItem(
+              id: '2',
+              title: 'title2',
+              url:
+                  'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
         ]);
 
   // アイテムを追加する
-  void addItem(FeedItem item) {
-    state = [...state, item];
+  void addItem() {
+    final id = DateTime.now().toString();
+    final newItem = FeedItem(
+        id: id,
+        title: id,
+        url:
+            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
+    state = [...state, newItem];
   }
 }
