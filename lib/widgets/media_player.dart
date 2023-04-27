@@ -19,10 +19,10 @@ class MediaPlayerState extends ConsumerState<MediaPlayer> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(widget.mediaUrl);
-    _controller.setLooping(false);
+    _controller.setLooping(true);
+    _controller.setVolume(1);
     _controller.initialize().then((_) {
       setState(() {
-        _controller.setVolume(1);
         _controller.play();
       });
     });
@@ -36,7 +36,6 @@ class MediaPlayerState extends ConsumerState<MediaPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    print(_controller.value.aspectRatio);
     return Container(
         decoration: const BoxDecoration(
           color: Colors.black,

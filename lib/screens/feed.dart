@@ -14,7 +14,10 @@ class FeedScreen extends ConsumerWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Feed'),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
         ),
+        extendBodyBehindAppBar: true,
         body: PageView.builder(
           itemCount: feed.length,
           controller: controller,
