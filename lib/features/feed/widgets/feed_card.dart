@@ -5,44 +5,25 @@ import 'package:media_feed_app/features/feed/widgets/feed_card_detail.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_progress.dart';
 import 'package:media_feed_app/widgets/media_player.dart';
 
-class FeedCard extends ConsumerStatefulWidget {
-  // 動画URL
+class FeedCard extends ConsumerWidget {
   final FeedItem feedItem;
 
   const FeedCard({Key? key, required this.feedItem}) : super(key: key);
 
   @override
-  FeedCardState createState() => FeedCardState();
-}
-
-class FeedCardState extends ConsumerState<FeedCard> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Stack(
       children: [
-        // 動画部分
         MediaPlayer(
-            mediaUrl: widget.feedItem.url,
-            initializedCallbackHandler: () {
-              // 初期化完了時のコールバック
-              print('init');
-            }),
+          videoController: feedItem.videoController,
+        ),
+
         // タイトルなど
         Positioned(
             bottom: 100,
             left: 10,
             child: FeedCardDetail(
-              feedItem: widget.feedItem,
+              feedItem: feedItem,
             )),
         // 進捗
         Positioned(

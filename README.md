@@ -1,5 +1,9 @@
 # media_feed_app
 
+## パッケージ
+
+- [riverpod](https://docs-v2.riverpod.dev/docs/getting_started)
+
 ## 初期設定
 
 Flutter/Dart のバージョン管理に fvm を使用する。
@@ -20,7 +24,10 @@ fvm flutter doctor
 
 ```
 /
-├──
+├── ios
+├── android
+├── web
+├── assets        ... 共通資産
 ├── lib
 │   ├── providers ... グローバルな状態管理
 │   ├── router    ... ルーター関連

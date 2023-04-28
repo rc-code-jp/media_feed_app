@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 
-final feedProvider = StateNotifierProvider<FeedProvider, List<FeedItem>>((ref) {
+final feedProvider =
+    StateNotifierProvider.autoDispose<FeedProvider, List<FeedItem>>((ref) {
   return FeedProvider();
 });
 
@@ -10,24 +11,34 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
       : super([
           FeedItem(
               id: '1',
-              title: 'title1',
-              url:
-                  'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'),
+              title: 'Ginger',
+              artistName: 'TOMOO',
+              url: 'assets/videos/1.mp4'),
           FeedItem(
               id: '2',
-              title: 'title2',
-              url:
-                  'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),
+              title: 'オセロ',
+              artistName: 'TOMOO',
+              url: 'assets/videos/2.mp4'),
+          FeedItem(
+              id: '3',
+              title: 'ハニーボーイ',
+              artistName: 'TOMOO',
+              url: 'assets/videos/3.mp4'),
         ]);
 
-  // アイテムを追加する
-  void addItem() {
-    final id = DateTime.now().toString();
-    final newItem = FeedItem(
-        id: id,
-        title: id,
-        url:
-            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
-    state = [...state, newItem];
+  // ビデオを読み込む
+  Future<void> playVideo(int feedIndex) async {
+    final feedItem = state[feedIndex];
+    await feedItem.loadVideoController();
+    feedItem.videoController?.setVolume(1.0);
+    feedItem.videoController?.play();
+    state = [...state];
+  }
+
+  // ビデオを破棄
+  void pauseVideo(int feedIndex) {
+    final feedItem = state[feedIndex];
+    feedItem.videoController?.pause();
+    state = [...state];
   }
 }

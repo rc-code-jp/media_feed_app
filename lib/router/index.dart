@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:media_feed_app/screens/feed.dart';
-import 'package:media_feed_app/screens/home.dart';
+import 'package:media_feed_app/screens/feed_screen.dart';
+import 'package:media_feed_app/screens/home_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -11,7 +11,7 @@ final router = GoRouter(
         routes: [
           GoRoute(
             path: 'feed',
-            builder: (context, state) => const FeedScreen(),
+            builder: (context, state) => FeedScreen(),
           ),
         ]),
   ],

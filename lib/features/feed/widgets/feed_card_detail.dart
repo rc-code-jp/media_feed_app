@@ -14,32 +14,33 @@ class FeedCardDetail extends ConsumerWidget {
       // 歌手名
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          Icon(
+        children: [
+          const Icon(
             Icons.person,
             color: Colors.white,
             size: 16,
           ),
-          Padding(padding: EdgeInsets.only(left: 14)),
-          Text('夜光性アミューズ', style: TextStyle(fontSize: 16, color: Colors.white)),
+          const Padding(padding: EdgeInsets.only(left: 14)),
+          Text(feedItem.artistName,
+              style: const TextStyle(fontSize: 16, color: Colors.white)),
         ],
       ),
       // 曲名
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          Icon(
+        children: [
+          const Icon(
             Icons.music_note,
             color: Colors.white,
             size: 20,
           ),
-          Padding(padding: EdgeInsets.only(left: 10)),
-          Text('夜光性イントロデュース',
-              style: TextStyle(fontSize: 20, color: Colors.white)),
+          const Padding(padding: EdgeInsets.only(left: 10)),
+          Text(feedItem.title,
+              style: const TextStyle(fontSize: 20, color: Colors.white)),
         ],
       ),
       // タグ
-      const Text('#アイドル #J-POP',
+      const Text('#ポップス #J-POP',
           style: TextStyle(fontSize: 16, color: Colors.white)),
     ]));
   }
