@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
-import 'package:media_feed_app/widgets/media_player.dart';
+import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
 
 class FeedScreen extends ConsumerWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -26,9 +26,7 @@ class FeedScreen extends ConsumerWidget {
             ref.read(feedProvider.notifier).addItem();
           },
           itemBuilder: (context, index) {
-            return MediaPlayer(
-              feed[index].url,
-            );
+            return FeedCard(feedItem: feed[index]);
           },
         ));
   }
