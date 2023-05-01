@@ -27,10 +27,16 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
         ]);
 
   // ビデオを読み込む
-  Future<void> playVideo(int feedIndex) async {
+  Future<void> loadVideo(int feedIndex) async {
     final feedItem = state[feedIndex];
     await feedItem.loadVideoController();
     feedItem.videoController?.setVolume(1.0);
+    state = [...state];
+  }
+
+  // ビデオを再生
+  Future<void> playVideo(int feedIndex) async {
+    final feedItem = state[feedIndex];
     feedItem.videoController?.play();
     state = [...state];
   }

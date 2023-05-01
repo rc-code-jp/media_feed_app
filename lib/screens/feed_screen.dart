@@ -19,13 +19,20 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
   void initState() {
     super.initState();
 
-    // 最初の動画を再生
-    ref.read(feedProvider.notifier).playVideo(0);
+    loadFirstVideo();
   }
 
   @override
   void dispose() {
+    pageController.dispose();
+
     super.dispose();
+  }
+
+  // 最初の動画を読み込む
+  Future<void> loadFirstVideo() async {
+    await ref.read(feedProvider.notifier).loadVideo(0);
+    await ref.read(feedProvider.notifier).playVideo(0);
   }
 
   @override
@@ -56,12 +63,10 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
           onPageChanged: (index) async {
             // 前回の動画を破棄
             ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
-
-            print(prevItemIndex);
-
             prevItemIndex = index;
 
             // 再生
+            await ref.read(feedProvider.notifier).loadVideo(index);
             await ref.read(feedProvider.notifier).playVideo(index);
           },
           itemBuilder: (context, index) {
