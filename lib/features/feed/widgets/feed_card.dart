@@ -29,7 +29,7 @@ class FeedCard extends ConsumerWidget {
         FeedCardProgress(
           finishedCallbackHandler: () {
             // 終了時のコールバック
-            print('finished');
+            debugPrint('finished');
           },
         ),
 

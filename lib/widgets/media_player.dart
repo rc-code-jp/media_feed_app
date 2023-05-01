@@ -11,26 +11,27 @@ class MediaPlayer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-        decoration: const BoxDecoration(
-          color: Colors.black,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            videoController == null
-                ? const SizedBox(
-                    width: double.infinity,
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                      ),
+      decoration: const BoxDecoration(
+        color: Colors.black,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          videoController == null
+              ? const SizedBox(
+                  width: double.infinity,
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
                     ),
-                  )
-                : AspectRatio(
-                    aspectRatio: videoController!.value.aspectRatio,
-                    child: VideoPlayer(videoController!),
                   ),
-          ],
-        ));
+                )
+              : AspectRatio(
+                  aspectRatio: videoController!.value.aspectRatio,
+                  child: VideoPlayer(videoController!),
+                ),
+        ],
+      ),
+    );
   }
 }

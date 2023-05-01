@@ -10,20 +10,23 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   FeedProvider()
       : super([
           FeedItem(
-              id: '1',
-              title: 'Ginger',
-              artistName: 'TOMOO',
-              url: 'assets/videos/1.mp4'),
+            id: '1',
+            title: 'Ginger',
+            artistName: 'TOMOO',
+            url: 'assets/videos/1.mp4',
+          ),
           FeedItem(
-              id: '2',
-              title: 'オセロ',
-              artistName: 'TOMOO',
-              url: 'assets/videos/2.mp4'),
+            id: '2',
+            title: 'オセロ',
+            artistName: 'TOMOO',
+            url: 'assets/videos/2.mp4',
+          ),
           FeedItem(
-              id: '3',
-              title: 'ハニーボーイ',
-              artistName: 'TOMOO',
-              url: 'assets/videos/3.mp4'),
+            id: '3',
+            title: 'ハニーボーイ',
+            artistName: 'TOMOO',
+            url: 'assets/videos/3.mp4',
+          ),
         ]);
 
   // ビデオを読み込む

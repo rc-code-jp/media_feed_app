@@ -40,38 +40,39 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
     final feed = ref.watch(feedProvider);
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Feed'),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.navigate_before,
-              size: 30,
-            ),
-            onPressed: () {
-              ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
-              context.go('/');
-            },
+      appBar: AppBar(
+        title: const Text('Feed'),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.navigate_before,
+            size: 30,
           ),
-        ),
-        extendBodyBehindAppBar: true,
-        body: PageView.builder(
-          itemCount: feed.length,
-          controller: pageController,
-          scrollDirection: Axis.vertical,
-          onPageChanged: (index) async {
-            // 前回の動画を破棄
+          onPressed: () {
             ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
-            prevItemIndex = index;
+            context.go('/');
+          },
+        ),
+      ),
+      extendBodyBehindAppBar: true,
+      body: PageView.builder(
+        itemCount: feed.length,
+        controller: pageController,
+        scrollDirection: Axis.vertical,
+        onPageChanged: (index) async {
+          // 前回の動画を破棄
+          ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
+          prevItemIndex = index;
 
-            // 再生
-            await ref.read(feedProvider.notifier).loadVideo(index);
-            await ref.read(feedProvider.notifier).playVideo(index);
-          },
-          itemBuilder: (context, index) {
-            return FeedCard(feedItem: feed[index]);
-          },
-        ));
+          // 再生
+          await ref.read(feedProvider.notifier).loadVideo(index);
+          await ref.read(feedProvider.notifier).playVideo(index);
+        },
+        itemBuilder: (context, index) {
+          return FeedCard(feedItem: feed[index]);
+        },
+      ),
+    );
   }
 }

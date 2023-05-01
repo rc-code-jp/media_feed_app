@@ -8,16 +8,18 @@ class ProgressCircle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Stack(alignment: Alignment.center, children: [
-      // サークル
-      CircularProgressIndicator(
-        strokeWidth: 2,
-        value: value,
-        color: Colors.white,
-        backgroundColor: Colors.white54,
-      ),
-      // アイコン（完了時にフェードイン）
-      Align(
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        // サークル
+        CircularProgressIndicator(
+          strokeWidth: 2,
+          value: value,
+          color: Colors.white,
+          backgroundColor: Colors.white54,
+        ),
+        // アイコン（完了時にフェードイン）
+        Align(
           alignment: Alignment.center,
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 200),
@@ -27,7 +29,9 @@ class ProgressCircle extends ConsumerWidget {
               size: 30,
               color: Colors.greenAccent,
             ),
-          ))
-    ]);
+          ),
+        )
+      ],
+    );
   }
 }

@@ -12,12 +12,13 @@ class HomeScreen extends ConsumerWidget {
         title: const Text('Home'),
       ),
       body: Center(
-          child: ElevatedButton(
-        onPressed: () {
-          context.go('/feed');
-        },
-        child: const Text('Go Feed'),
-      )),
+        child: ElevatedButton(
+          onPressed: () {
+            context.go('/feed');
+          },
+          child: const Text('Go Feed'),
+        ),
+      ),
     );
   }
 }

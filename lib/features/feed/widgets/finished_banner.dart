@@ -28,11 +28,14 @@ class FinishedBannerState extends ConsumerState<FinishedBanner> {
   @override
   Widget build(BuildContext context) {
     return const Positioned.fill(
-        top: 200,
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: Text('center text',
-              style: TextStyle(color: Colors.white, fontSize: 20)),
-        ));
+      top: 200,
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Text(
+          'center text',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+    );
   }
 }

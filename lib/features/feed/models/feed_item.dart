@@ -9,13 +9,14 @@ class FeedItem {
 
   VideoPlayerController? videoController;
 
-  FeedItem(
-      {required this.id,
-      required this.title,
-      required this.artistName,
-      required this.url,
-      this.isCompleted = false,
-      this.videoController});
+  FeedItem({
+    required this.id,
+    required this.title,
+    required this.artistName,
+    required this.url,
+    this.isCompleted = false,
+    this.videoController,
+  });
 
   factory FeedItem.fromJson(Map<String, dynamic> json) {
     return FeedItem(
