@@ -27,6 +27,12 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
             artistName: 'TOMOO',
             url: 'assets/videos/3.mp4',
           ),
+          FeedItem(
+            id: '4',
+            title: 'ああああああ',
+            artistName: 'TOMOO',
+            url: 'assets/videos/4.mp4',
+          ),
         ]);
 
   // ビデオを読み込む

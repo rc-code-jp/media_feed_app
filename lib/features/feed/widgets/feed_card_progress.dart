@@ -2,14 +2,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/progress_circle.dart';
 
 class FeedCardProgress extends ConsumerStatefulWidget {
-  final Function? finishedCallbackHandler;
+  final FeedItem feedItem;
 
   const FeedCardProgress({
     Key? key,
-    this.finishedCallbackHandler,
+    required this.feedItem,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
     timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (progressValue >= 3) {
         timer.cancel();
-        widget.finishedCallbackHandler?.call();
+        ref.read(feedProvider.notifier).completeItemById(widget.feedItem.id);
       }
       setState(() {
         progressValue += 0.02; // 5秒で1.0になる
@@ -43,7 +45,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 120,
+      top: 100,
       right: 10,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

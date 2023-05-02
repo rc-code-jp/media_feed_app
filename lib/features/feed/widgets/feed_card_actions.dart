@@ -13,8 +13,10 @@ class FeedCardActions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    const iconSize = 30.0;
+
     return Positioned(
-      bottom: 110,
+      bottom: 100,
       right: 10,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -28,11 +30,25 @@ class FeedCardActions extends ConsumerWidget {
             icon: const Icon(
               Icons.ios_share,
               color: Colors.white,
-              size: 30,
+              size: iconSize,
             ),
           ),
+
+          // 情報ボタン
+          IconButton(
+            onPressed: () {
+              // TODO: 情報を見る
+            },
+            icon: const Icon(
+              Icons.info_outline,
+              color: Colors.white,
+              size: iconSize,
+            ),
+          ),
+
           // いいねボタン
           IconButton(
+            constraints: const BoxConstraints(), // 余白を消す
             onPressed: () {
               ref.read(feedProvider.notifier).toggleFavoriteById(feedItem.id);
             },
@@ -45,7 +61,7 @@ class FeedCardActions extends ConsumerWidget {
                 : const Icon(
                     Icons.favorite_border,
                     color: Colors.white,
-                    size: 30,
+                    size: iconSize,
                   ),
           ),
         ],

@@ -41,7 +41,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feed'),
+        title: const Text(''),
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
