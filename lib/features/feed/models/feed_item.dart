@@ -5,7 +5,8 @@ class FeedItem {
   final String title;
   final String artistName;
   final String url;
-  late final bool isCompleted;
+  late bool isCompleted;
+  late bool isFavorite;
 
   VideoPlayerController? videoController;
 
@@ -15,6 +16,7 @@ class FeedItem {
     required this.artistName,
     required this.url,
     this.isCompleted = false,
+    this.isFavorite = false,
     this.videoController,
   });
 
@@ -25,6 +27,7 @@ class FeedItem {
       artistName: json['artistName'],
       url: json['url'],
       isCompleted: json['isCompleted'],
+      isFavorite: json['isFavorite'],
     );
   }
 
@@ -35,6 +38,7 @@ class FeedItem {
       'artistName': artistName,
       'url': url,
       'isCompleted': isCompleted,
+      'isFavorite': isFavorite,
     };
   }
 

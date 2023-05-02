@@ -45,23 +45,21 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
     return Positioned(
       top: 120,
       right: 10,
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ProgressCircle(
-              value: progressValue - 2,
-            ),
-            const Padding(padding: EdgeInsets.only(right: 15)),
-            ProgressCircle(
-              value: progressValue - 1,
-            ),
-            const Padding(padding: EdgeInsets.only(right: 15)),
-            ProgressCircle(
-              value: progressValue,
-            )
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ProgressCircle(
+            value: progressValue - 2,
+          ),
+          const Padding(padding: EdgeInsets.only(right: 15)),
+          ProgressCircle(
+            value: progressValue - 1,
+          ),
+          const Padding(padding: EdgeInsets.only(right: 15)),
+          ProgressCircle(
+            value: progressValue,
+          )
+        ],
       ),
     );
   }

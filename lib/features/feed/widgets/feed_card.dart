@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
+import 'package:media_feed_app/features/feed/widgets/feed_card_actions.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_detail.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_progress.dart';
 import 'package:media_feed_app/features/feed/widgets/finished_banner.dart';
@@ -25,11 +27,16 @@ class FeedCard extends ConsumerWidget {
           feedItem: feedItem,
         ),
 
+        // いいねボタンなど
+        FeedCardActions(
+          feedItem: feedItem,
+        ),
+
         // 進捗
         FeedCardProgress(
           finishedCallbackHandler: () {
             // 終了時のコールバック
-            debugPrint('finished');
+            ref.read(feedProvider.notifier).completeItemById(feedItem.id);
           },
         ),
 

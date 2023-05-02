@@ -32,7 +32,7 @@ class FinishedBannerState extends ConsumerState<FinishedBanner> {
       child: Align(
         alignment: Alignment.topCenter,
         child: Text(
-          'center text',
+          'GET !!!',
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),

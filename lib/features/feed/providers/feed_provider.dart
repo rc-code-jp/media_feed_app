@@ -50,4 +50,18 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     feedItem.videoController?.pause();
     state = [...state];
   }
+
+  // いいねを変更
+  void toggleFavoriteById(String id) {
+    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
+    feedItem.isFavorite = !feedItem.isFavorite;
+    state = [...state];
+  }
+
+  // 完了状態を変更
+  void completeItemById(String id) {
+    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
+    feedItem.isCompleted = true;
+    state = [...state];
+  }
 }

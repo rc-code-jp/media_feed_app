@@ -12,49 +12,48 @@ class FeedCardDetail extends ConsumerWidget {
     return Positioned(
       bottom: 120,
       left: 10,
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // 歌手名
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 16,
-                ),
-                const Padding(padding: EdgeInsets.only(left: 14)),
-                Text(
-                  feedItem.artistName,
-                  style: const TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ],
-            ),
-            // 曲名
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const Icon(
-                  Icons.music_note,
-                  color: Colors.white,
-                  size: 20,
-                ),
-                const Padding(padding: EdgeInsets.only(left: 10)),
-                Text(
-                  feedItem.title,
-                  style: const TextStyle(fontSize: 20, color: Colors.white),
-                ),
-              ],
-            ),
-            // タグ
-            const Text(
-              '#ポップス #J-POP',
-              style: TextStyle(fontSize: 16, color: Colors.white),
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 歌手名
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 16,
+              ),
+              const Padding(padding: EdgeInsets.only(left: 14)),
+              Text(
+                feedItem.artistName,
+                style: const TextStyle(fontSize: 16, color: Colors.white),
+              ),
+            ],
+          ),
+          // 曲名
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.music_note,
+                color: Colors.white,
+                size: 20,
+              ),
+              const Padding(padding: EdgeInsets.only(left: 10)),
+              Text(
+                feedItem.title,
+                style: const TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ],
+          ),
+          // タグ
+          const Text(
+            '#ポップス #J-POP',
+            style: TextStyle(fontSize: 16, color: Colors.white),
+          ),
+        ],
       ),
     );
   }
