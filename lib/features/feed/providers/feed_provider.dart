@@ -65,6 +65,13 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   }
 
   // 完了状態を変更
+  void doneItemById(String id) {
+    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
+    feedItem.isDone = true;
+    state = [...state];
+  }
+
+  // 完了状態を変更
   void completeItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
     feedItem.isCompleted = true;

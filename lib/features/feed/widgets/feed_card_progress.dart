@@ -28,7 +28,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
     timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (progressValue >= 3) {
         timer.cancel();
-        ref.read(feedProvider.notifier).completeItemById(widget.feedItem.id);
+        ref.read(feedProvider.notifier).doneItemById(widget.feedItem.id);
       }
       setState(() {
         progressValue += 0.02; // 5秒で1.0になる
