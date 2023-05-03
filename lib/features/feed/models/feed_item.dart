@@ -5,8 +5,9 @@ class FeedItem {
   final String title;
   final String artistName;
   final String url;
-  late bool isDone; // 視聴済み
-  late bool isCompleted; // 獲得済み
+  late List<String> tags;
+  late bool isFinished; // 視聴済み
+  late bool isAcquired; // 獲得済み
   late bool isFavorite; // いいね済み
 
   VideoPlayerController? videoController;
@@ -16,8 +17,9 @@ class FeedItem {
     required this.title,
     required this.artistName,
     required this.url,
-    this.isDone = false,
-    this.isCompleted = false,
+    this.tags = const [],
+    this.isFinished = false,
+    this.isAcquired = false,
     this.isFavorite = false,
     this.videoController,
   });
@@ -27,9 +29,10 @@ class FeedItem {
       id: json['id'],
       title: json['title'],
       artistName: json['artistName'],
+      tags: json['tags'],
       url: json['url'],
-      isDone: json['isDone'],
-      isCompleted: json['isCompleted'],
+      isFinished: json['isFinished'],
+      isAcquired: json['isAcquired'],
       isFavorite: json['isFavorite'],
     );
   }
@@ -39,9 +42,10 @@ class FeedItem {
       'id': id,
       'title': title,
       'artistName': artistName,
+      'tags': tags,
       'url': url,
-      'isDone': isDone,
-      'isCompleted': isCompleted,
+      'isFinished': isFinished,
+      'isAcquired': isAcquired,
       'isFavorite': isFavorite,
     };
   }

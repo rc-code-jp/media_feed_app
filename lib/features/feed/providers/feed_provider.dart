@@ -14,26 +14,51 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
             title: 'Ginger',
             artistName: 'TOMOO',
             url: 'assets/videos/1.mp4',
+            tags: ['ポップス', 'J-POP'],
           ),
           FeedItem(
             id: '2',
             title: 'オセロ',
             artistName: 'TOMOO',
             url: 'assets/videos/2.mp4',
+            tags: ['ポップス', 'J-POP'],
           ),
           FeedItem(
             id: '3',
             title: 'ハニーボーイ',
             artistName: 'TOMOO',
             url: 'assets/videos/3.mp4',
-          ),
-          FeedItem(
-            id: '4',
-            title: 'ああああああ',
-            artistName: 'TOMOO',
-            url: 'assets/videos/4.mp4',
+            tags: ['ポップス', 'J-POP'],
           ),
         ]);
+
+  // ビデオを読み込む
+  Future<void> fetchNextItems() async {
+    final nextItems = [
+      FeedItem(
+        id: '4',
+        title: 'ああああああ',
+        artistName: 'TOMOO',
+        url: 'assets/videos/4.mp4',
+        tags: ['ポップス', 'J-POP'],
+      ),
+      FeedItem(
+        id: '5',
+        title: 'いいいいいい',
+        artistName: 'TOMOO',
+        url: 'assets/videos/5.mp4',
+        tags: ['ポップス', 'J-POP'],
+      ),
+      FeedItem(
+        id: '6',
+        title: 'うううううう',
+        artistName: 'TOMOO',
+        url: 'assets/videos/6.mp4',
+        tags: ['ポップス', 'J-POP'],
+      ),
+    ];
+    state = [...state, ...nextItems];
+  }
 
   // ビデオを読み込む
   Future<void> loadVideo(int feedIndex) async {
@@ -50,10 +75,17 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
-  // ビデオを破棄
+  // ビデオを停止
   void pauseVideo(int feedIndex) {
     final feedItem = state[feedIndex];
     feedItem.videoController?.pause();
+    state = [...state];
+  }
+
+  // ビデオを破棄
+  void disposeVideo(int feedIndex) {
+    final feedItem = state[feedIndex];
+    feedItem.videoController?.dispose();
     state = [...state];
   }
 
@@ -65,16 +97,16 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   }
 
   // 完了状態を変更
-  void doneItemById(String id) {
+  void finishedItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
-    feedItem.isDone = true;
+    feedItem.isFinished = true;
     state = [...state];
   }
 
   // 完了状態を変更
-  void completeItemById(String id) {
+  void acquisitionItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
-    feedItem.isCompleted = true;
+    feedItem.isAcquired = true;
     state = [...state];
   }
 }

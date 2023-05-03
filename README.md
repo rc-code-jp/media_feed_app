@@ -34,6 +34,7 @@ fvm flutter doctor
 │   ├── screens   ... スクリーン（ページ）
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
+│   ├── styles    ... 共通スタイル
 │   ├── features
 │   │   ├── xxxx  ... usersなどの機能名ディレクトリを切る
 │   │   │   ├── models    ... モデル

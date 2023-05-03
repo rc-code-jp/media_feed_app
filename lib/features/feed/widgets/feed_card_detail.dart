@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 class FeedCardDetail extends ConsumerWidget {
   final FeedItem feedItem;
@@ -22,13 +23,13 @@ class FeedCardDetail extends ConsumerWidget {
             children: [
               const Icon(
                 Icons.person,
-                color: Colors.white,
-                size: 16,
+                color: AppColors.white,
+                size: 20,
               ),
-              const Padding(padding: EdgeInsets.only(left: 14)),
+              const Padding(padding: EdgeInsets.only(left: 10)),
               Text(
                 feedItem.artistName,
-                style: const TextStyle(fontSize: 16, color: Colors.white),
+                style: const TextStyle(fontSize: 16, color: AppColors.white),
               ),
             ],
           ),
@@ -38,20 +39,20 @@ class FeedCardDetail extends ConsumerWidget {
             children: [
               const Icon(
                 Icons.music_note,
-                color: Colors.white,
+                color: AppColors.white,
                 size: 20,
               ),
               const Padding(padding: EdgeInsets.only(left: 10)),
               Text(
                 feedItem.title,
-                style: const TextStyle(fontSize: 20, color: Colors.white),
+                style: const TextStyle(fontSize: 20, color: AppColors.white),
               ),
             ],
           ),
           // タグ
           const Text(
             '#ポップス #J-POP',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+            style: TextStyle(fontSize: 16, color: AppColors.white),
           ),
         ],
       ),

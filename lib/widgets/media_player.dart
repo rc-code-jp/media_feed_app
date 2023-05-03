@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/styles/colors.dart';
 import 'package:video_player/video_player.dart';
 
 class MediaPlayer extends ConsumerWidget {
@@ -12,7 +13,7 @@ class MediaPlayer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: AppColors.black,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -22,7 +23,7 @@ class MediaPlayer extends ConsumerWidget {
                   width: double.infinity,
                   child: Center(
                     child: CircularProgressIndicator(
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                   ),
                 )

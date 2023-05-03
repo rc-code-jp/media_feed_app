@@ -15,6 +15,7 @@ class FeedCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Stack(
+      fit: StackFit.expand,
       children: [
         // 動画
         MediaPlayer(
@@ -36,7 +37,7 @@ class FeedCard extends ConsumerWidget {
           feedItem: feedItem,
         ),
 
-        // コード出現
+        // 獲得完了時のバナー
         FinishedBanner(
           feedItem: feedItem,
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 class ProgressCircle extends ConsumerWidget {
   final double value;
@@ -15,19 +16,19 @@ class ProgressCircle extends ConsumerWidget {
         CircularProgressIndicator(
           strokeWidth: 2,
           value: value,
-          color: Colors.white,
-          backgroundColor: Colors.white54,
+          color: AppColors.white,
+          backgroundColor: AppColors.grey,
         ),
         // アイコン（完了時にフェードイン）
         Align(
           alignment: Alignment.center,
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 200),
-            opacity: value >= 1 ? 0.9 : 0,
+            opacity: value >= 1 ? 1 : 0,
             child: const Icon(
               Icons.check,
               size: 30,
-              color: Colors.greenAccent,
+              color: AppColors.success,
             ),
           ),
         )

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 class FeedScreen extends ConsumerStatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
@@ -25,7 +26,6 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
   @override
   void dispose() {
     pageController.dispose();
-
     super.dispose();
   }
 
@@ -43,13 +43,15 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
       appBar: AppBar(
         title: const Text(''),
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         leading: IconButton(
           icon: const Icon(
             Icons.navigate_before,
             size: 30,
+            color: AppColors.white,
           ),
           onPressed: () {
+            // 戻る前に動画を停止
             ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
             context.go('/');
           },
@@ -64,6 +66,11 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
           // 前回の動画を破棄
           ref.read(feedProvider.notifier).pauseVideo(prevItemIndex);
           prevItemIndex = index;
+
+          // 次のフィードを読み込む
+          if (index == feed.length - 1) {
+            await ref.read(feedProvider.notifier).fetchNextItems();
+          }
 
           // 再生
           await ref.read(feedProvider.notifier).loadVideo(index);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 class FeedCardActions extends ConsumerWidget {
   final FeedItem feedItem;
@@ -29,7 +30,7 @@ class FeedCardActions extends ConsumerWidget {
             },
             icon: const Icon(
               Icons.ios_share,
-              color: Colors.white,
+              color: AppColors.white,
               size: iconSize,
             ),
           ),
@@ -41,7 +42,7 @@ class FeedCardActions extends ConsumerWidget {
             },
             icon: const Icon(
               Icons.info_outline,
-              color: Colors.white,
+              color: AppColors.white,
               size: iconSize,
             ),
           ),
@@ -55,12 +56,12 @@ class FeedCardActions extends ConsumerWidget {
             icon: feedItem.isFavorite
                 ? const Icon(
                     Icons.favorite,
-                    color: Colors.pinkAccent,
+                    color: AppColors.pink,
                     size: 30,
                   )
                 : const Icon(
                     Icons.favorite_border,
-                    color: Colors.white,
+                    color: AppColors.white,
                     size: iconSize,
                   ),
           ),
