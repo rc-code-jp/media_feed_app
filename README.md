@@ -26,7 +26,6 @@ fvm flutter doctor
 /
 ├── ios
 ├── android
-├── web
 ├── assets        ... 共通資産
 ├── lib
 │   ├── providers ... グローバルな状態管理
