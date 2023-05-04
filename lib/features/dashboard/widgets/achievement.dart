@@ -10,7 +10,7 @@ class Achievement extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return TweenAnimationBuilder(
       tween: IntTween(begin: 0, end: 620),
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1000),
       builder: (BuildContext context, value, child) {
         return Text.rich(
           TextSpan(

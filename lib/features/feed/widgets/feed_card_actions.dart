@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
+import 'package:media_feed_app/features/feed/widgets/detail_modal.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/icon_text_button.dart';
+import 'package:share_plus/share_plus.dart';
 
 class FeedCardActions extends ConsumerWidget {
   final FeedItem feedItem;
@@ -14,7 +17,7 @@ class FeedCardActions extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const iconSize = 30.0;
+    const iconSize = 36.0;
 
     return Positioned(
       bottom: 10,
@@ -24,47 +27,77 @@ class FeedCardActions extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // シェアボタン
-          IconButton(
-            onPressed: () {
-              // TODO: シェアする
-            },
-            icon: const Icon(
-              Icons.ios_share,
-              color: AppColors.white,
-              size: iconSize,
-            ),
-          ),
-
-          // 情報ボタン
-          IconButton(
-            onPressed: () {
-              // TODO: 情報を見る
-            },
-            icon: const Icon(
-              Icons.info_outline,
-              color: AppColors.white,
-              size: iconSize,
-            ),
-          ),
-
           // いいねボタン
-          IconButton(
-            constraints: const BoxConstraints(), // 余白を消す
-            onPressed: () {
-              ref.read(feedProvider.notifier).toggleFavoriteById(feedItem.id);
-            },
+          IconTextButton(
             icon: feedItem.isFavorite
                 ? const Icon(
                     Icons.favorite,
                     color: AppColors.pink,
-                    size: 30,
+                    size: iconSize,
                   )
                 : const Icon(
                     Icons.favorite_border,
                     color: AppColors.white,
                     size: iconSize,
                   ),
+            text: const Text(
+              'いいね',
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 12,
+              ),
+            ),
+            onPressed: () {
+              ref.read(feedProvider.notifier).toggleFavoriteById(feedItem.id);
+            },
+          ),
+
+          const SizedBox(height: 10),
+
+          // 情報ボタン
+          IconTextButton(
+            icon: const Icon(
+              Icons.info_outline,
+              color: AppColors.white,
+              size: iconSize,
+            ),
+            text: const Text(
+              '情報',
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 12,
+              ),
+            ),
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: AppColors.black.withOpacity(0.8),
+                builder: (BuildContext context) {
+                  return DetailModal(feedItem: feedItem);
+                },
+              );
+            },
+          ),
+
+          const SizedBox(height: 10),
+
+          // シェアボタン
+          IconTextButton(
+            icon: const Icon(
+              Icons.share,
+              color: AppColors.white,
+              size: iconSize,
+            ),
+            text: const Text(
+              'シェア',
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 12,
+              ),
+            ),
+            onPressed: () {
+              Share.share('${feedItem.title}を視聴中! https://example.com');
+            },
           ),
         ],
       ),

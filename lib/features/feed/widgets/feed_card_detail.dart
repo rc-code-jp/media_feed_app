@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/icon_text_row.dart';
 
 class FeedCardDetail extends ConsumerWidget {
   final FeedItem feedItem;
@@ -19,43 +20,37 @@ class FeedCardDetail extends ConsumerWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           // 歌手名
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Icon(
-                Icons.person,
+          IconTextRow(
+            icon: const Icon(
+              Icons.person,
+              color: AppColors.white,
+              size: 20,
+            ),
+            text: Text(
+              feedItem.artistName,
+              style: const TextStyle(
+                fontSize: 16,
                 color: AppColors.white,
-                size: 20,
               ),
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              Text(
-                feedItem.artistName,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: AppColors.white,
-                ),
-              ),
-            ],
+            ),
           ),
+
           // 曲名
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const Icon(
-                Icons.music_note,
+          IconTextRow(
+            icon: const Icon(
+              Icons.music_note,
+              color: AppColors.white,
+              size: 20,
+            ),
+            text: Text(
+              feedItem.title,
+              style: const TextStyle(
+                fontSize: 20,
                 color: AppColors.white,
-                size: 20,
               ),
-              const Padding(padding: EdgeInsets.only(left: 8)),
-              Text(
-                feedItem.title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: AppColors.white,
-                ),
-              ),
-            ],
+            ),
           ),
+
           // タグ
           Text(
             feedItem.tags.map((tag) => '#$tag').join(' '),
