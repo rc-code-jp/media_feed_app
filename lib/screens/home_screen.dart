@@ -13,7 +13,14 @@ class HomeScreen extends ConsumerWidget {
       length: 2,
       child: Container(
         decoration: const BoxDecoration(
-          color: AppColors.black,
+          gradient: LinearGradient(
+            colors: [
+              AppColors.linearGradient1,
+              AppColors.linearGradient2,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
         child: Stack(
           children: const [
@@ -30,7 +37,7 @@ class HomeScreen extends ConsumerWidget {
               child: SafeArea(
                 child: TabBar(
                   labelColor: AppColors.white,
-                  unselectedLabelColor: AppColors.grey,
+                  unselectedLabelColor: AppColors.lightGrey,
                   indicatorSize: TabBarIndicatorSize.label,
                   indicatorColor: AppColors.white,
                   indicatorWeight: 2,
