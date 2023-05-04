@@ -18,7 +18,7 @@ class DashboardTab extends ConsumerWidget {
             style: TextStyle(color: AppColors.white, fontSize: 20),
           ),
           Padding(padding: EdgeInsets.only(top: 20)),
-          Achievement(),
+          Achievement(point: 620),
         ],
       ),
     );

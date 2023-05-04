@@ -4,12 +4,17 @@ import 'package:intl/intl.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class Achievement extends ConsumerWidget {
-  const Achievement({Key? key}) : super(key: key);
+  final int point;
+
+  const Achievement({
+    Key? key,
+    required this.point,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return TweenAnimationBuilder(
-      tween: IntTween(begin: 0, end: 620),
+      tween: IntTween(begin: 0, end: point),
       duration: const Duration(milliseconds: 1000),
       builder: (BuildContext context, value, child) {
         return Text.rich(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
-import 'package:media_feed_app/features/feed/widgets/point_get_dialog.dart';
+import 'package:media_feed_app/features/feed/widgets/point_dialog.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class FeedFinishedBanner extends ConsumerWidget {
@@ -49,7 +49,7 @@ class FeedFinishedBanner extends ConsumerWidget {
             size: 30,
           ),
           label: const Text(
-            'ポイントをGETする',
+            'ポイントを獲得する',
             style: TextStyle(fontSize: 24),
           ),
         ),
@@ -72,7 +72,7 @@ class FeedFinishedBanner extends ConsumerWidget {
       context: context,
       barrierDismissible: false, // ダイアログ外をタップしても閉じない
       builder: (BuildContext context) {
-        return PointGetModal(
+        return PointModal(
           point: point,
         );
       },

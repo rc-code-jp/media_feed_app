@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class PointGetModal extends ConsumerWidget {
+class PointModal extends ConsumerWidget {
   final int point;
 
-  const PointGetModal({
+  const PointModal({
     Key? key,
     required this.point,
   }) : super(key: key);

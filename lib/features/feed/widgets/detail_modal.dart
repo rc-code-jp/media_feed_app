@@ -43,8 +43,8 @@ class DetailModal extends ConsumerWidget {
         Image.asset(
           'assets/images/artist.png',
           fit: BoxFit.cover,
-          width: 200,
-          height: 200,
+          width: 180,
+          height: 180,
         ),
 
         const SizedBox(
@@ -64,6 +64,19 @@ class DetailModal extends ConsumerWidget {
               fontSize: 30,
               color: AppColors.white,
             ),
+          ),
+        ),
+
+        const SizedBox(
+          height: 10,
+        ),
+
+        // タグ
+        Text(
+          feedItem.hashtagNames(),
+          style: const TextStyle(
+            fontSize: 16,
+            color: AppColors.white,
           ),
         ),
       ],

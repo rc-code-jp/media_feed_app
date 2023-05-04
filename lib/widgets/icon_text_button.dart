@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 class IconTextButton extends StatelessWidget {
   const IconTextButton({
@@ -18,6 +19,9 @@ class IconTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
+      style: ButtonStyle(
+        overlayColor: MaterialStateProperty.all(AppColors.transparent),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

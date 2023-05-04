@@ -42,7 +42,7 @@ class FeedTabState extends ConsumerState<FeedTab> {
       scrollDirection: Axis.vertical,
       onPageChanged: (index) async {
         // 前回の動画を破棄
-        feed[_prevItemIndex].videoController?.pause();
+        feed[_prevItemIndex].pauseVideo();
         _prevItemIndex = index;
 
         // 次のフィードを読み込む

@@ -15,12 +15,7 @@ class FeedMediaPlayer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: () {
-        if (feedItem.videoController == null) {
-          return;
-        }
-        feedItem.videoController!.value.isPlaying
-            ? feedItem.videoController?.pause()
-            : feedItem.videoController?.play();
+        feedItem.toggleVideo();
       },
       child: Stack(
         fit: StackFit.expand,

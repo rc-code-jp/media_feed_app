@@ -53,7 +53,7 @@ class FeedCardDetail extends ConsumerWidget {
 
           // タグ
           Text(
-            feedItem.tags.map((tag) => '#$tag').join(' '),
+            feedItem.hashtagNames(),
             style: const TextStyle(
               fontSize: 16,
               color: AppColors.white,

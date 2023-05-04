@@ -36,12 +36,13 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   void dispose() {
     // 全てのビデオを破棄する
     for (var feedItem in state) {
-      feedItem.videoController?.dispose();
+      if (feedItem.videoController == null) break;
+      feedItem.disposeVideo();
     }
     super.dispose();
   }
 
-  // ビデオを読み込む
+  // 次のアイテムを読み込む
   Future<void> fetchNextItems() async {
     final nextItems = [
       FeedItem(

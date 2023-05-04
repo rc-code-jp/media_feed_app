@@ -50,10 +50,39 @@ class FeedItem {
     };
   }
 
+  // タグを結合して文字列で返す
+  String hashtagNames() {
+    return tags.map((tag) => '#$tag').join(' ');
+  }
+
   // ビデオを読み込む
   Future<void> loadVideoController() async {
     videoController = VideoPlayerController.asset(url);
     await videoController?.initialize();
     videoController?.setLooping(true);
+  }
+
+  // ビデオを再生する
+  void playVideo() {
+    videoController?.play();
+  }
+
+  // ビデオを停止する
+  void pauseVideo() {
+    videoController?.pause();
+  }
+
+  // ビデオの再生・停止を切り替える
+  void toggleVideo() {
+    if (videoController?.value.isPlaying ?? false) {
+      videoController?.pause();
+    } else {
+      videoController?.play();
+    }
+  }
+
+  // ビデオを破棄する
+  void disposeVideo() {
+    videoController?.dispose();
   }
 }
