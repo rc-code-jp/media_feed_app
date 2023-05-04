@@ -17,11 +17,12 @@ class FeedCardActions extends ConsumerWidget {
     const iconSize = 30.0;
 
     return Positioned(
-      bottom: 100,
-      right: 10,
+      bottom: 10,
+      right: 0,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           // シェアボタン
           IconButton(

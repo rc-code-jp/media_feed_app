@@ -30,7 +30,6 @@ class FeedTabState extends ConsumerState<FeedTab> {
   // 最初の動画を読み込む
   Future<void> loadFirstVideo() async {
     await ref.read(feedProvider.notifier).loadVideo(0);
-    await ref.read(feedProvider.notifier).playVideo(0);
   }
 
   @override
@@ -43,7 +42,7 @@ class FeedTabState extends ConsumerState<FeedTab> {
       scrollDirection: Axis.vertical,
       onPageChanged: (index) async {
         // 前回の動画を破棄
-        ref.read(feedProvider.notifier).pauseVideo(_prevItemIndex);
+        feed[_prevItemIndex].videoController?.pause();
         _prevItemIndex = index;
 
         // 次のフィードを読み込む
@@ -53,7 +52,6 @@ class FeedTabState extends ConsumerState<FeedTab> {
 
         // 再生
         await ref.read(feedProvider.notifier).loadVideo(index);
-        await ref.read(feedProvider.notifier).playVideo(index);
       },
       itemBuilder: (context, index) {
         return FeedCard(feedItem: feed[index]);

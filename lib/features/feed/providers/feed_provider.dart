@@ -34,6 +34,7 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
 
   @override
   void dispose() {
+    // 全てのビデオを破棄する
     for (var feedItem in state) {
       feedItem.videoController?.dispose();
     }
@@ -68,32 +69,12 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     state = [...state, ...nextItems];
   }
 
-  // ビデオを読み込む
+  // ビデオを読み込んで再生する
   Future<void> loadVideo(int feedIndex) async {
     final feedItem = state[feedIndex];
     await feedItem.loadVideoController();
     feedItem.videoController?.setVolume(1.0);
-    state = [...state];
-  }
-
-  // ビデオを再生
-  Future<void> playVideo(int feedIndex) async {
-    final feedItem = state[feedIndex];
     feedItem.videoController?.play();
-    state = [...state];
-  }
-
-  // ビデオを停止
-  void pauseVideo(int feedIndex) {
-    final feedItem = state[feedIndex];
-    feedItem.videoController?.pause();
-    // state = [...state];
-  }
-
-  // ビデオを破棄
-  void disposeVideo(int feedIndex) {
-    final feedItem = state[feedIndex];
-    feedItem.videoController?.dispose();
     state = [...state];
   }
 

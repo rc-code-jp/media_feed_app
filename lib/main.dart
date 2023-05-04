@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/router/index.dart';
+import 'package:media_feed_app/screens/main_navigation.dart';
 
 void main() {
   runApp(
@@ -15,13 +15,15 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'Media Feed App',
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      routerConfig: router,
+      routes: {
+        '/': (_) => const MainNavigation(),
+      },
     );
   }
 }

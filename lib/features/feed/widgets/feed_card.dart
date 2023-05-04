@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/features/feed/widgets/feed_acquired_banner.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_actions.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_detail.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card_progress.dart';
-import 'package:media_feed_app/features/feed/widgets/finished_banner.dart';
-import 'package:media_feed_app/widgets/media_player.dart';
+import 'package:media_feed_app/features/feed/widgets/feed_finished_banner.dart';
+import 'package:media_feed_app/features/feed/widgets/feed_media_player.dart';
 
 class FeedCard extends ConsumerWidget {
   final FeedItem feedItem;
@@ -18,8 +19,8 @@ class FeedCard extends ConsumerWidget {
       fit: StackFit.expand,
       children: [
         // 動画
-        MediaPlayer(
-          videoController: feedItem.videoController,
+        FeedMediaPlayer(
+          feedItem: feedItem,
         ),
 
         // タイトルなど
@@ -37,8 +38,13 @@ class FeedCard extends ConsumerWidget {
           feedItem: feedItem,
         ),
 
+        // 視聴完了時のバナー
+        FeedFinishedBanner(
+          feedItem: feedItem,
+        ),
+
         // 獲得完了時のバナー
-        FinishedBanner(
+        FeedAcquiredBanner(
           feedItem: feedItem,
         ),
       ],

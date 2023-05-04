@@ -11,11 +11,12 @@ class FeedCardDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Positioned(
-      bottom: 100,
+      bottom: 10,
       left: 10,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           // 歌手名
           Row(
@@ -42,7 +43,7 @@ class FeedCardDetail extends ConsumerWidget {
                 color: AppColors.white,
                 size: 20,
               ),
-              const Padding(padding: EdgeInsets.only(left: 10)),
+              const Padding(padding: EdgeInsets.only(left: 8)),
               Text(
                 feedItem.title,
                 style: const TextStyle(fontSize: 20, color: AppColors.white),

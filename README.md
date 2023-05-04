@@ -29,7 +29,6 @@ fvm flutter doctor
 ├── assets        ... 共通資産
 ├── lib
 │   ├── providers ... グローバルな状態管理
-│   ├── router    ... ルーター関連
 │   ├── screens   ... スクリーン（ページ）
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
