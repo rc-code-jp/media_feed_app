@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
+import 'package:media_feed_app/features/feed/widgets/point_get_dialog.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class FeedFinishedBanner extends ConsumerWidget {
@@ -66,16 +67,13 @@ class FeedFinishedBanner extends ConsumerWidget {
   }
 
   // ポイント表示ダイアログを表示
-  void _showPointDialog(BuildContext context) {
+  void _showPointDialog(BuildContext context, {int point = 10}) {
     showDialog(
       context: context,
       barrierDismissible: false, // ダイアログ外をタップしても閉じない
       builder: (BuildContext context) {
-        return const Center(
-          child: Text(
-            '+ 10pt',
-            style: TextStyle(fontSize: 24, color: AppColors.success),
-          ),
+        return PointGetModal(
+          point: point,
         );
       },
     );

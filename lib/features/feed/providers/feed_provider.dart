@@ -58,13 +58,6 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
         url: 'assets/videos/5.mp4',
         tags: ['ポップス', 'J-POP'],
       ),
-      FeedItem(
-        id: '6',
-        title: 'うううううう',
-        artistName: 'TOMOO',
-        url: 'assets/videos/6.mp4',
-        tags: ['ポップス', 'J-POP'],
-      ),
     ];
     state = [...state, ...nextItems];
   }
