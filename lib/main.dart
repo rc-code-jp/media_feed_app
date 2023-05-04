@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/screens/main_navigation.dart';
+import 'package:media_feed_app/screens/main_screen.dart';
 
 void main() {
   runApp(
@@ -22,7 +22,7 @@ class MyApp extends ConsumerWidget {
         primarySwatch: Colors.brown,
       ),
       routes: {
-        '/': (_) => const MainNavigation(),
+        '/': (_) => const MainScreen(),
       },
     );
   }

@@ -5,14 +5,14 @@ import 'package:media_feed_app/screens/home_screen.dart';
 import 'package:media_feed_app/screens/news_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class MainNavigation extends ConsumerStatefulWidget {
-  const MainNavigation({Key? key}) : super(key: key);
+class MainScreen extends ConsumerStatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
-  MainNavigationState createState() => MainNavigationState();
+  MainScreenState createState() => MainScreenState();
 }
 
-class MainNavigationState extends ConsumerState<MainNavigation> {
+class MainScreenState extends ConsumerState<MainScreen> {
   final List<Widget> _screens = [
     const NewsScreen(),
     const HomeScreen(),

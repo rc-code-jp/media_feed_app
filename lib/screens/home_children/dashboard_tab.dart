@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/features/dashboard/widgets/achievement.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class DashboardTab extends ConsumerWidget {
@@ -7,16 +8,23 @@ class DashboardTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.black,
-      ),
-      child: const Center(
-        child: Text(
-          'ダッシュボード',
-          style: TextStyle(fontSize: 20, color: AppColors.white),
+    return Stack(
+      fit: StackFit.loose,
+      children: const [
+        // グラフ
+        Achievement(),
+        // タイトル
+        Align(
+          alignment: Alignment.center,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 350),
+            child: Text(
+              '今日の実績',
+              style: TextStyle(color: AppColors.white, fontSize: 20),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

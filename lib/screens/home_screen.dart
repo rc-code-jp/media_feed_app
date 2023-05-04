@@ -36,7 +36,7 @@ class HomeScreen extends ConsumerWidget {
                   indicatorWeight: 2,
                   tabs: [
                     Tab(
-                      text: 'ホーム',
+                      text: 'ダッシュボード',
                     ),
                     Tab(
                       text: 'フィード',

@@ -22,8 +22,14 @@ class FeedMediaPlayer extends ConsumerWidget {
             ? feedItem.videoController?.pause()
             : feedItem.videoController?.play();
       },
-      child: MediaPlayer(
-        videoController: feedItem.videoController,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          // プレイヤー
+          MediaPlayer(
+            videoController: feedItem.videoController,
+          ),
+        ],
       ),
     );
   }

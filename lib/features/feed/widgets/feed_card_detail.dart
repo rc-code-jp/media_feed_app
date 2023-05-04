@@ -30,7 +30,10 @@ class FeedCardDetail extends ConsumerWidget {
               const Padding(padding: EdgeInsets.only(left: 10)),
               Text(
                 feedItem.artistName,
-                style: const TextStyle(fontSize: 16, color: AppColors.white),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: AppColors.white,
+                ),
               ),
             ],
           ),
@@ -46,14 +49,20 @@ class FeedCardDetail extends ConsumerWidget {
               const Padding(padding: EdgeInsets.only(left: 8)),
               Text(
                 feedItem.title,
-                style: const TextStyle(fontSize: 20, color: AppColors.white),
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: AppColors.white,
+                ),
               ),
             ],
           ),
           // タグ
-          const Text(
-            '#ポップス #J-POP',
-            style: TextStyle(fontSize: 16, color: AppColors.white),
+          Text(
+            feedItem.tags.map((tag) => '#$tag').join(' '),
+            style: const TextStyle(
+              fontSize: 16,
+              color: AppColors.white,
+            ),
           ),
         ],
       ),
