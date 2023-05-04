@@ -19,21 +19,31 @@ class FeedAcquiredBanner extends ConsumerWidget {
     return Positioned(
       top: MediaQuery.of(context).padding.top + 60, // SafeAreaとTabBarの高さを考慮
       width: MediaQuery.of(context).size.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Icon(
-            Icons.verified,
-            color: AppColors.white,
-            size: 20,
-          ),
-          Padding(padding: EdgeInsets.only(left: 5)),
-          Text(
-            'ポイント獲得済み',
-            style: TextStyle(fontSize: 16, color: AppColors.white),
-          ),
-        ],
+      child: TweenAnimationBuilder(
+        tween: Tween<double>(begin: 0, end: 0.9),
+        duration: const Duration(milliseconds: 300),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            Icon(
+              Icons.verified,
+              color: AppColors.white,
+              size: 20,
+            ),
+            Padding(padding: EdgeInsets.only(left: 5)),
+            Text(
+              'ポイント獲得済み',
+              style: TextStyle(fontSize: 16, color: AppColors.white),
+            ),
+          ],
+        ),
+        builder: (BuildContext context, double value, Widget? child) {
+          return Opacity(
+            opacity: value,
+            child: child,
+          );
+        },
       ),
     );
   }

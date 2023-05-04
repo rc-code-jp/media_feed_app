@@ -39,7 +39,7 @@ dependencies:
   video_player: ^2.6.1
   youtube_player_iframe: ^4.0.4
   simple_logger: ^1.9.0+2
-  fl_chart: ^0.62.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -73,7 +73,6 @@ flutter:
     - assets/videos/3.mp4
     - assets/videos/4.mp4
     - assets/videos/5.mp4
-    - assets/videos/6.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

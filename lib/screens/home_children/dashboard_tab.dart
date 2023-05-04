@@ -8,23 +8,19 @@ class DashboardTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Stack(
-      fit: StackFit.loose,
-      children: const [
-        // グラフ
-        Achievement(),
-        // タイトル
-        Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 350),
-            child: Text(
-              '今日の実績',
-              style: TextStyle(color: AppColors.white, fontSize: 20),
-            ),
+    return SafeArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text(
+            '今日の実績',
+            style: TextStyle(color: AppColors.white, fontSize: 20),
           ),
-        ),
-      ],
+          Padding(padding: EdgeInsets.only(top: 20)),
+          Achievement(),
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
@@ -21,8 +23,9 @@ class FeedFinishedBanner extends ConsumerWidget {
 
     return Align(
       alignment: Alignment.center,
-      child: Opacity(
-        opacity: 0.9,
+      child: TweenAnimationBuilder(
+        tween: Tween<double>(begin: 0, end: 0.9),
+        duration: const Duration(milliseconds: 300),
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
             foregroundColor: AppColors.white,
@@ -30,8 +33,15 @@ class FeedFinishedBanner extends ConsumerWidget {
             elevation: 0,
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           ),
-          onPressed: () {
+          onPressed: () async {
             ref.read(feedProvider.notifier).acquisitionItemById(feedItem.id);
+
+            // ダイアログを表示・自動で閉じる
+            _showPointDialog(context);
+            Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+              Navigator.of(context).pop();
+              timer.cancel();
+            });
           },
           icon: const Icon(
             Icons.touch_app,
@@ -42,7 +52,32 @@ class FeedFinishedBanner extends ConsumerWidget {
             style: TextStyle(fontSize: 24),
           ),
         ),
+        builder: (BuildContext context, double value, Widget? child) {
+          return Opacity(
+            opacity: value,
+            child: Padding(
+              padding: EdgeInsets.only(top: 30 * value),
+              child: child,
+            ),
+          );
+        },
       ),
+    );
+  }
+
+  // ポイント表示ダイアログを表示
+  void _showPointDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false, // ダイアログ外をタップしても閉じない
+      builder: (BuildContext context) {
+        return const Center(
+          child: Text(
+            '+ 10pt',
+            style: TextStyle(fontSize: 24, color: AppColors.success),
+          ),
+        );
+      },
     );
   }
 }
