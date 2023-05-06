@@ -60,6 +60,7 @@ class FeedItem {
     videoController = VideoPlayerController.asset(url);
     await videoController?.initialize();
     videoController?.setLooping(true);
+    videoController?.setVolume(1.0);
   }
 
   // ビデオを再生する
@@ -70,6 +71,12 @@ class FeedItem {
   // ビデオを停止する
   void pauseVideo() {
     videoController?.pause();
+  }
+
+  // ビデオを最初から再スタート
+  void playFromStart() {
+    videoController?.seekTo(Duration.zero);
+    videoController?.play();
   }
 
   // ビデオの再生・停止を切り替える

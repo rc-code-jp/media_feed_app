@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/dashboard/widgets/achievement.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class DashboardTab extends ConsumerWidget {
-  const DashboardTab({Key? key}) : super(key: key);
+class DashboardScreen extends ConsumerWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

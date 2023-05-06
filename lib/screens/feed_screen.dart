@@ -3,16 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
 
-class FeedTab extends ConsumerStatefulWidget {
-  const FeedTab({Key? key}) : super(key: key);
+class FeedScreen extends ConsumerStatefulWidget {
+  const FeedScreen({Key? key}) : super(key: key);
 
   @override
-  FeedTabState createState() => FeedTabState();
+  FeedScreenState createState() => FeedScreenState();
 }
 
-class FeedTabState extends ConsumerState<FeedTab> {
+class FeedScreenState extends ConsumerState<FeedScreen> {
   final _pageController = PageController(initialPage: 0, viewportFraction: 1.0);
-  int _prevItemIndex = 0;
 
   @override
   void initState() {
@@ -29,7 +28,7 @@ class FeedTabState extends ConsumerState<FeedTab> {
 
   // 最初の動画を読み込む
   Future<void> loadFirstVideo() async {
-    await ref.read(feedProvider.notifier).loadVideo(0);
+    await ref.read(feedProvider.notifier).changeVideo(0);
   }
 
   @override
@@ -41,17 +40,13 @@ class FeedTabState extends ConsumerState<FeedTab> {
       controller: _pageController,
       scrollDirection: Axis.vertical,
       onPageChanged: (index) async {
-        // 前回の動画を破棄
-        feed[_prevItemIndex].pauseVideo();
-        _prevItemIndex = index;
+        // 再生
+        await ref.read(feedProvider.notifier).changeVideo(index);
 
         // 次のフィードを読み込む
         if (index == feed.length - 1) {
           await ref.read(feedProvider.notifier).fetchNextItems();
         }
-
-        // 再生
-        await ref.read(feedProvider.notifier).loadVideo(index);
       },
       itemBuilder: (context, index) {
         return FeedCard(feedItem: feed[index]);

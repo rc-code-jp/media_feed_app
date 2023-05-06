@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/screens/home_children/dashboard_tab.dart';
-import 'package:media_feed_app/screens/home_children/feed_tab.dart';
+import 'package:media_feed_app/screens/dashboard_screen.dart';
+import 'package:media_feed_app/screens/feed_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
@@ -19,8 +19,8 @@ class HomeScreen extends ConsumerWidget {
             // タブの中身
             TabBarView(
               children: [
-                DashboardTab(),
-                FeedTab(),
+                DashboardScreen(),
+                FeedScreen(),
               ],
             ),
             // タブ

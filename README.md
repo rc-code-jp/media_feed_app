@@ -1,9 +1,5 @@
 # media_feed_app
 
-## パッケージ
-
-- [riverpod](https://docs-v2.riverpod.dev/docs/getting_started)
-
 ## 初期設定
 
 ### PC にインストールが必要なもの
@@ -49,5 +45,27 @@ fvm flutter doctor
 │   │   │   └── widgets   ... コンポーネント
 │   │   └── .
 │   └── .
+└── .
+```
+
+## ページ構成
+
+Updated at: 2023/05/07.
+
+screens ディレクトリ直下の画面のみ main.dart にルート取りて登録する。
+（それ以外は Scaffold を持たないため、ルートに登録しない）
+
+```
+/lib/screens
+├── tutorial_screen ... チュートリアル
+├── start_screen    ... 未ログインでアプリ起動時
+├── sign_in_screen  ... ログイン
+├── sign_up_screen  ... 新規会員登録
+├── main_screen     ... ログイン状態のメイン
+│   ├── home_screen   ... ホーム（タブのみ）
+│   │   ├── dashboard_screen ... レポートなど
+│   │   └── feed_screen      ... 動画フィード
+│   ├── news_screens    ... お知らせ
+│   └── account_screens ... アカウント設定
 └── .
 ```

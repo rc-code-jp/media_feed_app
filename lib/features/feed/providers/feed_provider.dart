@@ -64,11 +64,25 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   }
 
   // ビデオを読み込んで再生する
-  Future<void> loadVideo(int feedIndex) async {
+  Future<void> changeVideo(int feedIndex) async {
+    // 前後の動画を停止する
+    if (feedIndex > 0) {
+      final prevFeedItem = state[feedIndex - 1];
+      prevFeedItem.pauseVideo();
+    }
+
+    if (feedIndex < state.length - 1) {
+      final nextFeedItem = state[feedIndex + 1];
+      nextFeedItem.pauseVideo();
+    }
+
+    // 読み込んで再生する
     final feedItem = state[feedIndex];
-    await feedItem.loadVideoController();
-    feedItem.videoController?.setVolume(1.0);
-    feedItem.videoController?.play();
+    if (feedItem.videoController == null) {
+      await feedItem.loadVideoController();
+    }
+    feedItem.playFromStart();
+
     state = [...state];
   }
 
