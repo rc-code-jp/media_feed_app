@@ -21,7 +21,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
   ];
 
   // ナビゲーションバーのアイテム
-  final navbarItems = [
+  final _navbarItems = [
     const BottomNavigationBarItem(
       icon: Icon(Icons.info_outline),
       activeIcon: Icon(Icons.info),
@@ -72,7 +72,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
         iconSize: 18,
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        items: navbarItems,
+        items: _navbarItems,
       ),
     );
   }

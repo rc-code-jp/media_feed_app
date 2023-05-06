@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/screens/main_screen.dart';
 import 'package:media_feed_app/screens/sign_in_screen.dart';
+import 'package:media_feed_app/screens/start_screen.dart';
 import 'package:media_feed_app/screens/tutorial_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
@@ -49,15 +50,16 @@ class MyApp extends ConsumerWidget {
             title: title,
             themeMode: ThemeMode.light,
             theme: ThemeData(
-              primarySwatch: Colors.brown,
+              primarySwatch: Colors.red,
             ),
             routes: {
-              // ※ '/' スラッシュのみのルートは不要（homeで指定しているため）
+              // ※ '/' スラッシュのみのルートはhomeで指定しているため不要
               '/main': (context) => const MainScreen(),
+              '/start': (context) => const StartScreen(),
               '/tutorial': (context) => const TutorialScreen(),
               '/sign-in': (context) => const SignInScreen(),
             },
-            home: loggedIn ? const MainScreen() : const TutorialScreen(),
+            home: loggedIn ? const MainScreen() : const StartScreen(),
           );
         }
       },

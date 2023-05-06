@@ -28,7 +28,7 @@ class PointModal extends ConsumerWidget {
           return Opacity(
             opacity: value,
             child: Padding(
-              padding: EdgeInsets.only(top: 30 * value),
+              padding: EdgeInsets.only(bottom: 30 * value),
               child: child,
             ),
           );

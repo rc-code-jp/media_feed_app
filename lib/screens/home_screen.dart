@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/screens/home_children/dashboard_tab.dart';
 import 'package:media_feed_app/screens/home_children/feed_tab.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/styles/utils.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,16 +13,7 @@ class HomeScreen extends ConsumerWidget {
     return DefaultTabController(
       length: 2,
       child: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.linearGradient1,
-              AppColors.linearGradient2,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: UtilStyles.boxGradient,
         child: Stack(
           children: const [
             // タブの中身
