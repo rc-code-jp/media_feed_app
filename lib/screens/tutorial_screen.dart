@@ -52,9 +52,9 @@ class TutorialScreenState extends ConsumerState<TutorialScreen> {
                     ElevatedButton(
                       onPressed: () {
                         // チュートリアル完了後にログイン画面に遷移
-                        Navigator.pushReplacementNamed(context, '/sign-in');
+                        Navigator.pushReplacementNamed(context, '/sign-up');
                       },
-                      child: const Text('ログインする'),
+                      child: const Text('新規会員登録'),
                     ),
                   ],
                 ),
