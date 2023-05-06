@@ -10,8 +10,16 @@
 
 - [FVM](https://fvm.app/docs/getting_started/installation)
 - [lefthook](https://github.com/evilmartians/lefthook#usage)
+  - `brew install lefthook`
+- ...
 
-次のコマンドで環境の確認を行う。
+### lifthook の登録
+
+```
+lefthook install
+```
+
+### Flutter 環境の確認
 
 ```
 fvm flutter doctor
