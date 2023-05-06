@@ -31,7 +31,9 @@ class FeedAcquiredBanner extends ConsumerWidget {
               color: AppColors.white,
               size: 20,
             ),
-            Padding(padding: EdgeInsets.only(left: 5)),
+            SizedBox(
+              width: 5,
+            ),
             Text(
               'ポイント獲得済み',
               style: TextStyle(fontSize: 16, color: AppColors.white),

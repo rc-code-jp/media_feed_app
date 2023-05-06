@@ -17,7 +17,9 @@ class DashboardTab extends ConsumerWidget {
             '今日の実績',
             style: TextStyle(color: AppColors.white, fontSize: 20),
           ),
-          Padding(padding: EdgeInsets.only(top: 20)),
+          SizedBox(
+            height: 20,
+          ),
           Achievement(point: 620),
         ],
       ),

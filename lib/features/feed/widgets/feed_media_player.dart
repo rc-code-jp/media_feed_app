@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/widgets/media_player.dart';
 
 class FeedMediaPlayer extends ConsumerWidget {
@@ -13,6 +14,18 @@ class FeedMediaPlayer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (feedItem.videoController == null) {
+      // 動画がない場合はローディングを表示
+      return const SizedBox(
+        width: double.infinity,
+        child: Center(
+          child: CircularProgressIndicator(
+            color: AppColors.white,
+          ),
+        ),
+      );
+    }
+
     return GestureDetector(
       onTap: () {
         feedItem.toggleVideo();
@@ -21,9 +34,7 @@ class FeedMediaPlayer extends ConsumerWidget {
         fit: StackFit.expand,
         children: [
           // プレイヤー
-          MediaPlayer(
-            videoController: feedItem.videoController,
-          ),
+          MediaPlayer(videoController: feedItem.videoController!),
         ],
       ),
     );

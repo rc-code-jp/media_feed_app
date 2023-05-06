@@ -13,10 +13,30 @@ class MainScreen extends ConsumerStatefulWidget {
 }
 
 class MainScreenState extends ConsumerState<MainScreen> {
+  // ナビゲーションの画面
   final List<Widget> _screens = [
     const NewsScreen(),
     const HomeScreen(),
     const AccountScreen(),
+  ];
+
+  // ナビゲーションバーのアイテム
+  final navbarItems = [
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.info_outline),
+      activeIcon: Icon(Icons.info),
+      label: 'お知らせ',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.home_outlined),
+      activeIcon: Icon(Icons.home),
+      label: 'ホーム',
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(Icons.account_circle_outlined),
+      activeIcon: Icon(Icons.account_circle),
+      label: 'アカウント',
+    ),
   ];
 
   int _selectedIndex = 1; // HomeScreenを初期表示
@@ -52,23 +72,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
         iconSize: 18,
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline),
-            activeIcon: Icon(Icons.info),
-            label: 'お知らせ',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'ホーム',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            activeIcon: Icon(Icons.account_circle),
-            label: 'アカウント',
-          ),
-        ],
+        items: navbarItems,
       ),
     );
   }

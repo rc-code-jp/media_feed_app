@@ -17,7 +17,13 @@ class IconTextRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
-      children: [icon, const Padding(padding: EdgeInsets.only(left: 10)), text],
+      children: [
+        icon,
+        const SizedBox(
+          width: 10,
+        ),
+        text
+      ],
     );
   }
 }

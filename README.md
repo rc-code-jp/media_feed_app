@@ -6,9 +6,10 @@
 
 ## 初期設定
 
-Flutter/Dart のバージョン管理に fvm を使用する。
+### PC にインストールが必要なもの
 
-https://fvm.app/docs/getting_started/installation
+- [FVM](https://fvm.app/docs/getting_started/installation)
+- [lefthook](https://github.com/evilmartians/lefthook#usage)
 
 次のコマンドで環境の確認を行う。
 
@@ -29,9 +30,9 @@ fvm flutter doctor
 ├── assets        ... 共通資産
 ├── lib
 │   ├── providers ... グローバルな状態管理
-│   ├── screens   ... スクリーン（ページ）
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
+│   ├── screens   ... スクリーン（ページ）
 │   ├── styles    ... 共通スタイル
 │   ├── features
 │   │   ├── xxxx  ... usersなどの機能名ディレクトリを切る
