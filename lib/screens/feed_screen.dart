@@ -40,13 +40,13 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
       controller: _pageController,
       scrollDirection: Axis.vertical,
       onPageChanged: (index) async {
-        // 再生
-        await ref.read(feedProvider.notifier).changeVideo(index);
-
         // 次のフィードを読み込む
         if (index == feed.length - 1) {
           await ref.read(feedProvider.notifier).fetchNextItems();
         }
+
+        // 再生
+        await ref.read(feedProvider.notifier).changeVideo(index);
       },
       itemBuilder: (context, index) {
         return FeedCard(feedItem: feed[index]);

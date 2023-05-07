@@ -14,7 +14,7 @@ class FeedMediaPlayer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (feedItem.videoController == null) {
+    if (!feedItem.hasVideoController()) {
       // 動画がない場合はローディングを表示
       return const SizedBox(
         width: double.infinity,

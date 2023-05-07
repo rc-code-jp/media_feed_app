@@ -28,7 +28,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
 
     // タイマー
     _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
-      if (widget.feedItem.videoController?.value.isPlaying != true) {
+      if (!widget.feedItem.isPlayingVideo()) {
         return;
       }
       if (_progressValue >= 3) {

@@ -36,7 +36,7 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
   void dispose() {
     // 全てのビデオを破棄する
     for (var feedItem in state) {
-      if (feedItem.videoController == null) break;
+      if (!feedItem.hasVideoController()) break;
       feedItem.disposeVideo();
     }
     super.dispose();
@@ -44,6 +44,9 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
 
   // 次のアイテムを読み込む
   Future<void> fetchNextItems() async {
+    if (state.length >= 5) {
+      return;
+    }
     final nextItems = [
       FeedItem(
         id: '4',
@@ -65,20 +68,25 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
 
   // ビデオを読み込んで再生する
   Future<void> changeVideo(int feedIndex) async {
-    // 前後の動画を停止する
+    // 前の動画を停止する
     if (feedIndex > 0) {
       final prevFeedItem = state[feedIndex - 1];
       prevFeedItem.pauseVideo();
     }
 
+    // 後の動画を読み込んでから停止する
+    // （スクロール時にポスターを出すため）
     if (feedIndex < state.length - 1) {
       final nextFeedItem = state[feedIndex + 1];
+      if (!nextFeedItem.hasVideoController()) {
+        await nextFeedItem.loadVideoController();
+      }
       nextFeedItem.pauseVideo();
     }
 
     // 読み込んで再生する
     final feedItem = state[feedIndex];
-    if (feedItem.videoController == null) {
+    if (!feedItem.hasVideoController()) {
       await feedItem.loadVideoController();
     }
     feedItem.playFromStart();

@@ -92,4 +92,14 @@ class FeedItem {
   void disposeVideo() {
     videoController?.dispose();
   }
+
+  // ビデオが読み込まれているか
+  bool hasVideoController() {
+    return videoController != null;
+  }
+
+  // ビデオが再生しているか
+  bool isPlayingVideo() {
+    return videoController?.value.isPlaying == true;
+  }
 }
