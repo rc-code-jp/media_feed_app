@@ -27,14 +27,14 @@ fvm flutter doctor
 
 > `.vscode/launch.json`
 
-## ビルド
+## リリースビルド
 
 ```
 # ios
-fvm flutter build ios --dart-define-from-file=dart_defines/stg.json
+fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json
 
 # android
-fvm flutter build ios --dart-define-from-file=dart_defines/stg.json
+fvm flutter build ios --release --dart-define-from-file=dart_defines/stg.json
 ```
 
 ## 構造
