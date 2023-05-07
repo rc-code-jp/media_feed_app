@@ -121,7 +121,6 @@
 				B63E4A2819EB9E6492F6390B /* Pods-Runner.release.xcconfig */,
 				E6DCEC7859B5B58FA85A5D39 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -360,14 +359,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 2356Q57554;
+				DEVELOPMENT_TEAM = RP79ND2AXN;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.mediaFeedApp$(appIdSuffix)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example1.mediaFeedApp--appIdSuffix-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

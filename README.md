@@ -23,7 +23,19 @@ fvm flutter doctor
 
 ## 起動
 
-起動は VSCode で行うため省略。
+起動は VSCode の起動コマンドを参照。
+
+> `.vscode/launch.json`
+
+## ビルド
+
+```
+# ios
+fvm flutter build ios --dart-define-from-file=dart_defines/stg.json
+
+# android
+fvm flutter build ios --dart-define-from-file=dart_defines/stg.json
+```
 
 ## 構造
 
