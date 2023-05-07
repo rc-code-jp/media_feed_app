@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
+import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/screens/main_screen.dart';
 import 'package:media_feed_app/screens/sign_in_screen.dart';
 import 'package:media_feed_app/screens/sign_up_screen.dart';
@@ -9,6 +10,9 @@ import 'package:media_feed_app/screens/tutorial_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 void main() {
+  const flavorName = String.fromEnvironment('flavor');
+  logger.info('flavorName: $flavorName');
+
   runApp(
     const ProviderScope(
       child: MyApp(),
