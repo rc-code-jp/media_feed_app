@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/widgets/media_player.dart';
 
@@ -28,13 +29,28 @@ class FeedMediaPlayer extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
-        feedItem.toggleVideo();
+        ref.read(feedProvider.notifier).toggleVideoById(feedItem.id);
       },
       child: Stack(
         fit: StackFit.expand,
         children: [
           // プレイヤー
           MediaPlayer(videoController: feedItem.videoController!),
+
+          // 停止表示
+          feedItem.isPlayingVideo()
+              ? Container()
+              : const Align(
+                  alignment: Alignment.center,
+                  child: Opacity(
+                    opacity: 0.7,
+                    child: Icon(
+                      Icons.pause,
+                      size: 50,
+                      color: AppColors.white,
+                    ),
+                  ),
+                ),
         ],
       ),
     );

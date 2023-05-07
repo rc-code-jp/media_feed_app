@@ -19,6 +19,7 @@ void main() {
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
+  // ログインチェック
   Future<bool> isLoggedIn() async {
     return await AuthStorage().has();
   }

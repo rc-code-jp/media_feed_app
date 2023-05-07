@@ -10,7 +10,10 @@ class TutorialScreen extends ConsumerStatefulWidget {
 }
 
 class TutorialScreenState extends ConsumerState<TutorialScreen> {
-  final PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController(
+    initialPage: 0,
+    viewportFraction: 1.0,
+  );
   int _currentPage = 0;
 
   @override

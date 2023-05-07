@@ -94,6 +94,17 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
+  // ビデオの再生を切り替える
+  void toggleVideoById(String id) {
+    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
+    if (feedItem.isPlayingVideo()) {
+      feedItem.pauseVideo();
+    } else {
+      feedItem.playVideo();
+    }
+    state = [...state];
+  }
+
   // いいねを変更
   void toggleFavoriteById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);

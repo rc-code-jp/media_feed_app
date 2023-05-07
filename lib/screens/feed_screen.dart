@@ -11,24 +11,23 @@ class FeedScreen extends ConsumerStatefulWidget {
 }
 
 class FeedScreenState extends ConsumerState<FeedScreen> {
-  final _pageController = PageController(initialPage: 0, viewportFraction: 1.0);
+  final _pageController = PageController(
+    initialPage: 0,
+    viewportFraction: 1.0,
+  );
 
   @override
   void initState() {
     super.initState();
 
-    loadFirstVideo();
+    // 最初の動画を読み込む
+    ref.read(feedProvider.notifier).changeVideo(0);
   }
 
   @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
-  }
-
-  // 最初の動画を読み込む
-  Future<void> loadFirstVideo() async {
-    await ref.read(feedProvider.notifier).changeVideo(0);
   }
 
   @override

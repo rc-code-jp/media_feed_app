@@ -55,6 +55,16 @@ class FeedItem {
     return tags.map((tag) => '#$tag').join(' ');
   }
 
+  // ビデオが読み込まれているか
+  bool hasVideoController() {
+    return videoController != null;
+  }
+
+  // ビデオが再生しているか
+  bool isPlayingVideo() {
+    return videoController?.value.isPlaying == true;
+  }
+
   // ビデオを読み込む
   Future<void> loadVideoController() async {
     videoController = VideoPlayerController.asset(url);
@@ -79,27 +89,8 @@ class FeedItem {
     videoController?.play();
   }
 
-  // ビデオの再生・停止を切り替える
-  void toggleVideo() {
-    if (videoController?.value.isPlaying ?? false) {
-      videoController?.pause();
-    } else {
-      videoController?.play();
-    }
-  }
-
   // ビデオを破棄する
   void disposeVideo() {
     videoController?.dispose();
-  }
-
-  // ビデオが読み込まれているか
-  bool hasVideoController() {
-    return videoController != null;
-  }
-
-  // ビデオが再生しているか
-  bool isPlayingVideo() {
-    return videoController?.value.isPlaying == true;
   }
 }
