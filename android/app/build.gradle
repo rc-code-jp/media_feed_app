@@ -51,6 +51,9 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        // dart_defines反映
+        applicationIdSuffix appIdSuffix
+        resValue "string", "app_name", appName 
     }
 
     buildTypes {
