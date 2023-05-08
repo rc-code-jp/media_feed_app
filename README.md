@@ -30,11 +30,16 @@ fvm flutter doctor
 ## リリースビルド
 
 ```
+# 先にクリーンしないとエラーでる？
+fvm flutter clean
+```
+
+```
 # ios
-fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json
+fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --export-method=ad-hoc
 
 # android
-fvm flutter build ios --release --dart-define-from-file=dart_defines/stg.json
+fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
 ```
 
 ## 構造
