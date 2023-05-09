@@ -35,7 +35,10 @@ class FeedMediaPlayer extends ConsumerWidget {
         fit: StackFit.expand,
         children: [
           // プレイヤー
-          MediaPlayer(videoController: feedItem.videoController!),
+          Container(
+            color: AppColors.black,
+            child: MediaPlayer(videoController: feedItem.videoController!),
+          ),
 
           // 停止表示
           feedItem.isPlayingVideo()

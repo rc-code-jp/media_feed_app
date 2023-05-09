@@ -24,12 +24,12 @@ class DetailModal extends ConsumerWidget {
           icon: const Icon(
             Icons.person,
             color: AppColors.white,
-            size: 24,
+            size: 20,
           ),
           text: Text(
             feedItem.artistName,
             style: const TextStyle(
-              fontSize: 24,
+              fontSize: 20,
               color: AppColors.white,
             ),
           ),
@@ -56,12 +56,12 @@ class DetailModal extends ConsumerWidget {
           icon: const Icon(
             Icons.music_note,
             color: AppColors.white,
-            size: 30,
+            size: 20,
           ),
           text: Text(
             feedItem.title,
             style: const TextStyle(
-              fontSize: 30,
+              fontSize: 20,
               color: AppColors.white,
             ),
           ),

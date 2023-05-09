@@ -12,7 +12,7 @@ class FeedCardDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Positioned(
-      bottom: 10,
+      bottom: 20,
       left: 10,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

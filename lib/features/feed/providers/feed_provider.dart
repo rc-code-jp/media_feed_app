@@ -11,21 +11,21 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
       : super([
           FeedItem(
             id: '1',
-            title: 'Ginger',
-            artistName: 'TOMOO',
+            title: '普変 / THE FIRST TAKE',
+            artistName: 'あの',
             url: 'assets/videos/1.mp4',
-            tags: ['ポップス', 'J-POP'],
+            tags: ['アイドル', 'J-POP', 'ボーカル'],
           ),
           FeedItem(
             id: '2',
-            title: 'オセロ',
-            artistName: 'TOMOO',
+            title: 'アイドル',
+            artistName: 'yoasobi',
             url: 'assets/videos/2.mp4',
             tags: ['ポップス', 'J-POP'],
           ),
           FeedItem(
             id: '3',
-            title: 'ハニーボーイ',
+            title: 'オセロ',
             artistName: 'TOMOO',
             url: 'assets/videos/3.mp4',
             tags: ['ポップス', 'J-POP'],
@@ -50,17 +50,24 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     final nextItems = [
       FeedItem(
         id: '4',
-        title: 'ああああああ',
+        title: '酔ひもせず ',
         artistName: 'TOMOO',
         url: 'assets/videos/4.mp4',
         tags: ['ポップス', 'J-POP'],
       ),
       FeedItem(
         id: '5',
-        title: 'いいいいいい',
-        artistName: 'TOMOO',
+        title: 'Musica',
+        artistName: 'ブランデー戦記',
         url: 'assets/videos/5.mp4',
-        tags: ['ポップス', 'J-POP'],
+        tags: ['バンド', 'ロック', 'MV'],
+      ),
+      FeedItem(
+        id: '6',
+        title: '来たれ！ぱすはに道',
+        artistName: 'ぱすはに',
+        url: 'assets/videos/6.mp4',
+        tags: ['アイドル', 'アニメ', 'インフルエンサー'],
       ),
     ];
     state = [...state, ...nextItems];

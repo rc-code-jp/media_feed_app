@@ -16,7 +16,7 @@ class ProgressCircle extends ConsumerWidget {
         CircularProgressIndicator(
           strokeWidth: 2,
           value: value,
-          color: AppColors.success,
+          color: AppColors.primary,
           backgroundColor: AppColors.white,
         ),
         // アイコン（完了時にフェードイン）
@@ -28,7 +28,7 @@ class ProgressCircle extends ConsumerWidget {
             child: const Icon(
               Icons.check,
               size: 30,
-              color: AppColors.success,
+              color: AppColors.primary,
             ),
           ),
         )

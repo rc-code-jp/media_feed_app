@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class IconTextButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final Icon icon;
+  final Text text;
+  final double margin;
+
   const IconTextButton({
     Key? key,
     this.onPressed,
@@ -9,11 +14,6 @@ class IconTextButton extends StatelessWidget {
     required this.text,
     this.margin = 5,
   }) : super(key: key);
-
-  final VoidCallback? onPressed;
-  final Icon icon;
-  final Text text;
-  final double margin;
 
   @override
   Widget build(BuildContext context) {

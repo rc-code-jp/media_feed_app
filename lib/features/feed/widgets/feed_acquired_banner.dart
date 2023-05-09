@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/icon_text_row.dart';
 
 class FeedAcquiredBanner extends ConsumerWidget {
   final FeedItem feedItem;
@@ -16,36 +17,31 @@ class FeedAcquiredBanner extends ConsumerWidget {
       return Container();
     }
 
-    return Positioned(
-      top: MediaQuery.of(context).padding.top + 60, // SafeAreaとTabBarの高さを考慮
-      width: MediaQuery.of(context).size.width,
-      child: TweenAnimationBuilder(
-        tween: Tween<double>(begin: 0, end: 0.9),
-        duration: const Duration(milliseconds: 300),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            Icon(
+    return Align(
+      alignment: AlignmentDirectional.topCenter,
+      child: Padding(
+        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top + 60),
+        child: TweenAnimationBuilder(
+          tween: Tween<double>(begin: 0, end: 0.7),
+          duration: const Duration(milliseconds: 300),
+          child: const IconTextRow(
+            icon: Icon(
               Icons.verified,
               color: AppColors.white,
               size: 20,
             ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
+            text: Text(
               'ポイント獲得済み',
               style: TextStyle(fontSize: 16, color: AppColors.white),
             ),
-          ],
+          ),
+          builder: (BuildContext context, double value, Widget? child) {
+            return Opacity(
+              opacity: value,
+              child: child,
+            );
+          },
         ),
-        builder: (BuildContext context, double value, Widget? child) {
-          return Opacity(
-            opacity: value,
-            child: child,
-          );
-        },
       ),
     );
   }

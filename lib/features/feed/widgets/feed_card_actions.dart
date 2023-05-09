@@ -20,7 +20,7 @@ class FeedCardActions extends ConsumerWidget {
     const iconSize = 36.0;
 
     return Positioned(
-      bottom: 10,
+      bottom: 15,
       right: 0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -52,7 +52,7 @@ class FeedCardActions extends ConsumerWidget {
             },
           ),
 
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
 
           // 情報ボタン
           IconTextButton(
@@ -79,7 +79,7 @@ class FeedCardActions extends ConsumerWidget {
             },
           ),
 
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
 
           // シェアボタン
           IconTextButton(

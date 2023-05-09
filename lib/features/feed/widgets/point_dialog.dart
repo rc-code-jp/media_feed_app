@@ -20,7 +20,7 @@ class PointModal extends ConsumerWidget {
           '+ ${point}pt',
           style: const TextStyle(
             fontSize: 50,
-            color: AppColors.success,
+            color: AppColors.primary,
             fontWeight: FontWeight.bold,
           ),
         ),

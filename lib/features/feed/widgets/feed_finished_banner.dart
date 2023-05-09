@@ -30,7 +30,7 @@ class FeedFinishedBanner extends ConsumerWidget {
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
             foregroundColor: AppColors.white,
-            backgroundColor: AppColors.success,
+            backgroundColor: AppColors.primary,
             elevation: 0,
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           ),

@@ -10,9 +10,13 @@ class MediaPlayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // 縦動画フラグ
+    final isPortrait =
+        videoController.value.size.width < videoController.value.size.height;
+
     return SizedBox.expand(
       child: FittedBox(
-        fit: BoxFit.cover,
+        fit: isPortrait ? BoxFit.cover : BoxFit.contain,
         child: SizedBox(
           width: videoController.value.size.width,
           height: videoController.value.size.height,
