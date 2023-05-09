@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/progress_circle.dart';
+import 'package:media_feed_app/styles/sizes.dart';
 
 class FeedCardProgress extends ConsumerStatefulWidget {
   final FeedItem feedItem;
@@ -19,6 +20,7 @@ class FeedCardProgress extends ConsumerStatefulWidget {
 }
 
 class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
+  final double _progressValueMax = 3.0;
   late Timer _timer;
   late double _progressValue = 0;
 
@@ -26,12 +28,17 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
   void initState() {
     super.initState();
 
+    // すでに視聴済みの場合は最大値にする
+    if (widget.feedItem.isFinished) {
+      _progressValue = _progressValueMax;
+    }
+
     // タイマー
     _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (!widget.feedItem.isPlayingVideo()) {
         return;
       }
-      if (_progressValue >= 3) {
+      if (_progressValue >= _progressValueMax) {
         _timer.cancel();
         ref.read(feedProvider.notifier).finishedItemById(widget.feedItem.id);
       }
@@ -55,7 +62,8 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
     }
 
     return Positioned(
-      top: MediaQuery.of(context).padding.top + 60, // SafeAreaとTabBarの高さを考慮
+      top: MediaQuery.of(context).padding.top +
+          Sizes.topTabHeight, // SafeAreaとTabBarの高さを考慮
       width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

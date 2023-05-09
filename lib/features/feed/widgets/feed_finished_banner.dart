@@ -46,11 +46,14 @@ class FeedFinishedBanner extends ConsumerWidget {
           },
           icon: const Icon(
             Icons.touch_app,
-            size: 30,
+            size: 24,
           ),
           label: const Text(
             'ポイントを獲得する',
-            style: TextStyle(fontSize: 24),
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         builder: (BuildContext context, double value, Widget? child) {

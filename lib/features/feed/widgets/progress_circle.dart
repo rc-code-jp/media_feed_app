@@ -17,13 +17,13 @@ class ProgressCircle extends ConsumerWidget {
           strokeWidth: 2,
           value: value,
           color: AppColors.primary,
-          backgroundColor: AppColors.white,
+          backgroundColor: AppColors.white.withAlpha(50),
         ),
         // アイコン（完了時にフェードイン）
         Align(
           alignment: Alignment.center,
           child: AnimatedOpacity(
-            duration: const Duration(milliseconds: 200),
+            duration: const Duration(milliseconds: 300),
             opacity: value >= 1 ? 1 : 0,
             child: const Icon(
               Icons.check,
