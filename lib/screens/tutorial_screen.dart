@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/features/tutorial/widgets/tutorial_actions.dart';
+import 'package:media_feed_app/features/tutorial/widgets/tutorial_page_view.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
 class TutorialScreen extends ConsumerStatefulWidget {
@@ -44,73 +46,32 @@ class TutorialScreenState extends ConsumerState<TutorialScreen> {
         decoration: UtilStyles.boxGradient,
         child: Stack(
           children: [
-            PageView(
-              controller: _pageController,
-              children: [
-                const Center(child: Text('1')),
-                const Center(child: Text('2')),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // チュートリアル完了後にログイン画面に遷移
-                        Navigator.pushReplacementNamed(context, '/sign-up');
-                      },
-                      child: const Text('新規会員登録'),
-                    ),
-                  ],
-                ),
-              ],
+            TutorialPageView(
+              pageController: _pageController,
             ),
             // ページインジケーターとスキップボタン
-            Align(
-              alignment: AlignmentDirectional.bottomCenter,
-              child: SafeArea(
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    // 戻るボタン
-                    SizedBox(
-                      width: 100,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_currentPage == 0) {
-                            // スタートページへ
-                            Navigator.pop(
-                              context,
-                            );
-                          } else {
-                            _pageController.previousPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.linear,
-                            );
-                          }
-                        },
-                        child: const Text('戻る'),
-                      ),
-                    ),
-                    // スキップボタン
-                    SizedBox(
-                      width: 100,
-                      child: ElevatedButton(
-                        onPressed: _currentPage < 2
-                            ? () {
-                                // 次へ
-                                _pageController.nextPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.linear,
-                                );
-                              }
-                            : null,
-                        child: const Text('次へ'),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            TutorialActions(
+              onBack: () {
+                if (_currentPage == 0) {
+                  // スタートページへ
+                  Navigator.pop(
+                    context,
+                  );
+                } else {
+                  _pageController.previousPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.linear,
+                  );
+                }
+              },
+              onForward: _currentPage < 2
+                  ? () {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear,
+                      );
+                    }
+                  : null,
             )
           ],
         ),

@@ -8,22 +8,27 @@ class AccountScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
-      child: Column(
-        children: [
-          const Text('アカウント'),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              // TODO: ログアウト処理
-              AuthStorage().delete();
-              // ログアウト後にチュートリアル画面に遷移
-              Navigator.pushReplacementNamed(context, '/tutorial');
-            },
-            child: const Text('ログアウト'),
-          )
-        ],
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const Text('アカウント'),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // TODO: ログアウト処理
+                AuthStorage().delete();
+                // ログアウト後にスタート画面に遷移
+                Navigator.pushReplacementNamed(context, '/start');
+              },
+              child: const Text('ログアウト'),
+            )
+          ],
+        ),
       ),
     );
   }
