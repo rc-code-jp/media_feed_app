@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/point_dialog.dart';
+import 'package:media_feed_app/features/feed/widgets/star_button_list.dart';
+import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class FeedFinishedBanner extends ConsumerWidget {
@@ -14,6 +16,20 @@ class FeedFinishedBanner extends ConsumerWidget {
     Key? key,
     required this.feedItem,
   }) : super(key: key);
+
+  // 獲得する
+  void acquisition(BuildContext context, WidgetRef ref, int pressedNumber) {
+    logger.info(pressedNumber);
+    // ダイアログを表示・自動で閉じる
+    _showPointDialog(context);
+    Timer.periodic(const Duration(milliseconds: 1000), (timer) {
+      Navigator.of(context).pop();
+      timer.cancel();
+
+      // 獲得済みにする
+      ref.read(feedProvider.notifier).acquisitionItemById(feedItem.id);
+    });
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,34 +43,25 @@ class FeedFinishedBanner extends ConsumerWidget {
       child: TweenAnimationBuilder(
         tween: Tween<double>(begin: 0, end: 0.9),
         duration: const Duration(milliseconds: 300),
-        child: ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            foregroundColor: AppColors.white,
-            backgroundColor: AppColors.primary,
-            elevation: 0,
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+        child: Container(
+          width: double.infinity,
+          height: 100,
+          decoration: BoxDecoration(
+            color: AppColors.primary.withAlpha(100),
           ),
-          onPressed: () async {
-            // ダイアログを表示・自動で閉じる
-            _showPointDialog(context);
-            Timer.periodic(const Duration(milliseconds: 1000), (timer) {
-              Navigator.of(context).pop();
-              timer.cancel();
-
-              // 獲得済みにする
-              ref.read(feedProvider.notifier).acquisitionItemById(feedItem.id);
-            });
-          },
-          icon: const Icon(
-            Icons.touch_app,
-            size: 24,
-          ),
-          label: const Text(
-            'ポイントを獲得する',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              StarButtonList(
+                onPressedCallback: (pressedNumber) async {
+                  acquisition(context, ref, pressedNumber);
+                },
+              ),
+              const Text(
+                '評価してポイントを獲得！',
+                style: TextStyle(color: AppColors.white, fontSize: 20),
+              )
+            ],
           ),
         ),
         builder: (BuildContext context, double value, Widget? child) {
