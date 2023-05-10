@@ -17,8 +17,12 @@ class VersionText extends StatelessWidget {
         if (snapshot.hasData == false) {
           return const SizedBox.shrink();
         }
+
+        final v = snapshot.data?.version ?? '';
+        final b = snapshot.data?.buildNumber ?? '';
+
         return Text(
-          snapshot.data?.version ?? '',
+          'v$v($b)',
           style: textStyle,
         );
       },
