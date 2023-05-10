@@ -41,7 +41,7 @@ class FeedFinishedBanner extends ConsumerWidget {
     return Align(
       alignment: Alignment.center,
       child: TweenAnimationBuilder(
-        tween: Tween<double>(begin: 0, end: 0.9),
+        tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(milliseconds: 300),
         child: Container(
           width: double.infinity,
@@ -52,15 +52,15 @@ class FeedFinishedBanner extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                '評価してポイントを獲得',
+                style: TextStyle(color: AppColors.white, fontSize: 20),
+              ),
               StarButtonList(
                 onPressedCallback: (pressedNumber) async {
                   acquisition(context, ref, pressedNumber);
                 },
               ),
-              const Text(
-                '評価してポイントを獲得！',
-                style: TextStyle(color: AppColors.white, fontSize: 20),
-              )
             ],
           ),
         ),

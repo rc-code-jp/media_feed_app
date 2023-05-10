@@ -1,47 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class StarButtonList extends StatelessWidget {
+class StarButtonList extends ConsumerStatefulWidget {
   final Function(int) onPressedCallback;
 
   const StarButtonList({Key? key, required this.onPressedCallback})
       : super(key: key);
 
   @override
+  StarButtonListState createState() => StarButtonListState();
+}
+
+class StarButtonListState extends ConsumerState<StarButtonList> {
+  List buttonNumberList = <int>[1, 2, 3, 4, 5];
+  int pressedNumber = 0;
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _starButton(
-          onPressed: () => onPressedCallback(1),
-          iconSize: 36,
-        ),
-        _starButton(
-          onPressed: () => onPressedCallback(2),
-          iconSize: 36,
-        ),
-        _starButton(
-          onPressed: () => onPressedCallback(3),
-          iconSize: 36,
-        ),
-        _starButton(
-          onPressed: () => onPressedCallback(4),
-          iconSize: 36,
-        ),
-        _starButton(
-          onPressed: () => onPressedCallback(5),
-          iconSize: 36,
-        ),
-      ],
+      children: buttonNumberList
+          .map(
+            (number) => _starButton(
+              onPressed: () {
+                widget.onPressedCallback(number);
+                setState(() {
+                  pressedNumber = number;
+                });
+              },
+              iconSize: 39,
+              filled: pressedNumber >= number,
+            ),
+          )
+          .toList(),
     );
   }
 
-  _starButton({required VoidCallback onPressed, required double iconSize}) {
+  Widget _starButton({
+    required VoidCallback onPressed,
+    required double iconSize,
+    required bool filled,
+  }) {
     return IconButton(
       onPressed: onPressed,
       icon: Icon(
-        Icons.star_outline,
+        filled ? Icons.star : Icons.star_outline,
         color: AppColors.white,
         size: iconSize,
       ),
