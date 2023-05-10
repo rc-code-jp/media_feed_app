@@ -35,13 +35,14 @@ class FeedFinishedBanner extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           ),
           onPressed: () async {
-            ref.read(feedProvider.notifier).acquisitionItemById(feedItem.id);
-
             // ダイアログを表示・自動で閉じる
             _showPointDialog(context);
             Timer.periodic(const Duration(milliseconds: 1000), (timer) {
               Navigator.of(context).pop();
               timer.cancel();
+
+              // 獲得済みにする
+              ref.read(feedProvider.notifier).acquisitionItemById(feedItem.id);
             });
           },
           icon: const Icon(

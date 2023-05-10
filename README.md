@@ -27,17 +27,23 @@ fvm flutter doctor
 
 > `.vscode/launch.json`
 
-## リリースビルド
+## リリースビルド ios
+
+Automatic manage signing でも大丈夫かも。
 
 ```
-# 先にクリーンしないとエラーでる？
+# 先にクリーンしておく
 fvm flutter clean
 ```
 
 ```
 # ios
 fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --export-method=ad-hoc
+```
 
+## リリースビルド android
+
+```
 # android
 fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
 ```
