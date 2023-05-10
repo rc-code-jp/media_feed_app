@@ -25,10 +25,10 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
           ),
           FeedItem(
             id: '3',
-            title: 'オセロ',
-            artistName: 'TOMOO',
+            title: 'ひとりごつ',
+            artistName: 'ちいかわ / ハチワレ',
             url: 'assets/videos/3.mp4',
-            tags: ['ポップス', 'J-POP'],
+            tags: ['ポップス', 'J-POP', 'アニメ'],
           ),
         ]);
 

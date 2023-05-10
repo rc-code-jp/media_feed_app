@@ -22,7 +22,8 @@ class FeedAcquiredBanner extends ConsumerWidget {
       alignment: AlignmentDirectional.topCenter,
       child: Padding(
         padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top + Sizes.topTabHeight),
+          top: MediaQuery.of(context).padding.top + Sizes.topTabHeight,
+        ),
         child: TweenAnimationBuilder(
           tween: Tween<double>(begin: 0, end: 0.7),
           duration: const Duration(milliseconds: 300),
