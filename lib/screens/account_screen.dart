@@ -23,7 +23,7 @@ class AccountScreen extends ConsumerWidget {
                 // TODO: ログアウト処理
                 AuthStorage().delete();
                 // ログアウト後にスタート画面に遷移
-                Navigator.pushReplacementNamed(context, '/start');
+                Navigator.popAndPushNamed(context, '/start');
               },
               child: const Text('ログアウト'),
             )

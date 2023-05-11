@@ -6,7 +6,6 @@ import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/point_dialog.dart';
 import 'package:media_feed_app/features/feed/widgets/star_button_list.dart';
-import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class FeedFinishedBanner extends ConsumerWidget {
@@ -19,7 +18,6 @@ class FeedFinishedBanner extends ConsumerWidget {
 
   // 獲得する
   void acquisition(BuildContext context, WidgetRef ref, int pressedNumber) {
-    logger.info(pressedNumber);
     // ダイアログを表示・自動で閉じる
     _showPointDialog(context);
     Timer.periodic(const Duration(milliseconds: 1000), (timer) {
@@ -54,7 +52,11 @@ class FeedFinishedBanner extends ConsumerWidget {
             children: [
               const Text(
                 '評価してポイントを獲得',
-                style: TextStyle(color: AppColors.white, fontSize: 20),
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               StarButtonList(
                 onPressedCallback: (pressedNumber) async {

@@ -2,35 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 
 final feedProvider =
-    StateNotifierProvider.autoDispose<FeedProvider, List<FeedItem>>((ref) {
-  return FeedProvider();
+    StateNotifierProvider.autoDispose<FeedStateNotifier, List<FeedItem>>((ref) {
+  return FeedStateNotifier();
 });
 
-class FeedProvider extends StateNotifier<List<FeedItem>> {
-  FeedProvider()
-      : super([
-          FeedItem(
-            id: '1',
-            title: '普変 / THE FIRST TAKE',
-            artistName: 'あの',
-            url: 'assets/videos/1.mp4',
-            tags: ['アイドル', 'J-POP', 'ボーカル'],
-          ),
-          FeedItem(
-            id: '2',
-            title: 'アイドル',
-            artistName: 'yoasobi',
-            url: 'assets/videos/2.mp4',
-            tags: ['ポップス', 'J-POP'],
-          ),
-          FeedItem(
-            id: '3',
-            title: 'ひとりごつ',
-            artistName: 'ちいかわ / ハチワレ',
-            url: 'assets/videos/3.mp4',
-            tags: ['ポップス', 'J-POP', 'アニメ'],
-          ),
-        ]);
+class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
+  FeedStateNotifier() : super([]);
 
   @override
   void dispose() {
@@ -42,12 +19,39 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
     super.dispose();
   }
 
+  Future<void> fetchFirstItems() async {
+    final items = [
+      FeedItem(
+        id: '1',
+        title: '普変 / THE FIRST TAKE',
+        artistName: 'あの',
+        url: 'assets/videos/1.mp4',
+        tags: ['アイドル', 'J-POP', 'ボーカル'],
+      ),
+      FeedItem(
+        id: '2',
+        title: 'アイドル',
+        artistName: 'yoasobi',
+        url: 'assets/videos/2.mp4',
+        tags: ['ポップス', 'J-POP'],
+      ),
+      FeedItem(
+        id: '3',
+        title: 'ひとりごつ',
+        artistName: 'ちいかわ / ハチワレ',
+        url: 'assets/videos/3.mp4',
+        tags: ['ポップス', 'J-POP', 'アニメ'],
+      ),
+    ];
+    state = [...state, ...items];
+  }
+
   // 次のアイテムを読み込む
   Future<void> fetchNextItems() async {
     if (state.length >= 5) {
       return;
     }
-    final nextItems = [
+    final items = [
       FeedItem(
         id: '4',
         title: '酔ひもせず ',
@@ -70,7 +74,7 @@ class FeedProvider extends StateNotifier<List<FeedItem>> {
         tags: ['アイドル', 'アニメ', 'インフルエンサー'],
       ),
     ];
-    state = [...state, ...nextItems];
+    state = [...state, ...items];
   }
 
   // ビデオを読み込んで再生する
