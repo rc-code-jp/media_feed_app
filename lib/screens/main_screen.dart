@@ -64,6 +64,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
     return Scaffold(
       body: Container(
         decoration: UtilStyles.decorationGradient,
+        height: double.infinity,
         child: _screens[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(

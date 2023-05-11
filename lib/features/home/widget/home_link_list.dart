@@ -8,51 +8,45 @@ class HomeLinkList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.9,
-      child: ListView(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        padding: EdgeInsetsDirectional.zero,
-        children: [
-          _listTile(
-            titleText: 'アカウント設定',
-            onTap: () {
-              // Navigator.pushNamed(context, '/fixme');
-            },
-          ),
-          _listTile(
-            titleText: 'ポイント詳細',
-            onTap: () {
-              Navigator.pushNamed(context, '/point');
-            },
-          ),
-          _listTile(
-            titleText: '再生履歴',
-            onTap: () {
-              Navigator.pushNamed(context, '/play-history');
-            },
-          ),
-          _listTile(
-            titleText: 'お知らせ',
-            onTap: () {
-              Navigator.pushNamed(context, '/news');
-            },
-          ),
-          _listTile(
-            titleText: 'よくある質問',
-            onTap: () {
-              // Navigator.pushNamed(context, '/fixme');
-            },
-          ),
-          _listTile(
-            titleText: 'お問い合わせ',
-            onTap: () {
-              // Navigator.pushNamed(context, '/fixme');
-            },
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        _listTile(
+          titleText: 'アカウント設定',
+          onTap: () {
+            // Navigator.pushNamed(context, '/fixme');
+          },
+        ),
+        _listTile(
+          titleText: 'ポイント詳細',
+          onTap: () {
+            Navigator.pushNamed(context, '/point');
+          },
+        ),
+        _listTile(
+          titleText: '再生履歴',
+          onTap: () {
+            Navigator.pushNamed(context, '/play-history');
+          },
+        ),
+        _listTile(
+          titleText: 'お知らせ',
+          onTap: () {
+            Navigator.pushNamed(context, '/news');
+          },
+        ),
+        _listTile(
+          titleText: 'よくある質問',
+          onTap: () {
+            // Navigator.pushNamed(context, '/fixme');
+          },
+        ),
+        _listTile(
+          titleText: 'お問い合わせ',
+          onTap: () {
+            // Navigator.pushNamed(context, '/fixme');
+          },
+        ),
+      ],
     );
   }
 
@@ -66,7 +60,6 @@ class HomeLinkList extends ConsumerWidget {
       child: ListTile(
         textColor: AppColors.white,
         iconColor: AppColors.white,
-        dense: true,
         title: Text(
           titleText,
           style: const TextStyle(

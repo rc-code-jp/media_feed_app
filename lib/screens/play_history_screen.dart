@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/features/play_history/widget/play_history_list.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
@@ -20,41 +21,40 @@ class PlayHistoryScreen extends ConsumerWidget {
         child: DefaultTabController(
           length: 2,
           initialIndex: 0,
-          child: Stack(
-            children: const [
-              // タブの中身
-              TabBarView(
-                children: [
-                  Center(
-                    child: Text('再生履歴'),
-                  ),
-                  Center(
-                    child: Text('高評価'),
-                  ),
-                ],
-              ),
-              // タブ
-              Align(
-                alignment: Alignment.topCenter,
-                child: SafeArea(
-                  child: TabBar(
-                    labelColor: AppColors.white,
-                    unselectedLabelColor: AppColors.lightGrey,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    indicatorColor: AppColors.white,
-                    indicatorWeight: 2,
-                    tabs: [
-                      Tab(
-                        text: '再生履歴',
+          child: SafeArea(
+            child: Column(
+              children: const [
+                // タブ
+                TabBar(
+                  labelColor: AppColors.white,
+                  unselectedLabelColor: AppColors.lightGrey,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorColor: AppColors.white,
+                  indicatorWeight: 2,
+                  tabs: [
+                    Tab(
+                      text: 'すべて',
+                    ),
+                    Tab(
+                      text: '高評価',
+                    ),
+                  ],
+                ),
+                // タブの中身
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      SingleChildScrollView(
+                        child: PlayHistoryList(),
                       ),
-                      Tab(
-                        text: '高評価',
+                      SingleChildScrollView(
+                        child: PlayHistoryList(),
                       ),
                     ],
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ),
       ),

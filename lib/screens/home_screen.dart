@@ -21,10 +21,6 @@ class HomeScreen extends ConsumerWidget {
           const PointToday(),
           const SizedBox(height: 20),
           const HomeLinkList(),
-          // FIXME: 下部の余白を消すため入れてるけど、本来は不要？
-          Container(
-            height: 300,
-          ),
         ],
       ),
     );
