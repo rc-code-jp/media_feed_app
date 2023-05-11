@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/auth/widgets/sign_up_form.dart';
+import 'package:media_feed_app/features/point/widgets/point_total.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
-class SignUpScreen extends ConsumerWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class PointScreen extends ConsumerWidget {
+  const PointScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('新規会員登録'),
+        title: const Text('ポイント'),
         backgroundColor: AppColors.transparent,
         elevation: 0,
       ),
       body: Container(
+        width: double.infinity,
         decoration: UtilStyles.decorationGradient,
         child: SafeArea(
           child: Column(
-            children: const [SignUpForm()],
+            children: const [PointTotal()],
           ),
         ),
       ),

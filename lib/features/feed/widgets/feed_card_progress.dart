@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/progress_circle.dart';
-import 'package:media_feed_app/styles/sizes.dart';
 
 class FeedCardProgress extends ConsumerStatefulWidget {
   final FeedItem feedItem;
@@ -62,8 +61,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
     }
 
     return Positioned(
-      top: MediaQuery.of(context).padding.top +
-          Sizes.topTabHeight, // SafeAreaとTabBarの高さを考慮
+      top: MediaQuery.of(context).padding.top, // SafeArea
       width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

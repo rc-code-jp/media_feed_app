@@ -43,7 +43,7 @@ class TutorialScreenState extends ConsumerState<TutorialScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: UtilStyles.boxGradient,
+        decoration: UtilStyles.decorationGradient,
         child: Stack(
           children: [
             TutorialPageView(

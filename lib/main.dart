@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/screens/main_screen.dart';
+import 'package:media_feed_app/screens/news_screen.dart';
+import 'package:media_feed_app/screens/play_history_screen.dart';
+import 'package:media_feed_app/screens/point_screen.dart';
 import 'package:media_feed_app/screens/sign_in_screen.dart';
 import 'package:media_feed_app/screens/sign_up_screen.dart';
 import 'package:media_feed_app/screens/start_screen.dart';
@@ -60,11 +63,15 @@ class MyApp extends ConsumerWidget {
             ),
             routes: {
               // ※ '/' スラッシュのみのルートはhomeで指定しているため不要
+              // ここに書くのはScaffoldを返すルートのみ
               '/main': (context) => const MainScreen(),
               '/start': (context) => const StartScreen(),
               '/tutorial': (context) => const TutorialScreen(),
               '/sign-in': (context) => const SignInScreen(),
               '/sign-up': (context) => const SignUpScreen(),
+              '/play-history': (context) => const PlayHistoryScreen(),
+              '/news': (context) => const NewsScreen(),
+              '/point': (context) => const PointScreen(),
             },
             home: loggedIn ? const MainScreen() : const StartScreen(),
           );

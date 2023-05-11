@@ -8,7 +8,6 @@ class FeedItem {
   late List<String> tags;
   late bool isFinished; // 視聴済み
   late bool isAcquired; // 獲得済み
-  late bool isFavorite; // いいね済み
 
   VideoPlayerController? videoController;
 
@@ -20,7 +19,6 @@ class FeedItem {
     this.tags = const [],
     this.isFinished = false,
     this.isAcquired = false,
-    this.isFavorite = false,
     this.videoController,
   });
 
@@ -33,7 +31,6 @@ class FeedItem {
       url: json['url'],
       isFinished: json['isFinished'],
       isAcquired: json['isAcquired'],
-      isFavorite: json['isFavorite'],
     );
   }
 
@@ -46,7 +43,6 @@ class FeedItem {
       'url': url,
       'isFinished': isFinished,
       'isAcquired': isAcquired,
-      'isFavorite': isFavorite,
     };
   }
 

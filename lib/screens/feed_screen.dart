@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
+import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class FeedScreen extends ConsumerStatefulWidget {
@@ -37,8 +38,12 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
 
   // データを取得
   Future<void> _fetchData() async {
-    await ref.read(feedProvider.notifier).fetchFirstItems();
-    await ref.read(feedProvider.notifier).changeVideo(0);
+    try {
+      await ref.read(feedProvider.notifier).fetchFirstItems();
+      await ref.read(feedProvider.notifier).changeVideo(0);
+    } catch (e) {
+      logger.info(e);
+    }
   }
 
   @override

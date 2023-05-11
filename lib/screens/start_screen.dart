@@ -11,7 +11,7 @@ class StartScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Container(
-        decoration: UtilStyles.boxGradient,
+        decoration: UtilStyles.decorationGradient,
         width: double.infinity,
         child: SafeArea(
           child: Column(

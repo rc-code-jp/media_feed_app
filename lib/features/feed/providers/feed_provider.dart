@@ -116,13 +116,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
-  // いいねを変更
-  void toggleFavoriteById(String id) {
-    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
-    feedItem.isFavorite = !feedItem.isFavorite;
-    state = [...state];
-  }
-
   // 完了状態を変更
   void finishedItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);

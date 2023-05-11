@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/styles/sizes.dart';
 import 'package:media_feed_app/widgets/icon_text_row.dart';
 
 class FeedAcquiredBanner extends ConsumerWidget {
@@ -22,7 +21,7 @@ class FeedAcquiredBanner extends ConsumerWidget {
       alignment: AlignmentDirectional.topCenter,
       child: Padding(
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top + Sizes.topTabHeight,
+          top: MediaQuery.of(context).padding.top,
         ),
         child: TweenAnimationBuilder(
           tween: Tween<double>(begin: 0, end: 0.7),

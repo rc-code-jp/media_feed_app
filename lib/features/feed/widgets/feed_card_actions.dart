@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/features/feed/widgets/detail_modal.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/widgets/icon_text_button.dart';
@@ -27,33 +26,6 @@ class FeedCardActions extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // いいねボタン
-          IconTextButton(
-            icon: feedItem.isFavorite
-                ? const Icon(
-                    Icons.favorite,
-                    color: AppColors.pink,
-                    size: iconSize,
-                  )
-                : const Icon(
-                    Icons.favorite_border,
-                    color: AppColors.white,
-                    size: iconSize,
-                  ),
-            text: const Text(
-              'いいね',
-              style: TextStyle(
-                color: AppColors.white,
-                fontSize: 12,
-              ),
-            ),
-            onPressed: () {
-              ref.read(feedProvider.notifier).toggleFavoriteById(feedItem.id);
-            },
-          ),
-
-          const SizedBox(height: 5),
-
           // 情報ボタン
           IconTextButton(
             icon: const Icon(

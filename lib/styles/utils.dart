@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 class UtilStyles {
-  static const boxGradient = BoxDecoration(
+  static const BoxDecoration decorationGradient = BoxDecoration(
     gradient: LinearGradient(
       colors: [
         AppColors.linearGradient1,
@@ -11,5 +11,11 @@ class UtilStyles {
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     ),
+  );
+
+  static BoxDecoration decorationGlass = BoxDecoration(
+    color: AppColors.white.withOpacity(0.15),
+    border: Border.all(color: AppColors.white),
+    borderRadius: BorderRadius.circular(10),
   );
 }

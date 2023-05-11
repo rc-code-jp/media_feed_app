@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/screens/account_screen.dart';
+import 'package:media_feed_app/screens/change_screen.dart';
+import 'package:media_feed_app/screens/feed_screen.dart';
 import 'package:media_feed_app/screens/home_screen.dart';
-import 'package:media_feed_app/screens/news_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/styles/utils.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -15,9 +16,9 @@ class MainScreen extends ConsumerStatefulWidget {
 class MainScreenState extends ConsumerState<MainScreen> {
   // ナビゲーションの画面
   final List<Widget> _screens = [
-    const NewsScreen(),
+    const ChangeScreen(),
+    const FeedScreen(),
     const HomeScreen(),
-    const AccountScreen(),
   ];
 
   // ナビゲーションバーのアイテム
@@ -25,7 +26,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
     const BottomNavigationBarItem(
       icon: Icon(Icons.info_outline),
       activeIcon: Icon(Icons.info),
-      label: 'お知らせ',
+      label: '交換',
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.home_outlined),
@@ -35,7 +36,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
     const BottomNavigationBarItem(
       icon: Icon(Icons.account_circle_outlined),
       activeIcon: Icon(Icons.account_circle),
-      label: 'アカウント',
+      label: 'マイページ',
     ),
   ];
 
@@ -61,7 +62,10 @@ class MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex],
+      body: Container(
+        decoration: UtilStyles.decorationGradient,
+        child: _screens[_selectedIndex],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onTapNavigation,
