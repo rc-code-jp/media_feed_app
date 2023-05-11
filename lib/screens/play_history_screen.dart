@@ -45,10 +45,22 @@ class PlayHistoryScreen extends ConsumerWidget {
                   child: TabBarView(
                     children: [
                       SingleChildScrollView(
-                        child: PlayHistoryList(),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          child: PlayHistoryList(),
+                        ),
                       ),
                       SingleChildScrollView(
-                        child: PlayHistoryList(),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 10,
+                          ),
+                          child: PlayHistoryList(),
+                        ),
                       ),
                     ],
                   ),

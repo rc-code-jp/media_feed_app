@@ -18,9 +18,15 @@ class HomeScreen extends ConsumerWidget {
             backgroundColor: AppColors.transparent,
             elevation: 0,
           ),
-          const PointToday(),
-          const SizedBox(height: 20),
-          const HomeLinkList(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: PointToday(),
+          ),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: HomeLinkList(),
+          ),
         ],
       ),
     );

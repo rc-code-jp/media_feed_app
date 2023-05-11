@@ -29,9 +29,9 @@ class MainScreenState extends ConsumerState<MainScreen> {
       label: '交換',
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.home_outlined),
-      activeIcon: Icon(Icons.home),
-      label: 'ホーム',
+      icon: Icon(Icons.play_circle_outline),
+      activeIcon: Icon(Icons.play_circle),
+      label: 'フィード',
     ),
     const BottomNavigationBarItem(
       icon: Icon(Icons.account_circle_outlined),

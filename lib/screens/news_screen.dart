@@ -11,7 +11,7 @@ class NewsScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('ニュース'),
+        title: const Text('お知らせ'),
         backgroundColor: AppColors.transparent,
         elevation: 0,
       ),
@@ -20,7 +20,7 @@ class NewsScreen extends ConsumerWidget {
         decoration: UtilStyles.decorationGradient,
         child: SafeArea(
           child: Column(
-            children: const [Text('ニュース')],
+            children: const [Text('お知らせ')],
           ),
         ),
       ),

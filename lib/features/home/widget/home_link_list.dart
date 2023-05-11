@@ -11,36 +11,42 @@ class HomeLinkList extends ConsumerWidget {
     return Column(
       children: [
         _listTile(
+          leadingIcon: Icons.person_outline,
           titleText: 'アカウント設定',
           onTap: () {
             // Navigator.pushNamed(context, '/fixme');
           },
         ),
         _listTile(
+          leadingIcon: Icons.verified_outlined,
           titleText: 'ポイント詳細',
           onTap: () {
             Navigator.pushNamed(context, '/point');
           },
         ),
         _listTile(
+          leadingIcon: Icons.play_lesson_outlined,
           titleText: '再生履歴',
           onTap: () {
             Navigator.pushNamed(context, '/play-history');
           },
         ),
         _listTile(
+          leadingIcon: Icons.notifications_outlined,
           titleText: 'お知らせ',
           onTap: () {
             Navigator.pushNamed(context, '/news');
           },
         ),
         _listTile(
+          leadingIcon: Icons.question_answer_outlined,
           titleText: 'よくある質問',
           onTap: () {
             // Navigator.pushNamed(context, '/fixme');
           },
         ),
         _listTile(
+          leadingIcon: Icons.contact_page_outlined,
           titleText: 'お問い合わせ',
           onTap: () {
             // Navigator.pushNamed(context, '/fixme');
@@ -52,6 +58,7 @@ class HomeLinkList extends ConsumerWidget {
 
   Widget _listTile({
     required String titleText,
+    required IconData leadingIcon,
     required VoidCallback onTap,
   }) {
     return Container(
@@ -67,6 +74,8 @@ class HomeLinkList extends ConsumerWidget {
           ),
         ),
         onTap: onTap,
+        leading: Icon(leadingIcon),
+        minLeadingWidth: 0,
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 16,

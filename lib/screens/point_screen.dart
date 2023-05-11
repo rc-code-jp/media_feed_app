@@ -23,7 +23,10 @@ class PointScreen extends ConsumerWidget {
         child: SafeArea(
           child: Column(
             children: const [
-              PointTotal(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: PointTotal(),
+              ),
               SizedBox(height: 20),
               Text(
                 '獲得・交換履歴（直近の6ヶ月分を表示しています）',
@@ -35,7 +38,10 @@ class PointScreen extends ConsumerWidget {
               SizedBox(height: 10),
               Expanded(
                 child: SingleChildScrollView(
-                  child: PointHistoryList(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: PointHistoryList(),
+                  ),
                 ),
               )
             ],

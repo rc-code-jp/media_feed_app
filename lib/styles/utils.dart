@@ -14,8 +14,7 @@ class UtilStyles {
   );
 
   static BoxDecoration decorationGlass = BoxDecoration(
-    color: AppColors.white.withOpacity(0.1),
-    border: Border.all(color: AppColors.white),
+    color: AppColors.white.withAlpha(50),
     borderRadius: BorderRadius.circular(10),
   );
 }

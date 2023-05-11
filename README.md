@@ -85,6 +85,8 @@ Updated at: 2023/05/07.
 screens ディレクトリ直下の画面のみ main.dart にルート取りて登録する。
 （それ以外は Scaffold を持たないため、ルートに登録しない）
 
+FIXME: 更新してない
+
 ```
 /lib/screens
 ├── tutorial_screen ... チュートリアル

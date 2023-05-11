@@ -9,10 +9,8 @@ class PointToday extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = MediaQuery.of(context).size;
-
     return Container(
-      width: size.width * 0.9,
+      width: double.infinity,
       height: 200,
       decoration: UtilStyles.decorationGlass,
       child: Column(

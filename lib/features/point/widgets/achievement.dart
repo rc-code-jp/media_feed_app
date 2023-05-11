@@ -25,13 +25,16 @@ class Achievement extends ConsumerWidget {
           TextSpan(
             children: [
               TextSpan(
-                text:
-                    '${NumberFormat('#,##0').format(value)}${pointUnit ?? ''}',
+                text: NumberFormat('#,##0').format(value),
                 style: const TextStyle(
                   fontSize: 50,
                   color: AppColors.white,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+              TextSpan(
+                text: pointUnit ?? '',
+                style: const TextStyle(color: AppColors.white, fontSize: 20),
               ),
               maxPoint != null
                   ? TextSpan(
