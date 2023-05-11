@@ -46,8 +46,8 @@ class PlayHistoryList extends ConsumerWidget {
     return Column(
       children: items.map((item) {
         return _listTile(
-          subtitleText: item['title'],
           titleText: item['artist'],
+          subtitleText: item['title'],
           onTap: () => {},
         );
       }).toList(),

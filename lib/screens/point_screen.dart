@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/features/point/widgets/point_history_list.dart';
 import 'package:media_feed_app/features/point/widgets/point_total.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
@@ -21,7 +22,23 @@ class PointScreen extends ConsumerWidget {
         decoration: UtilStyles.decorationGradient,
         child: SafeArea(
           child: Column(
-            children: const [PointTotal()],
+            children: const [
+              PointTotal(),
+              SizedBox(height: 20),
+              Text(
+                '獲得・交換履歴（直近の6ヶ月分を表示しています）',
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(height: 10),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: PointHistoryList(),
+                ),
+              )
+            ],
           ),
         ),
       ),
