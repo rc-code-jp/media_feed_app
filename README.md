@@ -43,7 +43,7 @@ fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --
 
 ```
 # 出力フォルダを開く
-open media_feed_app/build/ios/ipa
+open ./build/ios/ipa
 ```
 
 ## リリースビルド android

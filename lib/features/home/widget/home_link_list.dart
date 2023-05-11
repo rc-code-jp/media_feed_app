@@ -14,7 +14,7 @@ class HomeLinkList extends ConsumerWidget {
           leadingIcon: Icons.person_outline,
           titleText: 'アカウント設定',
           onTap: () {
-            // Navigator.pushNamed(context, '/fixme');
+            Navigator.pushNamed(context, '/setting');
           },
         ),
         _listTile(
@@ -48,6 +48,20 @@ class HomeLinkList extends ConsumerWidget {
         _listTile(
           leadingIcon: Icons.contact_page_outlined,
           titleText: 'お問い合わせ',
+          onTap: () {
+            // Navigator.pushNamed(context, '/fixme');
+          },
+        ),
+        _listTile(
+          leadingIcon: Icons.note_outlined,
+          titleText: '利用規約',
+          onTap: () {
+            // Navigator.pushNamed(context, '/fixme');
+          },
+        ),
+        _listTile(
+          leadingIcon: Icons.note_outlined,
+          titleText: 'プライバシーポリシー',
           onTap: () {
             // Navigator.pushNamed(context, '/fixme');
           },

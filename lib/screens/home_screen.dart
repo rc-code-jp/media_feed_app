@@ -9,26 +9,28 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          AppBar(
-            title: const Text('マイページ'),
-            backgroundColor: AppColors.transparent,
-            elevation: 0,
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        AppBar(
+          title: const Text('マイページ'),
+          backgroundColor: AppColors.transparent,
+          elevation: 0,
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: PointToday(),
+        ),
+        const SizedBox(height: 10),
+        const Expanded(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: HomeLinkList(),
+            ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: PointToday(),
-          ),
-          const SizedBox(height: 10),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: HomeLinkList(),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

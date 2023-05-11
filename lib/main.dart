@@ -6,6 +6,7 @@ import 'package:media_feed_app/screens/main_screen.dart';
 import 'package:media_feed_app/screens/news_screen.dart';
 import 'package:media_feed_app/screens/play_history_screen.dart';
 import 'package:media_feed_app/screens/point_screen.dart';
+import 'package:media_feed_app/screens/setting_screen.dart';
 import 'package:media_feed_app/screens/sign_in_screen.dart';
 import 'package:media_feed_app/screens/sign_up_screen.dart';
 import 'package:media_feed_app/screens/start_screen.dart';
@@ -72,6 +73,7 @@ class MyApp extends ConsumerWidget {
               '/play-history': (context) => const PlayHistoryScreen(),
               '/news': (context) => const NewsScreen(),
               '/point': (context) => const PointScreen(),
+              '/setting': (context) => const SettingScreen(),
             },
             home: loggedIn ? const MainScreen() : const StartScreen(),
           );
