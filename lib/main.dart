@@ -98,7 +98,6 @@ class MyApp extends ConsumerWidget {
               primarySwatch: Colors.red,
             ),
             routes: {
-              // ※ '/' スラッシュのみのルートはhomeで指定しているため不要
               // ここに書くのはScaffoldを返すルートのみ
               '/main': (context) => const MainScreen(),
               '/start': (context) => const StartScreen(),

@@ -35,8 +35,13 @@ class SignUpFormState extends ConsumerState<SignUpForm> {
             onPressed: () {
               // ログイン処理
               AuthStorage().write('dummy');
-              // ログイン後にホーム画面に遷移
-              Navigator.pushReplacementNamed(context, '/main');
+
+              // 画面をすべて除いてメイン画面に遷移
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/main',
+                (route) => false,
+              );
             },
             child: const Text('認証する'),
           ),
