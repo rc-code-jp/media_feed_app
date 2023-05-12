@@ -55,10 +55,18 @@ fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
 
 ## スプラッシュ画面の生成
 
-[https://pub.dev/packages/flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
+[flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
 
 ```
 fvm flutter pub run flutter_native_splash:create
+```
+
+## アプリアイコンの生成
+
+[flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
+
+```
+fvm flutter pub run flutter_launcher_icons
 ```
 
 ## 構造
