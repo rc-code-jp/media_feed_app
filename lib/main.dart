@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,6 +40,19 @@ class MyApp extends ConsumerWidget {
     await Future.delayed(const Duration(milliseconds: 500));
     // スプラッシュを消す
     FlutterNativeSplash.remove();
+
+    // // FCM の通知権限リクエスト
+    final messaging = FirebaseMessaging.instance;
+    await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
     return hasToken;
   }
 
