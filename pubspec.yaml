@@ -48,16 +48,16 @@ flutter:
     # 画像
     - assets/images/artist.png
     # 動画
-    - assets/videos/1.mp4
-    - assets/videos/2.mp4
-    - assets/videos/3.mp4
-    - assets/videos/4.mp4
-    - assets/videos/5.mp4
-    - assets/videos/6.mp4
-    - assets/videos/7.mp4
-    - assets/videos/8.mp4
-    - assets/videos/9.mp4
-    - assets/videos/10.mp4
+    - assets/videos/ano.mp4
+    - assets/videos/asaki_l.mp4
+    - assets/videos/asaki.mp4
+    - assets/videos/burande.mp4
+    - assets/videos/chi.mp4
+    - assets/videos/hina.mp4
+    - assets/videos/tomo.mp4
+    - assets/videos/idol_aa.mp4
+    - assets/videos/yoasobi_17.mp4
+    - assets/videos/zepa.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
