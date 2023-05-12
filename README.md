@@ -53,6 +53,14 @@ open ./build/ios/ipa
 fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
 ```
 
+## スプラッシュ画面の生成
+
+[https://pub.dev/packages/flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
+
+```
+fvm flutter pub run flutter_native_splash:create
+```
+
 ## 構造
 
 **作成するファイルはすべて小文字スネークケース**
