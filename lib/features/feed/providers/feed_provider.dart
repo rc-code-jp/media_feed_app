@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/styles/colors.dart';
 
 final feedProvider =
     StateNotifierProvider.autoDispose<FeedStateNotifier, List<FeedItem>>((ref) {
@@ -137,10 +139,23 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
-  // 完了状態を変更
+  // 獲得状態を変更
   void acquisitionItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
     feedItem.isAcquired = true;
     state = [...state];
+
+    // エラーを発生させる（仮）
+    if (id == '3') {
+      Fluttertoast.showToast(
+        msg: "エラーが発生しました、何も起きていません。",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 2,
+        backgroundColor: AppColors.black,
+        textColor: AppColors.white,
+        fontSize: 16.0,
+      );
+    }
   }
 }

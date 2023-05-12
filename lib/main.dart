@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
@@ -17,6 +18,10 @@ void main() {
   const flavorName = String.fromEnvironment('flavor');
   logger.info('flavorName: $flavorName');
 
+  // スプラッシュを自動で消さないようにする
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -29,7 +34,12 @@ class MyApp extends ConsumerWidget {
 
   // ログインチェック
   Future<bool> isLoggedIn() async {
-    return await AuthStorage().has();
+    final hasToken = await AuthStorage().has();
+    // ダミーで1秒待つ
+    await Future.delayed(const Duration(milliseconds: 500));
+    // スプラッシュを消す
+    FlutterNativeSplash.remove();
+    return hasToken;
   }
 
   @override
