@@ -29,7 +29,8 @@ fvm flutter doctor
 
 ## リリースビルド ios
 
-Automatic manage signing でも大丈夫かも？  
+Automatic manage signing でも大丈夫かも？
+（dev,stg,prd 分を import する必要がある）
 ios/EnvFiles の設定が必要です.
 
 ```
