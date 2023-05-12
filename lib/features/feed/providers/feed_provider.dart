@@ -49,18 +49,8 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         title: '超破滅的思考',
         artistName: '4s4ki',
         url: 'assets/videos/4.mp4',
-        tags: ['ポップス', 'J-POP'],
+        tags: ['ラップ', 'ボーカル'],
       ),
-    ];
-    state = [...state, ...items];
-  }
-
-  // 次のアイテムを読み込む
-  Future<void> fetchNextItems() async {
-    if (state.length >= 5) {
-      return;
-    }
-    final items = [
       FeedItem(
         id: '5',
         title: '来たれ！ぱすはに道',
@@ -68,6 +58,16 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         url: 'assets/videos/5.mp4',
         tags: ['アイドル', 'アニメ', 'インフルエンサー'],
       ),
+    ];
+    state = [...state, ...items];
+  }
+
+  // 次のアイテムを読み込む
+  Future<void> fetchNextItems() async {
+    if (state.length >= 6) {
+      return;
+    }
+    final items = [
       FeedItem(
         id: '6',
         title: '酔ひもせず ',
@@ -88,6 +88,20 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         artistName: 'ブランデー戦記',
         url: 'assets/videos/8.mp4',
         tags: ['バンド', 'ロック', 'MV'],
+      ),
+      FeedItem(
+        id: '9',
+        title: 'Sugar Junky',
+        artistName: '4s4ki',
+        url: 'assets/videos/9.mp4',
+        tags: ['ラップ', 'ボーカル'],
+      ),
+      FeedItem(
+        id: '10',
+        title: 'ヘッドライナーガール',
+        artistName: '夜行性アミューズ',
+        url: 'assets/videos/10.mp4',
+        tags: ['アイドル'],
       ),
     ];
     state = [...state, ...items];

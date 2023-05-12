@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 0.1.6+1
+version: 0.1.7+2
 
 environment:
   sdk: ">=2.19.6 <3.0.0" # Dartのバージョン
@@ -56,6 +56,8 @@ flutter:
     - assets/videos/6.mp4
     - assets/videos/7.mp4
     - assets/videos/8.mp4
+    - assets/videos/9.mp4
+    - assets/videos/10.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
