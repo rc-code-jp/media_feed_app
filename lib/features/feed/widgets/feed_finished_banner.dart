@@ -42,13 +42,15 @@ class FeedFinishedBanner extends ConsumerWidget {
         tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(milliseconds: 300),
         child: Container(
-          width: double.infinity,
-          height: 100,
+          width: 300,
+          height: 150,
           decoration: BoxDecoration(
-            color: AppColors.primary.withAlpha(100),
+            color: AppColors.primary.withAlpha(150),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
                 '評価してポイントを獲得',

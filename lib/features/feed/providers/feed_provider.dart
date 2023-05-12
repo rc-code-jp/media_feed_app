@@ -42,6 +42,13 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         url: 'assets/videos/3.mp4',
         tags: ['ポップス', 'J-POP', 'アニメ'],
       ),
+      FeedItem(
+        id: '4',
+        title: '超破滅的思考',
+        artistName: '4s4ki',
+        url: 'assets/videos/4.mp4',
+        tags: ['ポップス', 'J-POP'],
+      ),
     ];
     state = [...state, ...items];
   }
@@ -53,25 +60,32 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     }
     final items = [
       FeedItem(
-        id: '4',
-        title: '酔ひもせず ',
-        artistName: 'TOMOO',
-        url: 'assets/videos/4.mp4',
-        tags: ['ポップス', 'J-POP'],
-      ),
-      FeedItem(
         id: '5',
-        title: 'Musica',
-        artistName: 'ブランデー戦記',
+        title: '来たれ！ぱすはに道',
+        artistName: 'ぱすはに',
         url: 'assets/videos/5.mp4',
-        tags: ['バンド', 'ロック', 'MV'],
+        tags: ['アイドル', 'アニメ', 'インフルエンサー'],
       ),
       FeedItem(
         id: '6',
-        title: '来たれ！ぱすはに道',
-        artistName: 'ぱすはに',
+        title: '酔ひもせず ',
+        artistName: 'TOMOO',
         url: 'assets/videos/6.mp4',
-        tags: ['アイドル', 'アニメ', 'インフルエンサー'],
+        tags: ['ポップス', 'J-POP'],
+      ),
+      FeedItem(
+        id: '7',
+        title: 'ってか',
+        artistName: '日向坂46',
+        url: 'assets/videos/7.mp4',
+        tags: ['アイドル', 'MV'],
+      ),
+      FeedItem(
+        id: '8',
+        title: 'Musica',
+        artistName: 'ブランデー戦記',
+        url: 'assets/videos/8.mp4',
+        tags: ['バンド', 'ロック', 'MV'],
       ),
     ];
     state = [...state, ...items];

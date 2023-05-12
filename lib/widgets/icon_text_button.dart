@@ -5,7 +5,7 @@ class IconTextButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Icon icon;
   final Text text;
-  final double margin;
+  final double? margin;
 
   const IconTextButton({
     Key? key,
