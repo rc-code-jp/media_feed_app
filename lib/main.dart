@@ -3,6 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/firebase_options_prd.dart' as fb_option_prd;
+import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/screens/main_screen.dart';
@@ -16,13 +18,21 @@ import 'package:media_feed_app/screens/start_screen.dart';
 import 'package:media_feed_app/screens/tutorial_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-void main() {
+Future<void> main() async {
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  // スプラッシュを自動で消さないようにする
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   const flavorName = String.fromEnvironment('flavor');
   logger.info('flavorName: $flavorName');
 
-  // スプラッシュを自動で消さないようにする
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Firebase.initializeApp(
+    // 本番環境はprd、それ以外はstg
+    options: flavorName == 'prd'
+        ? fb_option_prd.DefaultFirebaseOptions.currentPlatform
+        : fb_option_stg.DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(
     const ProviderScope(
@@ -41,10 +51,6 @@ class MyApp extends ConsumerWidget {
     await Future.delayed(const Duration(milliseconds: 500));
     // スプラッシュを消す
     FlutterNativeSplash.remove();
-
-    await Firebase.initializeApp(
-        // options: DefaultFirebaseOptions.currentPlatform,
-        );
 
     // // FCM の通知権限リクエスト
     final messaging = FirebaseMessaging.instance;
