@@ -86,7 +86,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         id: '7',
         title: 'かくれんぼ',
         artistName: 'AliA',
-        url: 'assets/videos/hina.mp4',
+        url: 'assets/videos/alia.mp4',
         tags: ['アイドル', 'MV'],
       ),
       FeedItem(
