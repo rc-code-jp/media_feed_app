@@ -71,13 +71,13 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
             value: _progressValue - 2, // 3周目から始める
           ),
           const SizedBox(
-            width: 20,
+            width: 30,
           ),
           ProgressCircle(
             value: _progressValue - 1, // 2周目から始める
           ),
           const SizedBox(
-            width: 20,
+            width: 30,
           ),
           ProgressCircle(
             value: _progressValue,

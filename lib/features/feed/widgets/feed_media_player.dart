@@ -39,21 +39,6 @@ class FeedMediaPlayer extends ConsumerWidget {
             color: AppColors.black,
             child: MediaPlayer(videoController: feedItem.videoController!),
           ),
-
-          // 停止表示
-          feedItem.isPlayingVideo()
-              ? Container()
-              : const Align(
-                  alignment: Alignment.center,
-                  child: Opacity(
-                    opacity: 0.7,
-                    child: Icon(
-                      Icons.pause,
-                      size: 50,
-                      color: AppColors.white,
-                    ),
-                  ),
-                ),
         ],
       ),
     );

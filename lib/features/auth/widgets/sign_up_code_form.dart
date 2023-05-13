@@ -47,6 +47,7 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
             Pinput(
               controller: pinController,
               focusNode: focusNode,
+              autofocus: true,
               length: 6,
             ),
             const SizedBox(
@@ -55,6 +56,7 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
             // 認証ボタン
             ElevatedButton(
               onPressed: () {
+                focusNode.unfocus();
                 // ログイン処理
                 AuthStorage().write('dummy');
 

@@ -14,10 +14,10 @@ class ProgressCircle extends ConsumerWidget {
       children: [
         // サークル
         CircularProgressIndicator(
-          strokeWidth: 2,
+          strokeWidth: 3,
           value: value,
           color: AppColors.primary,
-          backgroundColor: AppColors.white.withAlpha(50),
+          backgroundColor: AppColors.white.withOpacity(0.3),
         ),
         // アイコン（完了時にフェードイン）
         Align(

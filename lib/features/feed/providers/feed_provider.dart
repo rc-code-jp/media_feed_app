@@ -45,13 +45,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         tags: ['ポップス', 'J-POP', 'アニメ'],
       ),
       FeedItem(
-        id: '4',
-        title: '超破滅的思考',
-        artistName: '4s4ki',
-        url: 'assets/videos/asaki.mp4',
-        tags: ['ラップ', 'ボーカル'],
-      ),
-      FeedItem(
         id: '9',
         title: 'Sugar Junky',
         artistName: '4s4ki',
@@ -69,13 +62,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     }
     final items = [
       FeedItem(
-        id: '10',
-        title: '青春グラフィティー',
-        artistName: 'Peel the Apple',
-        url: 'assets/videos/idol_aa.mp4',
-        tags: ['アイドル'],
-      ),
-      FeedItem(
         id: '5',
         title: '来たれ！ぱすはに道',
         artistName: 'ぱすはに',
@@ -83,25 +69,25 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
         tags: ['アイドル', 'アニメ', 'インフルエンサー'],
       ),
       FeedItem(
+        id: '4',
+        title: '超破滅的思考',
+        artistName: '4s4ki',
+        url: 'assets/videos/asaki.mp4',
+        tags: ['ラップ', 'ボーカル'],
+      ),
+      FeedItem(
+        id: '10',
+        title: '青春グラフィティー',
+        artistName: 'Peel the Apple',
+        url: 'assets/videos/idol_aa.mp4',
+        tags: ['アイドル'],
+      ),
+      FeedItem(
         id: '7',
         title: 'かくれんぼ',
         artistName: 'AliA',
         url: 'assets/videos/alia.mp4',
         tags: ['アイドル', 'MV'],
-      ),
-      FeedItem(
-        id: '8',
-        title: 'Musica',
-        artistName: 'ブランデー戦記',
-        url: 'assets/videos/burande.mp4',
-        tags: ['バンド', 'ロック', 'MV'],
-      ),
-      FeedItem(
-        id: '6',
-        title: '酔ひもせず ',
-        artistName: 'TOMOO',
-        url: 'assets/videos/tomo.mp4',
-        tags: ['ポップス', 'J-POP'],
       ),
     ];
     state = [...state, ...items];

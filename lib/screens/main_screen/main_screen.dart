@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/screens/change_screen.dart';
-import 'package:media_feed_app/screens/feed_screen.dart';
-import 'package:media_feed_app/screens/my_page_screen.dart';
+import 'package:media_feed_app/screens/change_screen/change_screen.dart';
+import 'package:media_feed_app/screens/feed_screen/feed_screen.dart';
+import 'package:media_feed_app/screens/my_page_screen/my_page_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 

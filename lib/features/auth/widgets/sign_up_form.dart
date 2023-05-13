@@ -35,7 +35,7 @@ class SignUpFormState extends ConsumerState<SignUpForm> {
           ElevatedButton(
             onPressed: () {
               // コード認証画面へ
-              Navigator.pushNamed(context, '/sign-up/auth');
+              Navigator.pushNamed(context, '/sign-up/code');
             },
             child: const Text('認証する'),
           ),

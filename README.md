@@ -87,10 +87,14 @@ fvm flutter pub run flutter_launcher_icons
 │   ├── providers ... グローバルな状態管理
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
-│   ├── screens   ... スクリーン（ページ）
 │   ├── styles    ... 共通スタイル
+│   ├── screens   ... スクリーン（ページ）
+│   │   ├── xxx   ... スクリーン名フォルダ内に同名dartファイルを入れる
+│   │   │   ├── xxx.dart  ... スクリーンファイル
+│   │   │   └── yyy       ... 下層ページはスクリーンフォルダ内に入れる
+│   │   └── .
 │   ├── features
-│   │   ├── xxxx  ... usersなどの機能名ディレクトリを切る
+│   │   ├── xxx   ... usersなどの機能名ディレクトリを切る
 │   │   │   ├── models    ... モデル
 │   │   │   ├── providers ... 状態管理
 │   │   │   └── widgets   ... コンポーネント
