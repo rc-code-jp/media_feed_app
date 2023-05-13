@@ -13,7 +13,7 @@ class MyPageScreen extends ConsumerWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         AppBar(
-          title: const Text('マイページ'),
+          title: const Text('マイページ', style: TextStyle(color: AppColors.white)),
           backgroundColor: AppColors.transparent,
           elevation: 0,
         ),

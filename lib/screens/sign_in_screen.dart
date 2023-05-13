@@ -12,15 +12,15 @@ class SignInScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('ログイン'),
+        title: const Text('ログイン', style: TextStyle(color: AppColors.white)),
         backgroundColor: AppColors.transparent,
         elevation: 0,
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
-            children: const [SignInForm()],
+            children: [SignInForm()],
           ),
         ),
       ),

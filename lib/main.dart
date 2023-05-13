@@ -92,7 +92,8 @@ class MyApp extends ConsumerWidget {
             title: title,
             themeMode: ThemeMode.light,
             theme: ThemeData(
-              primarySwatch: Colors.deepOrange,
+              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+              useMaterial3: true,
             ),
             routes: routes,
             home: loggedIn ? const MainScreen() : const StartScreen(),

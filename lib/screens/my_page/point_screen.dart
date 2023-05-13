@@ -13,16 +13,16 @@ class PointScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('ポイント'),
+        title: const Text('ポイント', style: TextStyle(color: AppColors.white)),
         backgroundColor: AppColors.transparent,
         elevation: 0,
       ),
       body: Container(
         width: double.infinity,
         decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: PointTotal(),
