@@ -7,15 +7,9 @@ import 'package:media_feed_app/firebase_options_prd.dart' as fb_option_prd;
 import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
+import 'package:media_feed_app/routes.dart';
 import 'package:media_feed_app/screens/main_screen.dart';
-import 'package:media_feed_app/screens/news_screen.dart';
-import 'package:media_feed_app/screens/play_history_screen.dart';
-import 'package:media_feed_app/screens/point_screen.dart';
-import 'package:media_feed_app/screens/setting_screen.dart';
-import 'package:media_feed_app/screens/sign_in_screen.dart';
-import 'package:media_feed_app/screens/sign_up_screen.dart';
 import 'package:media_feed_app/screens/start_screen.dart';
-import 'package:media_feed_app/screens/tutorial_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 Future<void> main() async {
@@ -24,9 +18,11 @@ Future<void> main() async {
   // スプラッシュを自動で消さないようにする
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+  // 環境名確認
   const flavorName = String.fromEnvironment('flavor');
   logger.info('flavorName: $flavorName');
 
+  // Firebaseを初期化
   await Firebase.initializeApp(
     // 本番環境はprd、それ以外はstg
     options: flavorName == 'prd'
@@ -34,6 +30,7 @@ Future<void> main() async {
         : fb_option_stg.DefaultFirebaseOptions.currentPlatform,
   );
 
+  // 起動
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -74,12 +71,12 @@ class MyApp extends ConsumerWidget {
     return FutureBuilder<bool>(
       future: isLoggedIn(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
+        if (snapshot.connectionState != ConnectionState.done) {
           // ログイン状態の取得が完了するまでローディング表示を行う
           return const MaterialApp(
             title: title,
             home: Scaffold(
-              backgroundColor: AppColors.black,
+              backgroundColor: AppColors.primary,
               body: Center(
                 child: CircularProgressIndicator(
                   color: AppColors.white,
@@ -95,20 +92,9 @@ class MyApp extends ConsumerWidget {
             title: title,
             themeMode: ThemeMode.light,
             theme: ThemeData(
-              primarySwatch: Colors.red,
+              primarySwatch: Colors.deepOrange,
             ),
-            routes: {
-              // ここに書くのはScaffoldを返すルートのみ
-              '/main': (context) => const MainScreen(),
-              '/start': (context) => const StartScreen(),
-              '/tutorial': (context) => const TutorialScreen(),
-              '/sign-in': (context) => const SignInScreen(),
-              '/sign-up': (context) => const SignUpScreen(),
-              '/play-history': (context) => const PlayHistoryScreen(),
-              '/news': (context) => const NewsScreen(),
-              '/point': (context) => const PointScreen(),
-              '/setting': (context) => const SettingScreen(),
-            },
+            routes: routes,
             home: loggedIn ? const MainScreen() : const StartScreen(),
           );
         }

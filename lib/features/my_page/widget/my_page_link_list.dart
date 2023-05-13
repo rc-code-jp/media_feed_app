@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
-class HomeLinkList extends ConsumerWidget {
-  const HomeLinkList({Key? key}) : super(key: key);
+class MyPageLinkList extends ConsumerWidget {
+  const MyPageLinkList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,28 +14,28 @@ class HomeLinkList extends ConsumerWidget {
           leadingIcon: Icons.person_outline,
           titleText: 'アカウント設定',
           onTap: () {
-            Navigator.pushNamed(context, '/setting');
+            Navigator.pushNamed(context, '/my_page/setting');
           },
         ),
         _listTile(
           leadingIcon: Icons.verified_outlined,
           titleText: 'ポイント詳細',
           onTap: () {
-            Navigator.pushNamed(context, '/point');
+            Navigator.pushNamed(context, '/my_page/point');
           },
         ),
         _listTile(
           leadingIcon: Icons.play_lesson_outlined,
           titleText: '再生履歴',
           onTap: () {
-            Navigator.pushNamed(context, '/play-history');
+            Navigator.pushNamed(context, '/my_page/play-history');
           },
         ),
         _listTile(
           leadingIcon: Icons.notifications_outlined,
           titleText: 'お知らせ',
           onTap: () {
-            Navigator.pushNamed(context, '/news');
+            Navigator.pushNamed(context, '/my_page/news');
           },
         ),
         _listTile(

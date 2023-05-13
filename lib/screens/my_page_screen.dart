@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/home/widget/home_link_list.dart';
+import 'package:media_feed_app/features/my_page/widget/my_page_link_list.dart';
 import 'package:media_feed_app/features/point/widgets/point_today.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class MyPageScreen extends ConsumerWidget {
+  const MyPageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,7 +26,7 @@ class HomeScreen extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
-              child: HomeLinkList(),
+              child: MyPageLinkList(),
             ),
           ),
         ),

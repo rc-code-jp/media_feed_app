@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/screens/change_screen.dart';
 import 'package:media_feed_app/screens/feed_screen.dart';
-import 'package:media_feed_app/screens/home_screen.dart';
+import 'package:media_feed_app/screens/my_page_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
@@ -18,7 +18,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
   final List<Widget> _screens = [
     const ChangeScreen(),
     const FeedScreen(),
-    const HomeScreen(),
+    const MyPageScreen(),
   ];
 
   // ナビゲーションバーのアイテム
@@ -40,7 +40,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
     ),
   ];
 
-  int _selectedIndex = 1; // HomeScreenを初期表示
+  int _selectedIndex = 1;
 
   @override
   void initState() {

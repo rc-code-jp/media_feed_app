@@ -26,7 +26,7 @@ lefthook install
 ## リリースビルド ios
 
 Automatic manage signing でも大丈夫かも？
-（dev,stg,prd 分の profile を import する必要がある）
+（dev,stg,prd分のprofileをimportする必要がある）
 
 ```
 # 先にクリーンしておく
@@ -69,6 +69,8 @@ fvm flutter pub run flutter_launcher_icons
 ## 構造
 
 **作成するファイルはすべて小文字スネークケース**
+
+**features間のimportは禁止**
 
 ```
 /

@@ -15,6 +15,10 @@
     "source.fixAll": true,
     "source.organizeImports": true
   },
+  // 自動フォーマット除外
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   // dart
   "dart.closingLabels": false,
   "cSpell.words": [
