@@ -18,6 +18,8 @@ class StartScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
+              // 上下にExpandedを置くと間の要素が中央に来る
+              const Expanded(child: SizedBox.shrink()),
               // チュートリアルへ
               ElevatedButton(
                 onPressed: () {
@@ -25,13 +27,11 @@ class StartScreen extends ConsumerWidget {
                 },
                 child: const Text('はじめる'),
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              const Expanded(child: SizedBox.shrink()),
               // ログインへ
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/sign-in');
+                  Navigator.pushNamed(context, '/auth/sign-in');
                 },
                 child: const Text('アカウントでログイン'),
               ),

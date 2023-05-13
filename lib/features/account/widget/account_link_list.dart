@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
-class MyPageLinkList extends ConsumerWidget {
-  const MyPageLinkList({Key? key}) : super(key: key);
+class AccountLinkList extends ConsumerWidget {
+  const AccountLinkList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

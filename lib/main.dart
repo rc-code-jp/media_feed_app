@@ -8,8 +8,8 @@ import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/routes.dart';
-import 'package:media_feed_app/screens/main_screen/main_screen.dart';
-import 'package:media_feed_app/screens/start_screen/start_screen.dart';
+import 'package:media_feed_app/screens/main/main_screen.dart';
+import 'package:media_feed_app/screens/start/start_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 Future<void> main() async {

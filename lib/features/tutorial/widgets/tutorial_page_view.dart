@@ -13,13 +13,13 @@ class TutorialPageView extends ConsumerWidget {
       children: [
         const Center(
           child: Text(
-            '1',
+            'チュートリアル1',
             style: TextStyle(color: AppColors.white),
           ),
         ),
         const Center(
           child: Text(
-            '2',
+            'チュートリアル2',
             style: TextStyle(color: AppColors.white),
           ),
         ),
@@ -29,7 +29,7 @@ class TutorialPageView extends ConsumerWidget {
             ElevatedButton(
               onPressed: () {
                 // チュートリアル完了後にログイン画面に遷移
-                Navigator.pushReplacementNamed(context, '/sign-up');
+                Navigator.pushReplacementNamed(context, '/auth/sign-up');
               },
               child: const Text('新規会員登録'),
             ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/my_page/widget/my_page_link_list.dart';
+import 'package:media_feed_app/features/account/widget/account_link_list.dart';
 import 'package:media_feed_app/features/point/widgets/point_today.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
@@ -27,7 +27,7 @@ class MyPageScreen extends ConsumerWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
-              child: MyPageLinkList(),
+              child: AccountLinkList(),
             ),
           ),
         ),
