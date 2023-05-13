@@ -17,6 +17,12 @@
 lefthook install
 ```
 
+### パッケージインストール
+
+```
+fvm flutter pub get
+```
+
 ## 起動
 
 起動は VSCode の起動コマンドを参照。
