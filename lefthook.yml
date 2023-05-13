@@ -2,6 +2,6 @@ pre-commit:
   commands:
     pretty:
       glob: "*.dart"
-      run: fvm flutter format {staged_files} && git add {staged_files}
+      run: fvm dart format {staged_files} && git add {staged_files}
     linter:
       run: fvm flutter analyze

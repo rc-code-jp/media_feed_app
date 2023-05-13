@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/libraries/auth_storage.dart';
 
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -10,12 +9,14 @@ class SignUpForm extends ConsumerStatefulWidget {
 }
 
 class SignUpFormState extends ConsumerState<SignUpForm> {
-  final _formKey = GlobalKey<FormState>();
+  final pinController = TextEditingController();
+  final focusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: formKey,
       child: Column(
         children: [
           TextFormField(
@@ -33,15 +34,8 @@ class SignUpFormState extends ConsumerState<SignUpForm> {
           ),
           ElevatedButton(
             onPressed: () {
-              // ログイン処理
-              AuthStorage().write('dummy');
-
-              // 画面をすべて除いてメイン画面に遷移
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                '/main',
-                (route) => false,
-              );
+              // コード認証画面へ
+              Navigator.pushNamed(context, '/sign-up/auth');
             },
             child: const Text('認証する'),
           ),

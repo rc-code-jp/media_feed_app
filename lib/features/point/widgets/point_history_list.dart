@@ -85,10 +85,10 @@ class PointHistoryList extends ConsumerWidget {
             fontSize: 20,
           ),
         ),
-        trailing: Column(
+        trailing: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: const [
+          children: [
             Text(
               '10pt',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

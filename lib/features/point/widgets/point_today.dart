@@ -13,10 +13,10 @@ class PointToday extends ConsumerWidget {
       width: double.infinity,
       height: 200,
       decoration: UtilStyles.decorationGlass,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
-        children: const [
+        children: [
           Text(
             '今日の獲得ポイント',
             style: TextStyle(fontSize: 16, color: AppColors.white),

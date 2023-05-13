@@ -10,12 +10,12 @@ class SignInForm extends ConsumerStatefulWidget {
 }
 
 class SignInFormState extends ConsumerState<SignInForm> {
-  final _formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
+      key: formKey,
       child: Column(
         children: [
           TextFormField(

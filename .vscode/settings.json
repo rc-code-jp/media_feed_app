@@ -21,8 +21,5 @@
   },
   // dart
   "dart.closingLabels": false,
-  "cSpell.words": [
-    "riverpod",
-    "fluttertoast"
-  ]
+  "cSpell.words": ["fluttertoast", "Pinput", "riverpod"]
 }

@@ -2,7 +2,7 @@ name: media_feed_app
 description: media_feed_app
 publish_to: "none"
 
-version: 0.2.0+3
+version: 0.2.1+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -20,6 +20,7 @@ dependencies:
   share_plus: ^7.0.0
   flutter_secure_storage: ^8.0.0
   package_info_plus: ^4.0.0
+  pinput: ^2.2.31
   flutter_native_splash: ^2.2.19
   fluttertoast: ^8.2.1
   firebase_messaging: ^14.6.0
