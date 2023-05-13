@@ -43,7 +43,7 @@ flutter:
   # アセット
   assets:
     # アイコン
-    - assets/icon/icon.png
+    - assets/icon/logo.png
     # 画像
     - assets/images/artist.png
     # 動画

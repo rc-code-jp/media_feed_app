@@ -1,2 +1,3 @@
 flutter_native_splash:
   color: "#FF8A65"
+  image: "assets/icon/logo-text.png"
