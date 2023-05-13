@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/widgets/detail_modal.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/dialog/detail_modal.dart';
 import 'package:media_feed_app/widgets/icon_text_button.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -45,7 +45,11 @@ class FeedCardActions extends ConsumerWidget {
                 context: context,
                 backgroundColor: AppColors.black.withOpacity(0.8),
                 builder: (BuildContext context) {
-                  return DetailModal(feedItem: feedItem);
+                  return DetailModal(
+                    artistName: feedItem.artistName,
+                    title: feedItem.title,
+                    subTitle: feedItem.hashtagNames(),
+                  );
                 },
               );
             },

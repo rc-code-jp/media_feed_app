@@ -14,13 +14,14 @@ class SignUpScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('新規会員登録'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
-            children: const [SignUpForm()],
+            children: [SignUpForm()],
           ),
         ),
       ),

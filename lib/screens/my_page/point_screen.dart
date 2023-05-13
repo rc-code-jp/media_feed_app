@@ -15,14 +15,15 @@ class PointScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('ポイント'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(
         width: double.infinity,
         decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: PointTotal(),

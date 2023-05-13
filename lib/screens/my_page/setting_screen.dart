@@ -25,6 +25,7 @@ class SettingScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('アカウント設定'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

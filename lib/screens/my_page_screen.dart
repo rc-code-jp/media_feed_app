@@ -15,6 +15,7 @@ class MyPageScreen extends ConsumerWidget {
         AppBar(
           title: const Text('マイページ'),
           backgroundColor: AppColors.transparent,
+          foregroundColor: AppColors.white,
           elevation: 0,
         ),
         const Padding(

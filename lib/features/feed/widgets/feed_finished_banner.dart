@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
-import 'package:media_feed_app/features/feed/widgets/point_dialog.dart';
 import 'package:media_feed_app/features/feed/widgets/star_button_list.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/dialog/point_dialog.dart';
 
 class FeedFinishedBanner extends ConsumerWidget {
   final FeedItem feedItem;

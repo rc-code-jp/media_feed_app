@@ -13,14 +13,15 @@ class NewsScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('お知らせ'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(
         width: double.infinity,
         decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
+        child: const SafeArea(
           child: Column(
-            children: const [Text('お知らせ')],
+            children: [Text('お知らせ')],
           ),
         ),
       ),

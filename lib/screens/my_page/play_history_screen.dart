@@ -14,16 +14,17 @@ class PlayHistoryScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('再生履歴'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
-        child: DefaultTabController(
+        child: const DefaultTabController(
           length: 2,
           initialIndex: 0,
           child: SafeArea(
             child: Column(
-              children: const [
+              children: [
                 // タブ
                 TabBar(
                   labelColor: AppColors.white,
