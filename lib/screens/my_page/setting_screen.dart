@@ -23,8 +23,9 @@ class SettingScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('アカウント設定', style: TextStyle(color: AppColors.white)),
+        title: const Text('アカウント設定'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
+import 'package:media_feed_app/widgets/dialog/detail_modal.dart';
 
 final List items = [
   {
@@ -48,7 +49,19 @@ class PlayHistoryList extends ConsumerWidget {
         return _listTile(
           titleText: item['artist'],
           subtitleText: item['title'],
-          onTap: () => {},
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              backgroundColor: AppColors.black.withOpacity(0.8),
+              builder: (BuildContext context) {
+                return DetailModal(
+                  artistName: item['artist'],
+                  title: item['title'],
+                  subTitle: '#アイドル #yoasobi',
+                );
+              },
+            );
+          },
         );
       }).toList(),
     );

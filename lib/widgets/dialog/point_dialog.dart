@@ -14,7 +14,7 @@ class PointModal extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Center(
       child: TweenAnimationBuilder(
-        tween: Tween<double>(begin: 0, end: 0.9),
+        tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(milliseconds: 300),
         child: Text(
           '+ ${point}pt',

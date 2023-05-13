@@ -13,8 +13,9 @@ class PointScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('ポイント', style: TextStyle(color: AppColors.white)),
+        title: const Text('ポイント'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

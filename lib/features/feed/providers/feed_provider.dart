@@ -70,8 +70,8 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     final items = [
       FeedItem(
         id: '10',
-        title: 'NO TITLE',
-        artistName: 'アイドル',
+        title: '青春グラフィティー',
+        artistName: 'Peel the Apple',
         url: 'assets/videos/idol_aa.mp4',
         tags: ['アイドル'],
       ),
@@ -84,8 +84,8 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
       ),
       FeedItem(
         id: '7',
-        title: 'ってか',
-        artistName: '日向坂46',
+        title: 'かくれんぼ',
+        artistName: 'AliA',
         url: 'assets/videos/hina.mp4',
         tags: ['アイドル', 'MV'],
       ),

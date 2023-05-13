@@ -13,8 +13,9 @@ class MyPageScreen extends ConsumerWidget {
       mainAxisSize: MainAxisSize.max,
       children: [
         AppBar(
-          title: const Text('マイページ', style: TextStyle(color: AppColors.white)),
+          title: const Text('マイページ'),
           backgroundColor: AppColors.transparent,
+          foregroundColor: AppColors.white,
           elevation: 0,
         ),
         const Padding(

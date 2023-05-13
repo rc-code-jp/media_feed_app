@@ -12,8 +12,9 @@ class SignInScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('ログイン', style: TextStyle(color: AppColors.white)),
+        title: const Text('ログイン'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

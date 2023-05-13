@@ -12,8 +12,9 @@ class SignUpScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('新規会員登録', style: TextStyle(color: AppColors.white)),
+        title: const Text('新規会員登録'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

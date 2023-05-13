@@ -11,8 +11,9 @@ class NewsScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('お知らせ', style: TextStyle(color: AppColors.white)),
+        title: const Text('お知らせ'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(

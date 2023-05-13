@@ -12,8 +12,9 @@ class PlayHistoryScreen extends ConsumerWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('再生履歴', style: TextStyle(color: AppColors.white)),
+        title: const Text('再生履歴'),
         backgroundColor: AppColors.transparent,
+        foregroundColor: AppColors.white,
         elevation: 0,
       ),
       body: Container(
