@@ -45,7 +45,7 @@ class FeedFinishedBanner extends ConsumerWidget {
           width: 300,
           height: 150,
           decoration: BoxDecoration(
-            color: AppColors.primary.withOpacity(0.5),
+            color: AppColors.primary.withOpacity(0.8),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Column(

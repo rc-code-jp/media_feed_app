@@ -1,8 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/dummy_feed.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/libraries/app_toast.dart';
 
 final feedProvider =
     StateNotifierProvider.autoDispose<FeedStateNotifier, List<FeedItem>>((ref) {
@@ -43,6 +42,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     // 前の動画を停止する
     if (feedIndex > 0) {
       final prevFeedItem = state[feedIndex - 1];
+      prevFeedItem.setVideoVolume(0);
       prevFeedItem.pauseVideo();
     }
 
@@ -53,6 +53,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
       if (!nextFeedItem.hasVideoController()) {
         await nextFeedItem.loadVideoController();
       }
+      nextFeedItem.setVideoVolume(0);
       nextFeedItem.pauseVideo();
     }
 
@@ -61,6 +62,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (!feedItem.hasVideoController()) {
       await feedItem.loadVideoController();
     }
+    feedItem.setVideoVolume(0);
     feedItem.playFromStart();
 
     state = [...state];
@@ -81,15 +83,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
 
     // エラーを発生させる（仮）
     if (id == '3') {
-      Fluttertoast.showToast(
-        msg: "エラーが発生しました、何も起きていません。",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 2,
-        backgroundColor: AppColors.black,
-        textColor: AppColors.white,
-        fontSize: 16.0,
-      );
+      AppToast.showError("エラーが発生しました、何も起きていません。");
     }
   }
 }

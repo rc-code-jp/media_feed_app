@@ -19,6 +19,7 @@ class SignInScreen extends ConsumerWidget {
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

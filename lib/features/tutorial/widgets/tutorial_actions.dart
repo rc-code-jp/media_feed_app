@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/widgets/form/action_button.dart';
 
 class TutorialActions extends ConsumerWidget {
   final VoidCallback? onBack;
@@ -24,17 +25,17 @@ class TutorialActions extends ConsumerWidget {
             // 戻るボタン
             SizedBox(
               width: 100,
-              child: ElevatedButton(
+              child: ActionButton(
                 onPressed: onBack,
-                child: const Text('戻る'),
+                text: '戻る',
               ),
             ),
             // スキップボタン
             SizedBox(
               width: 100,
-              child: ElevatedButton(
+              child: ActionButton(
                 onPressed: onForward,
-                child: const Text('次へ'),
+                text: '次へ',
               ),
             )
           ],

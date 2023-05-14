@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/form/action_button.dart';
 
 class TutorialPageView extends ConsumerWidget {
   final PageController pageController;
@@ -26,12 +27,12 @@ class TutorialPageView extends ConsumerWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
+            ActionButton(
               onPressed: () {
                 // チュートリアル完了後にログイン画面に遷移
                 Navigator.pushReplacementNamed(context, '/auth/sign-up');
               },
-              child: const Text('新規会員登録'),
+              text: '新規会員登録',
             ),
           ],
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/widgets/form/action_button.dart';
 import 'package:pinput/pinput.dart';
 
 class SignUpCodeForm extends ConsumerStatefulWidget {
@@ -49,12 +50,24 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
               focusNode: focusNode,
               autofocus: true,
               length: 6,
+              defaultPinTheme: PinTheme(
+                decoration: BoxDecoration(
+                  color: AppColors.white.withOpacity(0.2),
+                  border: Border.all(
+                    color: AppColors.white.withOpacity(0.3),
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                width: 50,
+                height: 50,
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
             // 認証ボタン
-            ElevatedButton(
+            ActionButton(
               onPressed: () {
                 focusNode.unfocus();
                 // ログイン処理
@@ -67,7 +80,7 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
                   (route) => false,
                 );
               },
-              child: const Text('認証する'),
+              text: '認証する',
             ),
           ],
         ),

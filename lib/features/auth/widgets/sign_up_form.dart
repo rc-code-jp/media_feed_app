@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/widgets/form/action_button.dart';
+import 'package:media_feed_app/widgets/form/form_text_field.dart';
 
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);
@@ -19,31 +21,25 @@ class SignUpFormState extends ConsumerState<SignUpForm> {
       key: formKey,
       child: Column(
         children: [
-          TextFormField(
-            decoration: const InputDecoration(
-              icon: Icon(Icons.email),
-              labelText: 'メールアドレス',
-            ),
+          const FormTextField(
+            labelText: 'メールアドレス',
           ),
           const SizedBox(
             height: 20,
           ),
-          TextFormField(
+          const FormTextField(
             obscureText: true,
-            decoration: const InputDecoration(
-              icon: Icon(Icons.password),
-              labelText: 'パスワード',
-            ),
+            labelText: 'パスワード',
           ),
           const SizedBox(
             height: 20,
           ),
-          ElevatedButton(
+          ActionButton(
             onPressed: () {
               // コード認証画面へ
               Navigator.pushNamed(context, '/auth/sign-up/code');
             },
-            child: const Text('認証する'),
+            text: '認証する',
           ),
         ],
       ),

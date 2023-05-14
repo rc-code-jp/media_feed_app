@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
+import 'package:media_feed_app/widgets/form/action_button.dart';
 
 class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -34,13 +35,13 @@ class SettingScreen extends ConsumerWidget {
         child: SafeArea(
           child: Column(
             children: [
-              ElevatedButton(
+              ActionButton(
                 onPressed: () {
                   AuthStorage().delete();
                   // スタート画面へ遷移
                   Navigator.pushNamed(context, '/start');
                 },
-                child: const Text('ログアウト'),
+                text: 'ログアウト',
               ),
               const SizedBox(height: 20),
               FutureBuilder(
