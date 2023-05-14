@@ -30,6 +30,7 @@ List<FeedItem> getDummyFeed() {
       artistName: 'Peel the Apple',
       url: 'assets/videos/idol_aa.mp4',
       tags: ['アイドル'],
+      progressSeconds: 20,
     ),
     FeedItem(
       id: '9',
