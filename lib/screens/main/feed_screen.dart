@@ -25,7 +25,6 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
     // build後にデータを取得
     // FIXME: もっと良い方法があるはず
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(seconds: 1));
       await _fetchData();
     });
   }

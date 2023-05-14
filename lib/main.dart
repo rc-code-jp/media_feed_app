@@ -66,40 +66,30 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const title = 'Media Feed App';
-
-    return FutureBuilder<bool>(
-      future: isLoggedIn(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState != ConnectionState.done) {
-          // ログイン状態の取得が完了するまでローディング表示を行う
-          return const MaterialApp(
-            title: title,
-            home: Scaffold(
-              backgroundColor: AppColors.primary,
-              body: Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.white,
-                ),
+    const title = String.fromEnvironment('appName');
+    return MaterialApp(
+      title: title,
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+        useMaterial3: true,
+      ),
+      routes: routes,
+      // ログイン状態に応じて表示する画面を切り替える
+      home: FutureBuilder(
+        future: isLoggedIn(),
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.white,
               ),
-            ),
-          );
-        } else {
+            );
+          }
           bool loggedIn = snapshot.data!;
-
-          // ログイン状態に応じて表示する画面を切り替える
-          return MaterialApp(
-            title: title,
-            themeMode: ThemeMode.light,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
-              useMaterial3: true,
-            ),
-            routes: routes,
-            home: loggedIn ? const MainScreen() : const StartScreen(),
-          );
-        }
-      },
+          return loggedIn ? const MainScreen() : const StartScreen();
+        },
+      ),
     );
   }
 }

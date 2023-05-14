@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:media_feed_app/features/feed/providers/dummy_feed.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 final feedProvider =
@@ -22,36 +23,8 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
   }
 
   Future<void> fetchFirstItems() async {
-    final items = [
-      FeedItem(
-        id: '1',
-        title: '普変 / THE FIRST TAKE',
-        artistName: 'あの',
-        url: 'assets/videos/ano.mp4',
-        tags: ['アイドル', 'J-POP', 'ボーカル'],
-      ),
-      FeedItem(
-        id: '2',
-        title: 'セブンティーン',
-        artistName: 'YOASOBI',
-        url: 'assets/videos/yoasobi_17.mp4',
-        tags: ['ポップス', 'J-POP'],
-      ),
-      FeedItem(
-        id: '3',
-        title: 'ひとりごつ',
-        artistName: 'ちいかわ / ハチワレ',
-        url: 'assets/videos/chi.mp4',
-        tags: ['ポップス', 'J-POP', 'アニメ'],
-      ),
-      FeedItem(
-        id: '9',
-        title: 'Sugar Junky',
-        artistName: '4s4ki',
-        url: 'assets/videos/asaki_l.mp4',
-        tags: ['ラップ', 'ボーカル'],
-      ),
-    ];
+    await Future.delayed(const Duration(seconds: 1));
+    final items = getDummyFeed().sublist(0, 4);
     state = [...state, ...items];
   }
 
@@ -60,36 +33,8 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (state.length >= 6) {
       return;
     }
-    final items = [
-      FeedItem(
-        id: '5',
-        title: '来たれ！ぱすはに道',
-        artistName: 'ぱすはに',
-        url: 'assets/videos/zepa.mp4',
-        tags: ['アイドル', 'アニメ', 'インフルエンサー'],
-      ),
-      FeedItem(
-        id: '4',
-        title: '超破滅的思考',
-        artistName: '4s4ki',
-        url: 'assets/videos/asaki.mp4',
-        tags: ['ラップ', 'ボーカル'],
-      ),
-      FeedItem(
-        id: '10',
-        title: '青春グラフィティー',
-        artistName: 'Peel the Apple',
-        url: 'assets/videos/idol_aa.mp4',
-        tags: ['アイドル'],
-      ),
-      FeedItem(
-        id: '7',
-        title: 'かくれんぼ',
-        artistName: 'AliA',
-        url: 'assets/videos/alia.mp4',
-        tags: ['アイドル', 'MV'],
-      ),
-    ];
+    await Future.delayed(const Duration(seconds: 1));
+    final items = getDummyFeed().sublist(4);
     state = [...state, ...items];
   }
 

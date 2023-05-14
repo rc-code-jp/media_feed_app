@@ -6,6 +6,7 @@ class FeedItem {
   final String artistName;
   final String url;
   late List<String> tags;
+  late int progressSeconds; // 視聴済みまでの秒数
   late bool isFinished; // 視聴済み
   late bool isAcquired; // 獲得済み
 
@@ -17,6 +18,7 @@ class FeedItem {
     required this.artistName,
     required this.url,
     this.tags = const [],
+    this.progressSeconds = 15,
     this.isFinished = false,
     this.isAcquired = false,
     this.videoController,
@@ -27,8 +29,9 @@ class FeedItem {
       id: json['id'],
       title: json['title'],
       artistName: json['artistName'],
-      tags: json['tags'],
       url: json['url'],
+      tags: json['tags'],
+      progressSeconds: json['progressSeconds'],
       isFinished: json['isFinished'],
       isAcquired: json['isAcquired'],
     );
@@ -39,8 +42,9 @@ class FeedItem {
       'id': id,
       'title': title,
       'artistName': artistName,
-      'tags': tags,
       'url': url,
+      'tags': tags,
+      'progressSeconds': progressSeconds,
       'isFinished': isFinished,
       'isAcquired': isAcquired,
     };

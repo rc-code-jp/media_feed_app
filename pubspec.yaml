@@ -2,7 +2,7 @@ name: media_feed_app
 description: media_feed_app
 publish_to: "none"
 
-version: 0.2.1+4
+version: 0.2.2+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

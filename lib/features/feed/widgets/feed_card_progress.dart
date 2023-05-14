@@ -19,13 +19,16 @@ class FeedCardProgress extends ConsumerStatefulWidget {
 }
 
 class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
-  final double _progressValueMax = 3.0;
+  late double _progressValueMax;
   late Timer _timer;
   late double _progressValue = 0;
 
   @override
   void initState() {
     super.initState();
+
+    // 5秒ごと
+    _progressValueMax = widget.feedItem.progressSeconds / 5;
 
     // すでに視聴済みの場合は最大値にする
     if (widget.feedItem.isFinished) {
@@ -64,24 +67,20 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
       top: MediaQuery.of(context).padding.top, // SafeArea
       width: MediaQuery.of(context).size.width,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          ProgressCircle(
-            value: _progressValue - 2, // 3周目から始める
-          ),
           const SizedBox(
-            width: 30,
+            width: 50,
           ),
-          ProgressCircle(
-            value: _progressValue - 1, // 2周目から始める
-          ),
+          for (var i = 0; i < _progressValueMax; i++)
+            ProgressCircle(
+              value: _progressValue - i,
+            ),
           const SizedBox(
-            width: 30,
+            width: 50,
           ),
-          ProgressCircle(
-            value: _progressValue,
-          )
         ],
       ),
     );
