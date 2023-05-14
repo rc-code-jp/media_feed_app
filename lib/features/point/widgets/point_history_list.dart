@@ -83,19 +83,26 @@ class PointHistoryList extends ConsumerWidget {
           subtitleText,
           style: const TextStyle(
             fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
         trailing: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              '10pt',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              '有効期限: 2023.06.30',
-              style: TextStyle(fontSize: 14),
+            Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: '10',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  TextSpan(
+                    text: 'pt',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

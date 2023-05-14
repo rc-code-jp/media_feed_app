@@ -23,7 +23,7 @@ class IconTextRow extends StatelessWidget {
         SizedBox(
           width: margin,
         ),
-        text
+        Flexible(child: text)
       ],
     );
   }

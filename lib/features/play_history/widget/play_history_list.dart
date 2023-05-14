@@ -57,7 +57,7 @@ class PlayHistoryList extends ConsumerWidget {
                 return DetailModal(
                   artistName: item['artist'],
                   title: item['title'],
-                  subTitle: '#アイドル #yoasobi',
+                  subTitle: '#アイドル #yoasobi #アーティスト',
                 );
               },
             );

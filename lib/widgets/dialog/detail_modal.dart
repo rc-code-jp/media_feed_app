@@ -17,8 +17,9 @@ class DetailModal extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
+      padding: const EdgeInsets.all(20),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -77,11 +78,13 @@ class DetailModal extends ConsumerWidget {
           ),
 
           // タグ
-          Text(
-            subTitle,
-            style: const TextStyle(
-              fontSize: 16,
-              color: AppColors.white,
+          Flexible(
+            child: Text(
+              subTitle,
+              style: const TextStyle(
+                fontSize: 16,
+                color: AppColors.white,
+              ),
             ),
           ),
         ],

@@ -30,7 +30,7 @@ class PointScreen extends ConsumerWidget {
               ),
               SizedBox(height: 20),
               Text(
-                '獲得・交換履歴（直近の6ヶ月分を表示しています）',
+                'ポイントは獲得から180日間有効です',
                 style: TextStyle(
                   color: AppColors.white,
                   fontSize: 14,

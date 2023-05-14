@@ -14,52 +14,58 @@ class FeedCardDetail extends ConsumerWidget {
     return Positioned(
       bottom: 20,
       left: 10,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // 歌手名
-          IconTextRow(
-            icon: const Icon(
-              Icons.person,
-              color: AppColors.white,
-              size: 20,
+      child: SizedBox(
+        width: 250,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // 歌手名
+            IconTextRow(
+              icon: const Icon(
+                Icons.person,
+                color: AppColors.white,
+                size: 20,
+              ),
+              text: Text(
+                feedItem.artistName,
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: AppColors.white,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ),
-            text: Text(
-              feedItem.artistName,
+
+            // 曲名
+            IconTextRow(
+              icon: const Icon(
+                Icons.music_note,
+                color: AppColors.white,
+                size: 20,
+              ),
+              text: Text(
+                feedItem.title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: AppColors.white,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ),
+
+            // タグ
+            Text(
+              feedItem.hashtagNames(),
               style: const TextStyle(
                 fontSize: 16,
                 color: AppColors.white,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-          ),
-
-          // 曲名
-          IconTextRow(
-            icon: const Icon(
-              Icons.music_note,
-              color: AppColors.white,
-              size: 20,
-            ),
-            text: Text(
-              feedItem.title,
-              style: const TextStyle(
-                fontSize: 20,
-                color: AppColors.white,
-              ),
-            ),
-          ),
-
-          // タグ
-          Text(
-            feedItem.hashtagNames(),
-            style: const TextStyle(
-              fontSize: 16,
-              color: AppColors.white,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
