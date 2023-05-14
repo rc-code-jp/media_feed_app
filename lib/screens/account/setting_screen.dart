@@ -34,8 +34,6 @@ class SettingScreen extends ConsumerWidget {
         child: SafeArea(
           child: Column(
             children: [
-              const Text('アカウント設定'),
-              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   AuthStorage().delete();

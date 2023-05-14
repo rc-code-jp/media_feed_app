@@ -7,8 +7,17 @@ class ChangeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Center(
-      child: Text('交換', style: TextStyle(color: AppColors.primary)),
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        AppBar(
+          title: const Text('ポイント交換'),
+          backgroundColor: AppColors.transparent,
+          foregroundColor: AppColors.white,
+          elevation: 0,
+        ),
+        const SizedBox(height: 10),
+      ],
     );
   }
 }

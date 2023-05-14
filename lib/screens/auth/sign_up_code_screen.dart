@@ -19,10 +19,11 @@ class SignUpCodeScreen extends ConsumerWidget {
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
-        child: const SafeArea(
-          child: Column(
-            children: [SignUpCodeForm()],
-          ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SignUpCodeForm(),
+          ],
         ),
       ),
     );

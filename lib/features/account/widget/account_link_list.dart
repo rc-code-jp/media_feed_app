@@ -14,28 +14,28 @@ class AccountLinkList extends ConsumerWidget {
           leadingIcon: Icons.person_outline,
           titleText: 'アカウント設定',
           onTap: () {
-            Navigator.pushNamed(context, '/my_page/setting');
+            Navigator.pushNamed(context, '/account/setting');
           },
         ),
         _listTile(
           leadingIcon: Icons.verified_outlined,
           titleText: 'ポイント詳細',
           onTap: () {
-            Navigator.pushNamed(context, '/my_page/point');
+            Navigator.pushNamed(context, '/account/point');
           },
         ),
         _listTile(
           leadingIcon: Icons.play_lesson_outlined,
           titleText: '再生履歴',
           onTap: () {
-            Navigator.pushNamed(context, '/my_page/play-history');
+            Navigator.pushNamed(context, '/account/play-history');
           },
         ),
         _listTile(
           leadingIcon: Icons.notifications_outlined,
           titleText: 'お知らせ',
           onTap: () {
-            Navigator.pushNamed(context, '/my_page/news');
+            Navigator.pushNamed(context, '/account/news');
           },
         ),
         _listTile(

@@ -24,12 +24,18 @@ class SignInFormState extends ConsumerState<SignInForm> {
               labelText: 'メールアドレス',
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           TextFormField(
             obscureText: true,
             decoration: const InputDecoration(
               icon: Icon(Icons.password),
               labelText: 'パスワード',
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           ElevatedButton(
             onPressed: () {

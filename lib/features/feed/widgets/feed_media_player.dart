@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/widgets/media_player.dart';
 
@@ -29,7 +28,11 @@ class FeedMediaPlayer extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
-        ref.read(feedProvider.notifier).toggleVideoById(feedItem.id);
+        if (feedItem.isPlayingVideo()) {
+          feedItem.pauseVideo();
+        } else {
+          feedItem.playVideo();
+        }
       },
       child: Stack(
         fit: StackFit.expand,

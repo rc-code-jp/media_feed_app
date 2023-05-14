@@ -19,7 +19,7 @@ class FeedFinishedBanner extends ConsumerWidget {
   // 獲得する
   void acquisition(BuildContext context, WidgetRef ref, int pressedNumber) {
     // ダイアログを表示・自動で閉じる
-    _showPointDialog(context);
+    _showPointDialog(context, point: 3);
     Timer.periodic(const Duration(milliseconds: 1000), (timer) {
       Navigator.of(context).pop();
       timer.cancel();
@@ -82,7 +82,7 @@ class FeedFinishedBanner extends ConsumerWidget {
   }
 
   // ポイント表示ダイアログを表示
-  void _showPointDialog(BuildContext context, {int point = 10}) {
+  void _showPointDialog(BuildContext context, {int point = 0}) {
     showDialog(
       context: context,
       barrierDismissible: false, // ダイアログ外をタップしても閉じない

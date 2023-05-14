@@ -74,7 +74,7 @@ class MainScreenState extends ConsumerState<MainScreen> {
         backgroundColor: AppColors.black,
         selectedItemColor: AppColors.white,
         unselectedItemColor: AppColors.grey,
-        iconSize: 18,
+        iconSize: 20,
         selectedFontSize: 12,
         unselectedFontSize: 12,
         items: _navbarItems,

@@ -121,17 +121,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
-  // ビデオの再生を切り替える
-  void toggleVideoById(String id) {
-    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
-    if (feedItem.isPlayingVideo()) {
-      feedItem.pauseVideo();
-    } else {
-      feedItem.playVideo();
-    }
-    state = [...state];
-  }
-
   // 完了状態を変更
   void finishedItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);

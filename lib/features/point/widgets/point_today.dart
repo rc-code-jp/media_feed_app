@@ -22,8 +22,8 @@ class PointToday extends ConsumerWidget {
             style: TextStyle(fontSize: 16, color: AppColors.white),
           ),
           Achievement(
-            point: 620,
-            maxPoint: 1000,
+            point: 80,
+            maxPoint: 100,
           ),
           Text(
             '累計所持ポイント: 867pt',

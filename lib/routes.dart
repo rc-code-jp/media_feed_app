@@ -18,8 +18,8 @@ final routes = <String, WidgetBuilder>{
   '/auth/sign-in': (context) => const SignInScreen(),
   '/auth/sign-up': (context) => const SignUpScreen(),
   '/auth/sign-up/code': (context) => const SignUpCodeScreen(),
-  '/my_page/play-history': (context) => const PlayHistoryScreen(),
-  '/my_page/news': (context) => const NewsScreen(),
-  '/my_page/point': (context) => const PointScreen(),
-  '/my_page/setting': (context) => const SettingScreen(),
+  '/account/play-history': (context) => const PlayHistoryScreen(),
+  '/account/news': (context) => const NewsScreen(),
+  '/account/point': (context) => const PointScreen(),
+  '/account/setting': (context) => const SettingScreen(),
 };

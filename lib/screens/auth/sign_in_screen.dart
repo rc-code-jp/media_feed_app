@@ -19,10 +19,11 @@ class SignInScreen extends ConsumerWidget {
       ),
       body: Container(
         decoration: UtilStyles.decorationGradient,
-        child: const SafeArea(
-          child: Column(
-            children: [SignInForm()],
-          ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SignInForm(),
+          ],
         ),
       ),
     );
