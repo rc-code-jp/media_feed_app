@@ -1,9 +1,11 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/play_history/widget/play_history_list.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
+@RoutePage()
 class PlayHistoryScreen extends ConsumerWidget {
   const PlayHistoryScreen({Key? key}) : super(key: key);
 

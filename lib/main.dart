@@ -3,13 +3,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/app_router.dart';
 import 'package:media_feed_app/firebase_options_prd.dart' as fb_option_prd;
 import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
-import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/libraries/logger.dart';
-import 'package:media_feed_app/routes.dart';
-import 'package:media_feed_app/screens/main/main_screen.dart';
-import 'package:media_feed_app/screens/start/start_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
 Future<void> main() async {
@@ -30,6 +27,21 @@ Future<void> main() async {
         : fb_option_stg.DefaultFirebaseOptions.currentPlatform,
   );
 
+  // FCM の通知権限リクエスト
+  final messaging = FirebaseMessaging.instance;
+  await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+
+  // スプラッシュを消す
+  FlutterNativeSplash.remove();
+
   // 起動
   runApp(
     const ProviderScope(
@@ -41,55 +53,19 @@ Future<void> main() async {
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  // ログインチェック
-  Future<bool> isLoggedIn() async {
-    final hasToken = await AuthStorage().has();
-    // ダミーで1秒待つ
-    await Future.delayed(const Duration(seconds: 1));
-    // スプラッシュを消す
-    FlutterNativeSplash.remove();
-
-    // // FCM の通知権限リクエスト
-    final messaging = FirebaseMessaging.instance;
-    await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-
-    return hasToken;
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const title = String.fromEnvironment('appName');
-    return MaterialApp(
+    final appRouter = AppRouter();
+
+    return MaterialApp.router(
       title: title,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
         useMaterial3: true,
       ),
-      routes: routes,
-      // ログイン状態に応じて表示する画面を切り替える
-      home: FutureBuilder(
-        future: isLoggedIn(),
-        builder: (BuildContext context, snapshot) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(
-              child: CircularProgressIndicator(
-                color: AppColors.white,
-              ),
-            );
-          }
-          bool loggedIn = snapshot.data!;
-          return loggedIn ? const MainScreen() : const StartScreen();
-        },
-      ),
+      routerConfig: appRouter.config(),
     );
   }
 }

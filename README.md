@@ -82,7 +82,7 @@ fvm flutter pub run flutter_launcher_icons
 /
 ├── ios
 ├── android
-├── assets        ... 共通資産
+├── assets        ... 画像などの共通資産
 ├── lib
 │   ├── providers ... グローバルな状態管理
 │   ├── widgets   ... 共通コンポーネント
@@ -96,6 +96,9 @@ fvm flutter pub run flutter_launcher_icons
 │   │   │   ├── providers ... 状態管理
 │   │   │   └── widgets   ... コンポーネント
 │   │   └── .
+│   ├── app_router.dart           ... auto_routeの設定ファイル
+│   ├── firebase_options_xxx.dart ... firebaseのAPI_KEY
+│   ├── main.dart                 ... 起動ファイル
 │   └── .
 └── .
 ```

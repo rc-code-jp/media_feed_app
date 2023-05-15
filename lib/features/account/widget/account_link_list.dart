@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/app_router.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
@@ -14,28 +16,28 @@ class AccountLinkList extends ConsumerWidget {
           leadingIcon: Icons.person_outline,
           titleText: 'アカウント設定',
           onTap: () {
-            Navigator.pushNamed(context, '/account/setting');
+            context.router.navigate(const SettingRoute());
           },
         ),
         _listTile(
           leadingIcon: Icons.verified_outlined,
           titleText: 'ポイント詳細',
           onTap: () {
-            Navigator.pushNamed(context, '/account/point');
+            context.router.push(const PointRoute());
           },
         ),
         _listTile(
           leadingIcon: Icons.play_lesson_outlined,
           titleText: '再生履歴',
           onTap: () {
-            Navigator.pushNamed(context, '/account/play-history');
+            context.router.push(const PlayHistoryRoute());
           },
         ),
         _listTile(
           leadingIcon: Icons.notifications_outlined,
           titleText: 'お知らせ',
           onTap: () {
-            Navigator.pushNamed(context, '/account/news');
+            context.router.push(const NewsRoute());
           },
         ),
         _listTile(

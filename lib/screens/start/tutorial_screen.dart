@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/tutorial/widgets/tutorial_actions.dart';
 import 'package:media_feed_app/features/tutorial/widgets/tutorial_page_view.dart';
 import 'package:media_feed_app/styles/utils.dart';
 
+@RoutePage()
 class TutorialScreen extends ConsumerStatefulWidget {
   const TutorialScreen({Key? key}) : super(key: key);
 

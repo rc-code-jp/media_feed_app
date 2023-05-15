@@ -33,19 +33,19 @@ List<FeedItem> getDummyFeed() {
       progressSeconds: 20,
     ),
     FeedItem(
+      id: '4',
+      title: 'Flutter♭',
+      artistName: 'Flutter♭',
+      url: 'assets/videos/ff.mp4',
+      tags: ['アイドル', 'ボーカル'],
+    ),
+    FeedItem(
       id: '9',
       title: 'Sugar Junky',
       artistName: '4s4ki',
       url: 'assets/videos/asaki_l.mp4',
       tags: ['ラップ', 'ボーカル'],
       progressSeconds: 20,
-    ),
-    FeedItem(
-      id: '4',
-      title: '超破滅的思考',
-      artistName: '4s4ki',
-      url: 'assets/videos/asaki.mp4',
-      tags: ['ラップ', 'ボーカル'],
     ),
     FeedItem(
       id: '5',

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
@@ -5,6 +6,7 @@ import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
 import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
+@RoutePage()
 class FeedScreen extends ConsumerStatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);
 

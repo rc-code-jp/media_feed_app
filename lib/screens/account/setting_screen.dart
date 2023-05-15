@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +8,7 @@ import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/styles/utils.dart';
 import 'package:media_feed_app/widgets/form/action_button.dart';
 
+@RoutePage()
 class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
