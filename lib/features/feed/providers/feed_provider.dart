@@ -62,7 +62,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (!feedItem.hasVideoController()) {
       await feedItem.loadVideoController();
     }
-    feedItem.setVideoVolume(0);
+    feedItem.setVideoVolume(1);
     feedItem.playFromStart();
 
     state = [...state];

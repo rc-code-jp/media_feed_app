@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/libraries/app_toast.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/styles/colors.dart';
 import 'package:media_feed_app/widgets/form/action_button.dart';
@@ -16,12 +17,45 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
   final pinController = TextEditingController();
   final focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
+  bool isLoading = false;
 
   @override
   void dispose() {
     pinController.dispose();
     focusNode.dispose();
     super.dispose();
+  }
+
+  void submit() async {
+    focusNode.unfocus();
+
+    try {
+      setState(() {
+        isLoading = true;
+      });
+
+      // ダミー
+      await Future.delayed(
+        const Duration(seconds: 2),
+      );
+
+      // ログイン処理
+      AuthStorage().write('dummy');
+
+      // 画面をすべて除いてメイン画面に遷移
+      if (!mounted) return;
+      await Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/main',
+        (route) => false,
+      );
+    } catch (e) {
+      AppToast.showError('認証に失敗しました');
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override
@@ -34,16 +68,6 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              '認証コードを入力してください',
-              style: TextStyle(
-                color: AppColors.white,
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             // コード入力
             Pinput(
               controller: pinController,
@@ -64,23 +88,13 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             // 認証ボタン
             ActionButton(
-              onPressed: () {
-                focusNode.unfocus();
-                // ログイン処理
-                AuthStorage().write('dummy');
-
-                // 画面をすべて除いてメイン画面に遷移
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  '/main',
-                  (route) => false,
-                );
-              },
+              onPressed: submit,
               text: '認証する',
+              isLoading: isLoading,
             ),
           ],
         ),

@@ -6,8 +6,6 @@ class FormTextField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final TextInputType? keyboardType;
-  final TextInputAction? textInputAction;
-  final ValueChanged<String>? onFieldSubmitted;
   final FormFieldValidator<String>? validator;
   final bool obscureText;
   final InputDecoration? decoration;
@@ -18,8 +16,6 @@ class FormTextField extends StatelessWidget {
     this.labelText,
     this.hintText,
     this.keyboardType,
-    this.textInputAction,
-    this.onFieldSubmitted,
     this.validator,
     this.obscureText = false,
     this.decoration,
@@ -27,37 +23,52 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      keyboardType: keyboardType,
-      textInputAction: textInputAction,
-      onFieldSubmitted: onFieldSubmitted,
-      validator: validator,
-      obscureText: obscureText,
-      decoration: decoration ??
-          InputDecoration(
-            labelText: labelText,
-            hintText: hintText,
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 16.0,
-              horizontal: 20.0,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(
-                color: AppColors.white.withOpacity(0.3),
-                width: 1,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.white.withOpacity(0.3),
-              ),
-            ),
-            labelStyle: const TextStyle(color: AppColors.white),
-            filled: true,
-            fillColor: AppColors.white.withOpacity(0.2),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        labelText != null
+            ? Text(
+                labelText!,
+                style: const TextStyle(
+                  color: AppColors.white,
+                  fontSize: 14,
+                ),
+              )
+            : const SizedBox.shrink(),
+        const SizedBox(height: 5),
+        SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: TextFormField(
+            controller: controller,
+            keyboardType: keyboardType,
+            validator: validator,
+            obscureText: obscureText,
+            cursorColor: AppColors.white,
+            style: const TextStyle(color: AppColors.white),
+            decoration: decoration ??
+                InputDecoration(
+                  hintText: hintText,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                    borderSide: BorderSide(
+                      color: AppColors.white.withOpacity(0.3),
+                      width: 1,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: AppColors.white.withOpacity(0.3),
+                    ),
+                  ),
+                  labelStyle: const TextStyle(color: AppColors.white),
+                  filled: true,
+                  fillColor: AppColors.white.withOpacity(0.2),
+                ),
           ),
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_feed_app/libraries/app_toast.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/widgets/form/action_button.dart';
 import 'package:media_feed_app/widgets/form/form_text_field.dart';
@@ -13,6 +14,53 @@ class SignInForm extends ConsumerStatefulWidget {
 
 class SignInFormState extends ConsumerState<SignInForm> {
   final formKey = GlobalKey<FormState>();
+  final focusNode = FocusNode();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+    focusNode.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  void submit() async {
+    focusNode.unfocus();
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+
+    try {
+      setState(() {
+        isLoading = true;
+      });
+
+      // ダミー
+      await Future.delayed(
+        const Duration(seconds: 2),
+      );
+
+      // ログイン処理
+      AuthStorage().write('dummy');
+
+      // 画面をすべて除いてメイン画面に遷移
+      if (!mounted) return;
+      await Navigator.pushNamedAndRemoveUntil(
+        context,
+        '/main',
+        (route) => false,
+      );
+    } catch (e) {
+      AppToast.showError('ログインに失敗しました');
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,32 +68,25 @@ class SignInFormState extends ConsumerState<SignInForm> {
       key: formKey,
       child: Column(
         children: [
-          const FormTextField(
+          FormTextField(
             labelText: 'メールアドレス',
+            controller: emailController,
           ),
           const SizedBox(
             height: 20,
           ),
-          const FormTextField(
+          FormTextField(
             obscureText: true,
             labelText: 'パスワード',
+            controller: passwordController,
           ),
           const SizedBox(
-            height: 20,
+            height: 40,
           ),
           ActionButton(
-            onPressed: () {
-              // ログイン処理
-              AuthStorage().write('dummy');
-
-              // 画面をすべて除いてメイン画面に遷移
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                '/main',
-                (route) => false,
-              );
-            },
+            onPressed: submit,
             text: 'ログイン',
+            isLoading: isLoading,
           ),
         ],
       ),
