@@ -42,17 +42,10 @@ List<FeedItem> getDummyFeed() {
     ),
     FeedItem(
       id: '4',
-      title: '超破滅的思考',
-      artistName: '4s4ki',
-      url: 'assets/videos/asaki.mp4',
-      tags: ['ラップ', 'ボーカル'],
-    ),
-    FeedItem(
-      id: '5',
-      title: '来たれ！ぱすはに道',
-      artistName: 'ぱすはに',
-      url: 'assets/videos/zepa.mp4',
-      tags: ['アイドル', 'アニメ', 'インフルエンサー'],
+      title: 'Flutter♭',
+      artistName: 'Flutter♭',
+      url: 'assets/videos/ff.mp4',
+      tags: ['アイドル', 'ボーカル'],
     ),
     FeedItem(
       id: '7',
@@ -60,6 +53,13 @@ List<FeedItem> getDummyFeed() {
       artistName: 'AliA',
       url: 'assets/videos/alia.mp4',
       tags: ['アイドル', 'MV'],
+    ),
+    FeedItem(
+      id: '5',
+      title: '来たれ！ぱすはに道',
+      artistName: 'ぱすはに',
+      url: 'assets/videos/zepa.mp4',
+      tags: ['アイドル', 'アニメ', 'インフルエンサー'],
     ),
   ];
 }

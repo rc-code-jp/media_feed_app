@@ -1,12 +1,8 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/firebase_options_prd.dart' as fb_option_prd;
-import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
+import 'package:media_feed_app/libraries/app_firebase.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
-import 'package:media_feed_app/libraries/logger.dart';
 import 'package:media_feed_app/routes.dart';
 import 'package:media_feed_app/screens/main/main_screen.dart';
 import 'package:media_feed_app/screens/start/start_screen.dart';
@@ -18,17 +14,12 @@ Future<void> main() async {
   // スプラッシュを自動で消さないようにする
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // 環境名確認
-  const flavorName = String.fromEnvironment('flavor');
-  logger.info('flavorName: $flavorName');
+  // Firebase初期化
+  final fb = AppFirebase();
+  await fb.initialize();
 
-  // Firebaseを初期化
-  await Firebase.initializeApp(
-    // 本番環境はprd、それ以外はstg
-    options: flavorName == 'prd'
-        ? fb_option_prd.DefaultFirebaseOptions.currentPlatform
-        : fb_option_stg.DefaultFirebaseOptions.currentPlatform,
-  );
+  // 通知許可
+  await fb.requestFcmPermission();
 
   // 起動
   runApp(
@@ -44,29 +35,17 @@ class MyApp extends ConsumerWidget {
   // ログインチェック
   Future<bool> isLoggedIn() async {
     final hasToken = await AuthStorage().has();
-    // ダミーで1秒待つ
+    // 1秒待つ
     await Future.delayed(const Duration(seconds: 1));
     // スプラッシュを消す
     FlutterNativeSplash.remove();
-
-    // // FCM の通知権限リクエスト
-    final messaging = FirebaseMessaging.instance;
-    await messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-
     return hasToken;
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     const title = String.fromEnvironment('appName');
+
     return MaterialApp(
       title: title,
       themeMode: ThemeMode.light,
