@@ -2,7 +2,7 @@ name: media_feed_app
 description: media_feed_app
 publish_to: "none"
 
-version: 0.2.2+5
+version: 0.2.2+6
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -51,7 +51,7 @@ flutter:
     - assets/videos/ano.mp4
     - assets/videos/asaki_l.mp4
     - assets/videos/ff.mp4
-    - assets/videos/chi.mp4
+    - assets/videos/shika.mp4
     - assets/videos/alia.mp4
     - assets/videos/idol_aa.mp4
     - assets/videos/yoasobi_17.mp4

@@ -19,10 +19,10 @@ List<FeedItem> getDummyFeed() {
     ),
     FeedItem(
       id: '3',
-      title: 'ひとりごつ',
-      artistName: 'ちいかわ / ハチワレ',
-      url: 'assets/videos/chi.mp4',
-      tags: ['ポップス', 'J-POP', 'アニメ'],
+      title: 'アルジャーノン',
+      artistName: 'ヨルシカ',
+      url: 'assets/videos/shika.mp4',
+      tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
       id: '10',
