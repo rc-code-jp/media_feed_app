@@ -6,6 +6,7 @@ import 'package:media_feed_app/screens/account/setting_screen.dart';
 import 'package:media_feed_app/screens/auth/sign_in_screen.dart';
 import 'package:media_feed_app/screens/auth/sign_up_code_screen.dart';
 import 'package:media_feed_app/screens/auth/sign_up_screen.dart';
+import 'package:media_feed_app/screens/auth/sign_up_user_screen.dart';
 import 'package:media_feed_app/screens/main/main_screen.dart';
 import 'package:media_feed_app/screens/start/start_screen.dart';
 import 'package:media_feed_app/screens/start/tutorial_screen.dart';
@@ -18,6 +19,7 @@ final routes = <String, WidgetBuilder>{
   '/auth/sign-in': (context) => const SignInScreen(),
   '/auth/sign-up': (context) => const SignUpScreen(),
   '/auth/sign-up/code': (context) => const SignUpCodeScreen(),
+  '/auth/sign-up/user': (context) => const SignUpUserScreen(),
   '/account/play-history': (context) => const PlayHistoryScreen(),
   '/account/news': (context) => const NewsScreen(),
   '/account/point': (context) => const PointScreen(),
