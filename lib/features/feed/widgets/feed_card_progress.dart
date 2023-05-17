@@ -35,18 +35,33 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
       _progressValue = _progressValueMax;
     }
 
+    final unFinishedValue = _progressValueMax + 1;
+
     // タイマー
     _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (!widget.feedItem.isPlayingVideo()) {
         return;
       }
-      if (_progressValue >= _progressValueMax) {
-        _timer.cancel();
+
+      // 完了にする
+      if (!widget.feedItem.isFinished && _progressValue >= _progressValueMax) {
         ref.read(feedProvider.notifier).finishedItemById(widget.feedItem.id);
       }
-      setState(() {
-        _progressValue += 0.02; // 5秒で1.0になる
-      });
+
+      // 獲得せずに一定時間で完了をもどす
+      if (!widget.feedItem.isAcquired && _progressValue >= unFinishedValue) {
+        setState(() {
+          _progressValue = 0;
+          ref
+              .read(feedProvider.notifier)
+              .unFinishedItemById(widget.feedItem.id);
+        });
+      } else {
+        // 5秒で1.0になるように加算
+        setState(() {
+          _progressValue += 0.02;
+        });
+      }
     });
   }
 

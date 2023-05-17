@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
-class FormTextField extends StatelessWidget {
+class FormDateField extends StatelessWidget {
   final TextEditingController controller;
   final String? labelText;
   final String? hintText;
   final TextInputType? keyboardType;
   final FormFieldValidator<String>? validator;
-  final bool obscureText;
 
-  const FormTextField({
+  const FormDateField({
     Key? key,
     required this.controller,
     this.labelText,
     this.hintText,
     this.keyboardType,
     this.validator,
-    this.obscureText = false,
   }) : super(key: key);
 
   @override
@@ -39,10 +38,22 @@ class FormTextField extends StatelessWidget {
           width: double.infinity,
           height: 50,
           child: TextFormField(
+            onTap: () async {
+              final currentDateTime = controller.text.isNotEmpty
+                  ? DateTime.parse(controller.text)
+                  : DateTime.now();
+              final dateTime = await openCalendar(context, currentDateTime);
+              // FIXME: 本体はInputFormatterを使った方が良い
+              if (dateTime != null) {
+                controller.text = DateFormat('yyyy-MM-dd').format(dateTime);
+              } else {
+                controller.text = '';
+              }
+            },
+            readOnly: true,
             controller: controller,
             keyboardType: keyboardType,
             validator: validator,
-            obscureText: obscureText,
             cursorColor: AppColors.white,
             style: const TextStyle(color: AppColors.white),
             decoration: InputDecoration(
@@ -66,6 +77,18 @@ class FormTextField extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Future<DateTime?> openCalendar(
+    BuildContext context,
+    DateTime? initialDate,
+  ) async {
+    return await showDatePicker(
+      context: context,
+      initialDate: initialDate ?? DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2100),
     );
   }
 }

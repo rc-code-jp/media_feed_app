@@ -37,13 +37,9 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
       // ログイン処理
       AuthStorage().write('dummy');
 
-      // 画面をすべて除いてメイン画面に遷移
+      // ユーザー登録画面へ
       if (!mounted) return;
-      await Navigator.pushNamedAndRemoveUntil(
-        context,
-        '/main',
-        (route) => false,
-      );
+      await Navigator.pushNamed(context, '/auth/sign-up/user');
     } catch (e) {
       AppToast.showError('認証に失敗しました');
     } finally {
