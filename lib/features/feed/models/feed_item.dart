@@ -85,6 +85,7 @@ class FeedItem {
   // ビデオを最初から再スタート
   void playFromStart() {
     videoController?.seekTo(Duration.zero);
+    videoController?.setLooping(true);
     videoController?.play();
   }
 

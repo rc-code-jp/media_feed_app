@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 import 'package:media_feed_app/features/feed/providers/dummy_feed.dart';
-import 'package:media_feed_app/libraries/app_toast.dart';
 
 final feedProvider =
     StateNotifierProvider.autoDispose<FeedStateNotifier, List<FeedItem>>((ref) {
@@ -75,15 +74,17 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     state = [...state];
   }
 
+  // 完了状態を戻す
+  void unFinishedItemById(String id) {
+    final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
+    feedItem.isFinished = false;
+    state = [...state];
+  }
+
   // 獲得状態を変更
   void acquisitionItemById(String id) {
     final feedItem = state.firstWhere((feedItem) => feedItem.id == id);
     feedItem.isAcquired = true;
     state = [...state];
-
-    // エラーを発生させる（仮）
-    if (id == '3') {
-      AppToast.showError("エラーが発生しました、何も起きていません。");
-    }
   }
 }
