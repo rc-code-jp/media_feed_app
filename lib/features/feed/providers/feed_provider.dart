@@ -22,7 +22,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
   }
 
   Future<void> fetchFirstItems() async {
-    await Future.delayed(const Duration(seconds: 1));
     final items = getDummyFeed().sublist(0, 4);
     state = [...state, ...items];
   }
@@ -32,7 +31,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (state.length >= 6) {
       return;
     }
-    await Future.delayed(const Duration(seconds: 1));
     final items = getDummyFeed().sublist(4);
     state = [...state, ...items];
   }

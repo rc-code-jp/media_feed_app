@@ -67,7 +67,7 @@ class FeedItem {
 
   // ビデオを読み込む
   Future<void> loadVideoController() async {
-    videoController = VideoPlayerController.asset(url);
+    videoController = VideoPlayerController.network(url);
     await videoController?.initialize();
     videoController?.setLooping(true);
   }

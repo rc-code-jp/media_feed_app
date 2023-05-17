@@ -1,34 +1,38 @@
 import 'package:media_feed_app/features/feed/models/feed_item.dart';
 
+String getDriveUrl(String videoId) {
+  return 'https://drive.google.com/uc?id=$videoId&export=download';
+}
+
 // ダミー様なので本番では消す
 List<FeedItem> getDummyFeed() {
   return [
     FeedItem(
       id: '1',
-      title: '普変 / THE FIRST TAKE',
-      artistName: 'あの',
-      url: 'assets/videos/ano.mp4',
+      title: 'Stellar Stellar / THE FIRST TAKE',
+      artistName: '星街すいせい',
+      url: getDriveUrl('1c0r6XcfXvriSeZossf1c-No-Bhq4QxX7'),
       tags: ['アイドル', 'J-POP', 'ボーカル'],
     ),
     FeedItem(
       id: '2',
       title: 'セブンティーン',
       artistName: 'YOASOBI',
-      url: 'assets/videos/yoasobi_17.mp4',
+      url: getDriveUrl('1HioT65OKDE2LjfklZ7mLicL50sMhLUu-'),
       tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
       id: '3',
-      title: 'ひとりごつ',
-      artistName: 'ちいかわ / ハチワレ',
-      url: 'assets/videos/chi.mp4',
+      title: 'あの子コンプレックス',
+      artistName: '=LOVE',
+      url: getDriveUrl('1hgLqUyqC9Gec9zK8DVGk7rbuNdlOiTyt'),
       tags: ['ポップス', 'J-POP', 'アニメ'],
     ),
     FeedItem(
       id: '10',
       title: '青春グラフィティー',
       artistName: 'Peel the Apple',
-      url: 'assets/videos/idol_aa.mp4',
+      url: getDriveUrl('1ja9CKyNOHclkIzy3_-Y2frWbftIk3mBW'),
       tags: ['アイドル'],
       progressSeconds: 20,
     ),
@@ -36,7 +40,7 @@ List<FeedItem> getDummyFeed() {
       id: '9',
       title: 'Sugar Junky',
       artistName: '4s4ki',
-      url: 'assets/videos/asaki_l.mp4',
+      url: getDriveUrl('1rmmkc6ruQuyUcVgtpeobms-ukmJNQD6f'),
       tags: ['ラップ', 'ボーカル'],
       progressSeconds: 20,
     ),
@@ -44,21 +48,21 @@ List<FeedItem> getDummyFeed() {
       id: '4',
       title: 'Flutter♭',
       artistName: 'Flutter♭',
-      url: 'assets/videos/ff.mp4',
+      url: getDriveUrl('1fZEwL6xMDt8DgNcm8PVuwAMxUxZXKuY2'),
       tags: ['アイドル', 'ボーカル'],
     ),
     FeedItem(
       id: '7',
       title: 'かくれんぼ',
       artistName: 'AliA',
-      url: 'assets/videos/alia.mp4',
+      url: getDriveUrl('ccc'),
       tags: ['アイドル', 'MV'],
     ),
     FeedItem(
       id: '5',
       title: '来たれ！ぱすはに道',
       artistName: 'ぱすはに',
-      url: 'assets/videos/zepa.mp4',
+      url: getDriveUrl('1nlE_7UDR-8znay34VI_6_AyMBI7wWE54'),
       tags: ['アイドル', 'アニメ', 'インフルエンサー'],
     ),
   ];

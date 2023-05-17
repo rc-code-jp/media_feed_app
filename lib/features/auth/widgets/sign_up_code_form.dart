@@ -36,7 +36,7 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
 
       // ダミー
       await Future.delayed(
-        const Duration(seconds: 2),
+        const Duration(seconds: 1),
       );
 
       // ログイン処理
