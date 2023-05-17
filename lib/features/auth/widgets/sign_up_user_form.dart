@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/app_toast.dart';
+import 'package:media_feed_app/models/form_select_item.dart';
 import 'package:media_feed_app/widgets/form/action_button.dart';
 import 'package:media_feed_app/widgets/form/form_date_field.dart';
-import 'package:media_feed_app/widgets/form/form_text_field.dart';
+import 'package:media_feed_app/widgets/form/form_radio_field.dart';
 
 class SignUpUserForm extends ConsumerStatefulWidget {
   const SignUpUserForm({Key? key}) : super(key: key);
@@ -15,15 +16,15 @@ class SignUpUserForm extends ConsumerStatefulWidget {
 class SignUpFormState extends ConsumerState<SignUpUserForm> {
   final focusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final bdController = TextEditingController();
+  final genderController = TextEditingController();
   bool isLoading = false;
 
   @override
   void dispose() {
     focusNode.dispose();
-    emailController.dispose();
-    passwordController.dispose();
+    bdController.dispose();
+    genderController.dispose();
     super.dispose();
   }
 
@@ -67,15 +68,24 @@ class SignUpFormState extends ConsumerState<SignUpUserForm> {
         children: [
           FormDateField(
             labelText: '生年月日',
-            controller: emailController,
+            controller: bdController,
           ),
           const SizedBox(
             height: 20,
           ),
-          FormTextField(
-            obscureText: true,
+          FormRadioField(
+            controller: genderController,
             labelText: '性別',
-            controller: passwordController,
+            items: const [
+              FormSelectItem(text: '男性', value: 'male'),
+              FormSelectItem(text: '女性', value: 'female'),
+              FormSelectItem(text: 'その他', value: 'they'),
+            ],
+            onChanged: (value) {
+              setState(() {
+                genderController.text = value ?? '';
+              });
+            },
           ),
           const SizedBox(
             height: 40,

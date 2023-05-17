@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/app_firebase.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/routes.dart';
-import 'package:media_feed_app/screens/main/main_screen.dart';
+import 'package:media_feed_app/screens/auth/sign_up_user_screen.dart';
 import 'package:media_feed_app/screens/start/start_screen.dart';
 import 'package:media_feed_app/styles/colors.dart';
 
@@ -66,7 +66,7 @@ class MyApp extends ConsumerWidget {
             );
           }
           bool loggedIn = snapshot.data!;
-          return loggedIn ? const MainScreen() : const StartScreen();
+          return loggedIn ? const SignUpUserScreen() : const StartScreen();
         },
       ),
     );

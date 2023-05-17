@@ -25,6 +25,21 @@ List<FeedItem> getDummyFeed() {
       tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
+      id: '4',
+      title: 'Flutter♭',
+      artistName: 'Flutter♭',
+      url: 'assets/videos/ff.mp4',
+      tags: ['アイドル', 'ボーカル'],
+      progressSeconds: 20,
+    ),
+    FeedItem(
+      id: '7',
+      title: 'かくれんぼ',
+      artistName: 'AliA',
+      url: 'assets/videos/alia.mp4',
+      tags: ['アイドル', 'MV'],
+    ),
+    FeedItem(
       id: '10',
       title: '青春グラフィティー',
       artistName: 'Peel the Apple',
@@ -39,20 +54,6 @@ List<FeedItem> getDummyFeed() {
       url: 'assets/videos/asaki_l.mp4',
       tags: ['ラップ', 'ボーカル'],
       progressSeconds: 20,
-    ),
-    FeedItem(
-      id: '4',
-      title: 'Flutter♭',
-      artistName: 'Flutter♭',
-      url: 'assets/videos/ff.mp4',
-      tags: ['アイドル', 'ボーカル'],
-    ),
-    FeedItem(
-      id: '7',
-      title: 'かくれんぼ',
-      artistName: 'AliA',
-      url: 'assets/videos/alia.mp4',
-      tags: ['アイドル', 'MV'],
     ),
     FeedItem(
       id: '5',
