@@ -39,18 +39,15 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     // 前の動画を停止する
     if (feedIndex > 0) {
       final prevFeedItem = state[feedIndex - 1];
-      prevFeedItem.setVideoVolume(0);
       prevFeedItem.pauseVideo();
     }
 
     // 後の動画を読み込んでから停止する
-    // （スクロール時にポスターを出すため）
     if (feedIndex < state.length - 1) {
       final nextFeedItem = state[feedIndex + 1];
       if (!nextFeedItem.hasVideoController()) {
         // await nextFeedItem.loadVideoController();
       }
-      nextFeedItem.setVideoVolume(0);
       nextFeedItem.pauseVideo();
     }
 
@@ -59,7 +56,6 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (!feedItem.hasVideoController()) {
       await feedItem.loadVideoController();
     }
-    feedItem.setVideoVolume(1);
     feedItem.playFromStart();
 
     state = [...state];

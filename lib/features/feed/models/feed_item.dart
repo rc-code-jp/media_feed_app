@@ -89,11 +89,6 @@ class FeedItem {
     videoController?.play();
   }
 
-  // ビデオの音量を調整
-  void setVideoVolume(double volume) {
-    videoController?.setVolume(volume);
-  }
-
   // ビデオを破棄する
   void disposeVideo() {
     videoController?.dispose();
