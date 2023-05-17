@@ -37,11 +37,6 @@ class SignUpFormState extends ConsumerState<SignUpForm> {
         isLoading = true;
       });
 
-      // ダミー
-      await Future.delayed(
-        const Duration(seconds: 1),
-      );
-
       // コード認証画面へ
       if (!mounted) return;
       await Navigator.pushNamed(context, '/auth/sign-up/code');

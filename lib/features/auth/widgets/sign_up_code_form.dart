@@ -34,11 +34,6 @@ class SignUpCodeFormState extends ConsumerState<SignUpCodeForm> {
         isLoading = true;
       });
 
-      // ダミー
-      await Future.delayed(
-        const Duration(seconds: 1),
-      );
-
       // ログイン処理
       AuthStorage().write('dummy');
 

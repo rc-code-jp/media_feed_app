@@ -38,11 +38,6 @@ class SignInFormState extends ConsumerState<SignInForm> {
         isLoading = true;
       });
 
-      // ダミー
-      await Future.delayed(
-        const Duration(seconds: 1),
-      );
-
       // ログイン処理
       AuthStorage().write('dummy');
 
