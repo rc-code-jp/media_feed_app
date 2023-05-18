@@ -19,9 +19,9 @@ List<FeedItem> getDummyFeed() {
     ),
     FeedItem(
       id: '3',
-      title: 'あの子コンプレックス',
-      artistName: '=LOVE',
-      url: 'assets/videos/ikolove_anoko.mp4',
+      title: 'すずめ feat.十明',
+      artistName: 'RADWIMPS',
+      url: 'assets/videos/suzume.mp4',
       tags: ['ポップス', 'J-POP', 'アニメ'],
       progressSeconds: 20,
     ),
