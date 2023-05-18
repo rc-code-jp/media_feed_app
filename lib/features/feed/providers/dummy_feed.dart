@@ -11,6 +11,13 @@ List<FeedItem> getDummyFeed() {
       tags: ['アイドル', 'J-POP', 'ボーカル'],
     ),
     FeedItem(
+      id: '7',
+      title: 'かくれんぼ',
+      artistName: 'AliA',
+      url: 'assets/videos/alia.mp4',
+      tags: ['アイドル', 'MV'],
+    ),
+    FeedItem(
       id: '2',
       title: 'セブンティーン',
       artistName: 'YOASOBI',
@@ -18,12 +25,11 @@ List<FeedItem> getDummyFeed() {
       tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
-      id: '3',
-      title: 'すずめ feat.十明',
-      artistName: 'RADWIMPS',
-      url: 'assets/videos/suzume.mp4',
-      tags: ['ポップス', 'J-POP', 'アニメ'],
-      progressSeconds: 20,
+      id: '5',
+      title: '小喋日和',
+      artistName: 'FantasticYouth',
+      url: 'assets/videos/hiyori.mp4',
+      tags: ['アニメ'],
     ),
     FeedItem(
       id: '4',
@@ -34,18 +40,12 @@ List<FeedItem> getDummyFeed() {
       progressSeconds: 20,
     ),
     FeedItem(
-      id: '7',
-      title: 'かくれんぼ',
-      artistName: 'AliA',
-      url: 'assets/videos/alia.mp4',
-      tags: ['アイドル', 'MV'],
-    ),
-    FeedItem(
-      id: '5',
-      title: '来たれ！ぱすはに道',
-      artistName: 'ぱすはに',
-      url: 'assets/videos/zepa.mp4',
-      tags: ['アイドル', 'アニメ', 'インフルエンサー'],
+      id: '3',
+      title: 'すずめ feat.十明',
+      artistName: 'RADWIMPS',
+      url: 'assets/videos/suzume.mp4',
+      tags: ['ポップス', 'J-POP', 'アニメ'],
+      progressSeconds: 20,
     ),
   ];
 }
