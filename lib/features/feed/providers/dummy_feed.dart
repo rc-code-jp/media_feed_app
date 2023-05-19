@@ -5,9 +5,9 @@ List<FeedItem> getDummyFeed() {
   return [
     FeedItem(
       id: '1',
-      title: 'Stellar Stellar / THE FIRST TAKE',
-      artistName: '星街すいせい',
-      url: 'assets/videos/hoshimati.mp4',
+      title: '普変 / THE FIRST TAKE',
+      artistName: 'あの',
+      url: 'assets/videos/ano.mp4',
       tags: ['アイドル', 'J-POP', 'ボーカル'],
     ),
     FeedItem(
@@ -40,12 +40,19 @@ List<FeedItem> getDummyFeed() {
       progressSeconds: 20,
     ),
     FeedItem(
-      id: '3',
-      title: 'すずめ feat.十明',
-      artistName: 'RADWIMPS',
-      url: 'assets/videos/suzume.mp4',
-      tags: ['ポップス', 'J-POP', 'アニメ'],
-      progressSeconds: 20,
+      id: '1',
+      title: 'Stellar Stellar / THE FIRST TAKE',
+      artistName: '星街すいせい',
+      url: 'assets/videos/hoshimati.mp4',
+      tags: ['アイドル', 'J-POP', 'バーチャル'],
     ),
+    // FeedItem(
+    //   id: '3',
+    //   title: 'NPC',
+    //   artistName: '夜行性アミューズ',
+    //   url: 'assets/videos/npc.mp4',
+    //   tags: ['ダンス', 'アイドル'],
+    //   progressSeconds: 20,
+    // ),
   ];
 }
