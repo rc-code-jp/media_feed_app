@@ -53,8 +53,14 @@ open ./build/ios/ipa
 
 ```
 # android
-fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
+fvm flutter build apk --release --dart-define-from-file=dart_defines/stg.json
 ```
+
+```
+# 出力フォルダを開く
+open ./build/app/outputs/flutter-apk
+```
+
 
 ## スプラッシュ画面の生成
 
