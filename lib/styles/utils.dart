@@ -17,4 +17,23 @@ class UtilStyles {
     color: AppColors.white.withOpacity(0.2),
     borderRadius: BorderRadius.circular(10),
   );
+
+  static InputDecoration fieldInputDecoration = InputDecoration(
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8.0),
+      borderSide: BorderSide(
+        color: AppColors.white.withOpacity(0.3),
+        width: 1,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.white.withOpacity(0.3),
+      ),
+    ),
+    labelStyle: const TextStyle(color: AppColors.white),
+    filled: true,
+    fillColor: AppColors.white.withOpacity(0.2),
+    counterText: '',
+  );
 }

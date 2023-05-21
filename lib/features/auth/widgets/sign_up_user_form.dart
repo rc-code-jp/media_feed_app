@@ -39,11 +39,6 @@ class SignUpFormState extends ConsumerState<SignUpUserForm> {
         isLoading = true;
       });
 
-      // ダミー
-      await Future.delayed(
-        const Duration(seconds: 2),
-      );
-
       // 画面をすべて除いてメイン画面に遷移
       if (!mounted) return;
       await Navigator.pushNamedAndRemoveUntil(

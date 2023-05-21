@@ -1,94 +1,128 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:media_feed_app/styles/colors.dart';
+import 'package:media_feed_app/styles/utils.dart';
+import 'package:media_feed_app/widgets/form/form_label.dart';
 
-class FormDateField extends StatelessWidget {
+class FormDateField extends StatefulWidget {
   final TextEditingController controller;
   final String? labelText;
-  final String? hintText;
-  final TextInputType? keyboardType;
   final FormFieldValidator<String>? validator;
 
   const FormDateField({
     Key? key,
     required this.controller,
     this.labelText,
-    this.hintText,
-    this.keyboardType,
     this.validator,
   }) : super(key: key);
 
   @override
+  State<StatefulWidget> createState() => FormDateFieldState();
+}
+
+class FormDateFieldState extends State<FormDateField> {
+  TextEditingController yearController = TextEditingController();
+  TextEditingController monthController = TextEditingController();
+  TextEditingController dayController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    yearController.dispose();
+    monthController.dispose();
+    dayController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        labelText != null
-            ? Text(
-                labelText!,
-                style: const TextStyle(
-                  color: AppColors.white,
-                  fontSize: 14,
-                ),
-              )
-            : const SizedBox.shrink(),
-        const SizedBox(height: 5),
-        SizedBox(
-          width: double.infinity,
-          height: 50,
-          child: TextFormField(
-            onTap: () async {
-              final currentDateTime = controller.text.isNotEmpty
-                  ? DateTime.parse(controller.text)
-                  : DateTime.now();
-              final dateTime = await openCalendar(context, currentDateTime);
-              // FIXME: 本体はInputFormatterを使った方が良い
-              if (dateTime != null) {
-                controller.text = DateFormat('yyyy-MM-dd').format(dateTime);
-              } else {
-                controller.text = '';
-              }
-            },
-            readOnly: true,
-            controller: controller,
-            keyboardType: keyboardType,
-            validator: validator,
-            cursorColor: AppColors.white,
-            style: const TextStyle(color: AppColors.white),
-            decoration: InputDecoration(
-              hintText: hintText,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
-                borderSide: BorderSide(
-                  color: AppColors.white.withOpacity(0.3),
-                  width: 1,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColors.white.withOpacity(0.3),
-                ),
-              ),
-              labelStyle: const TextStyle(color: AppColors.white),
-              filled: true,
-              fillColor: AppColors.white.withOpacity(0.2),
-            ),
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          FormLabel(
+            text: widget.labelText,
           ),
-        ),
-      ],
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                width: 100,
+                height: 50,
+                child: TextFormField(
+                  controller: yearController,
+                  textInputAction: TextInputAction.next,
+                  cursorColor: AppColors.white,
+                  style: const TextStyle(color: AppColors.white),
+                  decoration: UtilStyles.fieldInputDecoration,
+                  maxLength: 4,
+                  onChanged: (value) {
+                    updateValue(value);
+                  },
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text('年', style: TextStyle(color: AppColors.white)),
+              ),
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: TextFormField(
+                  controller: monthController,
+                  textInputAction: TextInputAction.next,
+                  cursorColor: AppColors.white,
+                  style: const TextStyle(color: AppColors.white),
+                  decoration: UtilStyles.fieldInputDecoration,
+                  maxLength: 2,
+                  onChanged: (value) {
+                    updateValue(value);
+                  },
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text('月', style: TextStyle(color: AppColors.white)),
+              ),
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: TextFormField(
+                  controller: dayController,
+                  textInputAction: TextInputAction.done,
+                  cursorColor: AppColors.white,
+                  style: const TextStyle(color: AppColors.white),
+                  decoration: UtilStyles.fieldInputDecoration,
+                  maxLength: 2,
+                  onChanged: (value) {
+                    updateValue(value);
+                  },
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text('日', style: TextStyle(color: AppColors.white)),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
-  Future<DateTime?> openCalendar(
-    BuildContext context,
-    DateTime? initialDate,
-  ) async {
-    return await showDatePicker(
-      context: context,
-      initialDate: initialDate ?? DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime(2100),
-    );
+  // 値を更新する
+  void updateValue(String value) {
+    String year = yearController.text;
+    String month = monthController.text;
+    String day = dayController.text;
+    widget.controller.text = '$year-$month-$day';
   }
 }
