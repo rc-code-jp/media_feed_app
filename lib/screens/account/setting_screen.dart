@@ -1,6 +1,4 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/styles/colors.dart';
@@ -11,12 +9,13 @@ class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
   Future<String> _getFcmToken() async {
-    final messaging = FirebaseMessaging.instance;
-    final token = await messaging.getToken();
-    // クリップボードにコピー
-    final data = ClipboardData(text: token ?? '');
-    await Clipboard.setData(data);
-    return token ?? '';
+    // final messaging = FirebaseMessaging.instance;
+    // final token = await messaging.getToken();
+    // // クリップボードにコピー
+    // final data = ClipboardData(text: token ?? '');
+    // await Clipboard.setData(data);
+    // return token ?? '';
+    return '';
   }
 
   @override

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/libraries/app_firebase.dart';
 import 'package:media_feed_app/libraries/auth_storage.dart';
 import 'package:media_feed_app/routes.dart';
 import 'package:media_feed_app/screens/main/main_screen.dart';
@@ -15,11 +14,11 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // Firebase初期化
-  final fb = AppFirebase();
-  await fb.initialize();
+  // final fb = AppFirebase();
+  // await fb.initialize();
 
   // 通知許可
-  await fb.requestFcmPermission();
+  // await fb.requestFcmPermission();
 
   // 起動
   runApp(
@@ -33,7 +32,7 @@ class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // ログインチェック
-  Future<bool> isLoggedIn() async {
+  Future<bool> checkLoggedIn() async {
     final hasToken = await AuthStorage().has();
     // 1秒待つ
     await Future.delayed(const Duration(seconds: 1));
@@ -56,7 +55,7 @@ class MyApp extends ConsumerWidget {
       routes: routes,
       // ログイン状態に応じて表示する画面を切り替える
       home: FutureBuilder(
-        future: isLoggedIn(),
+        future: checkLoggedIn(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
             return const Center(
