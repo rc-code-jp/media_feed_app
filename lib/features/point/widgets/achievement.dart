@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class Achievement extends ConsumerWidget {
   final int point;

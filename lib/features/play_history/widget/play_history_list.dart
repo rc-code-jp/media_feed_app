@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/styles/utils.dart';
-import 'package:media_feed_app/widgets/dialog/detail_modal.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/styles/utils.dart';
+import 'package:vuuum_app/widgets/dialog/detail_modal.dart';
 
 final List items = [
   {

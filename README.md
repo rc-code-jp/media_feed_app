@@ -1,4 +1,4 @@
-# media_feed_app
+# Vuuum - 動画をスクロールして閲覧するアプリ
 
 ## 初期設定
 
@@ -87,6 +87,7 @@ fvm flutter pub run flutter_launcher_icons
 │   ├── providers ... グローバルな状態管理
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
+│   ├── utils     ... 汎用的な関数などを定義する
 │   ├── styles    ... 共通スタイル
 │   ├── screens   ... スクリーン（ページ）
 │   │   ├── xxx   ... 無法

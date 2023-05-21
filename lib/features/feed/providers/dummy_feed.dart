@@ -1,4 +1,4 @@
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
 
 // ダミー様なので本番では消す
 List<FeedItem> getDummyFeed() {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/libraries/auth_storage.dart';
-import 'package:media_feed_app/routes.dart';
-import 'package:media_feed_app/screens/main/main_screen.dart';
-import 'package:media_feed_app/screens/start/start_screen.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/libraries/auth_storage.dart';
+import 'package:vuuum_app/routes.dart';
+import 'package:vuuum_app/screens/main/main_screen.dart';
+import 'package:vuuum_app/screens/start/start_screen.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 Future<void> main() async {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/widgets/media_player.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/widgets/media_player.dart';
 
 class FeedMediaPlayer extends ConsumerWidget {
   final FeedItem feedItem;

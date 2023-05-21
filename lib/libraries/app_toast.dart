@@ -1,5 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class AppToast {
   static void showError(String message) {

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
-import 'package:media_feed_app/features/feed/widgets/progress_circle.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/features/feed/providers/feed_provider.dart';
+import 'package:vuuum_app/features/feed/widgets/progress_circle.dart';
 
 class FeedCardProgress extends ConsumerStatefulWidget {
   final FeedItem feedItem;

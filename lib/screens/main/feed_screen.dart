@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/providers/feed_provider.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_card.dart';
-import 'package:media_feed_app/libraries/logger.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/features/feed/providers/feed_provider.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_card.dart';
+import 'package:vuuum_app/libraries/logger.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class FeedScreen extends ConsumerStatefulWidget {
   const FeedScreen({Key? key}) : super(key: key);

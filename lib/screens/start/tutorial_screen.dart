@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/tutorial/widgets/tutorial_actions.dart';
-import 'package:media_feed_app/features/tutorial/widgets/tutorial_page_view.dart';
-import 'package:media_feed_app/styles/utils.dart';
+import 'package:vuuum_app/features/tutorial/widgets/tutorial_actions.dart';
+import 'package:vuuum_app/features/tutorial/widgets/tutorial_page_view.dart';
+import 'package:vuuum_app/styles/utils.dart';
 
 class TutorialScreen extends ConsumerStatefulWidget {
   const TutorialScreen({Key? key}) : super(key: key);

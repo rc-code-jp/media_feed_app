@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/styles/utils.dart';
-import 'package:media_feed_app/widgets/form/form_label.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/styles/utils.dart';
+import 'package:vuuum_app/widgets/form/form_label.dart';
 
 class FormCalenderField extends StatelessWidget {
   final TextEditingController controller;

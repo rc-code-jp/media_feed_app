@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/widgets/icon_text_row.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/widgets/icon_text_row.dart';
 
 class DetailModal extends ConsumerWidget {
   final String artistName;

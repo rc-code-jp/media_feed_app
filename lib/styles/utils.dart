@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class UtilStyles {
   static const BoxDecoration decorationGradient = BoxDecoration(

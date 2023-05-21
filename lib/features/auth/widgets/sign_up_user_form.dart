@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/libraries/app_toast.dart';
-import 'package:media_feed_app/models/form_select_item.dart';
-import 'package:media_feed_app/widgets/form/action_button.dart';
-import 'package:media_feed_app/widgets/form/form_date_field.dart';
-import 'package:media_feed_app/widgets/form/form_radio_field.dart';
+import 'package:vuuum_app/libraries/app_toast.dart';
+import 'package:vuuum_app/models/form_select_item.dart';
+import 'package:vuuum_app/widgets/form/action_button.dart';
+import 'package:vuuum_app/widgets/form/form_date_field.dart';
+import 'package:vuuum_app/widgets/form/form_radio_field.dart';
 
 class SignUpUserForm extends ConsumerStatefulWidget {
   const SignUpUserForm({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
-name: media_feed_app
-description: media_feed_app
+name: vuuum_app
+description: vuuum_app
 publish_to: "none"
 
-version: 0.2.7+3
+version: 0.2.8+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

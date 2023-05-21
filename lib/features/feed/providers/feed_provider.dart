@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/providers/dummy_feed.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/features/feed/providers/dummy_feed.dart';
 
 final feedProvider =
     StateNotifierProvider.autoDispose<FeedStateNotifier, List<FeedItem>>((ref) {

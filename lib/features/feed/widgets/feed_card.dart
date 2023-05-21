@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_acquired_banner.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_card_actions.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_card_detail.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_card_progress.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_finished_banner.dart';
-import 'package:media_feed_app/features/feed/widgets/feed_media_player.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_acquired_banner.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_card_actions.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_card_detail.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_card_progress.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_finished_banner.dart';
+import 'package:vuuum_app/features/feed/widgets/feed_media_player.dart';
 
 class FeedCard extends ConsumerWidget {
   final FeedItem feedItem;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:media_feed_app/models/form_select_item.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/models/form_select_item.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class FormRadioField extends StatelessWidget {
   final TextEditingController controller;

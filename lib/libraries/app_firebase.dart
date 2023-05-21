@@ -1,8 +1,8 @@
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:media_feed_app/firebase_options_prd.dart' as fb_option_prd;
-// import 'package:media_feed_app/firebase_options_stg.dart' as fb_option_stg;
-// import 'package:media_feed_app/libraries/logger.dart';
+// import 'package:vuuum_app/firebase_options_prd.dart' as fb_option_prd;
+// import 'package:vuuum_app/firebase_options_stg.dart' as fb_option_stg;
+// import 'package:vuuum_app/libraries/logger.dart';
 
 // class AppFirebase {
 //   Future<void> initialize() async {

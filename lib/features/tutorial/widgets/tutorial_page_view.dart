@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/widgets/form/action_button.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/widgets/form/action_button.dart';
 
 class TutorialPageView extends ConsumerWidget {
   final PageController pageController;

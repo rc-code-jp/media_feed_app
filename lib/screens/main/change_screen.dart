@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/styles/colors.dart';
+import 'package:vuuum_app/styles/colors.dart';
 
 class ChangeScreen extends ConsumerWidget {
   const ChangeScreen({Key? key}) : super(key: key);

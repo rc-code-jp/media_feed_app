@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/features/feed/models/feed_item.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/widgets/dialog/detail_modal.dart';
-import 'package:media_feed_app/widgets/icon_text_button.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:vuuum_app/features/feed/models/feed_item.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/widgets/dialog/detail_modal.dart';
+import 'package:vuuum_app/widgets/icon_text_button.dart';
 
 class FeedCardActions extends ConsumerWidget {
   final FeedItem feedItem;

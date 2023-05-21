@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/screens/main/change_screen.dart';
-import 'package:media_feed_app/screens/main/feed_screen.dart';
-import 'package:media_feed_app/screens/main/my_page_screen.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/styles/utils.dart';
+import 'package:vuuum_app/screens/main/change_screen.dart';
+import 'package:vuuum_app/screens/main/feed_screen.dart';
+import 'package:vuuum_app/screens/main/my_page_screen.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/styles/utils.dart';
 
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

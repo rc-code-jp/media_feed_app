@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/libraries/app_toast.dart';
-import 'package:media_feed_app/widgets/form/action_button.dart';
-import 'package:media_feed_app/widgets/form/form_text_field.dart';
+import 'package:vuuum_app/libraries/app_toast.dart';
+import 'package:vuuum_app/widgets/form/action_button.dart';
+import 'package:vuuum_app/widgets/form/form_text_field.dart';
 
 class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({Key? key}) : super(key: key);

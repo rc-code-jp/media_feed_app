@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_feed_app/styles/colors.dart';
-import 'package:media_feed_app/styles/utils.dart';
-import 'package:media_feed_app/widgets/form/action_button.dart';
-import 'package:media_feed_app/widgets/version_text.dart';
+import 'package:vuuum_app/styles/colors.dart';
+import 'package:vuuum_app/styles/utils.dart';
+import 'package:vuuum_app/widgets/form/action_button.dart';
+import 'package:vuuum_app/widgets/version_text.dart';
 
 class StartScreen extends ConsumerWidget {
   const StartScreen({Key? key}) : super(key: key);
