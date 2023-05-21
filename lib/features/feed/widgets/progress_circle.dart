@@ -17,7 +17,7 @@ class ProgressCircle extends ConsumerWidget {
           strokeWidth: 3,
           value: value,
           color: AppColors.primary,
-          backgroundColor: AppColors.white.withOpacity(0.3),
+          backgroundColor: AppColors.white.withOpacity(0.5),
         ),
         // アイコン（完了時にフェードイン）
         Align(
@@ -27,7 +27,7 @@ class ProgressCircle extends ConsumerWidget {
             opacity: value >= 1 ? 1 : 0,
             child: const Icon(
               Icons.check,
-              size: 30,
+              size: 40,
               color: AppColors.primary,
             ),
           ),

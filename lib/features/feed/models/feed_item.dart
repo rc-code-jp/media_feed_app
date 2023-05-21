@@ -9,7 +9,6 @@ class FeedItem {
   late int progressSeconds; // 視聴済みまでの秒数
   late bool isFinished; // 視聴済み
   late bool isAcquired; // 獲得済み
-
   VideoPlayerController? videoController;
 
   FeedItem({
