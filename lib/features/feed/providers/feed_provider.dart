@@ -46,7 +46,7 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     if (feedIndex < state.length - 1) {
       final nextFeedItem = state[feedIndex + 1];
       if (!nextFeedItem.hasVideoController()) {
-        // await nextFeedItem.loadVideoController();
+        await nextFeedItem.loadVideoController();
       }
       nextFeedItem.pauseVideo();
     }

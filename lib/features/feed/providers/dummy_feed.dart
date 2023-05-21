@@ -8,21 +8,14 @@ List<FeedItem> getDummyFeed() {
       title: 'Stellar Stellar / THE FIRST TAKE',
       artistName: '星街すいせい',
       url: 'assets/videos/hoshimati.mp4',
-      tags: ['アイドル', 'J-POP', 'バーチャル'],
-    ),
-    FeedItem(
-      id: '2',
-      title: '星になる',
-      artistName: 'Islet feat.倚水',
-      url: 'assets/videos/hoshininaru.mp4',
-      tags: ['ポップス', 'J-POP'],
+      tags: ['J-POP', 'バーチャル'],
     ),
     FeedItem(
       id: '5',
       title: '白昼夢',
       artistName: 'Islet',
       url: 'assets/videos/hakuchumu.mp4',
-      tags: ['アニメ'],
+      tags: ['ポップス', 'J-POP', 'アニメ'],
     ),
     FeedItem(
       id: '99',
@@ -30,6 +23,13 @@ List<FeedItem> getDummyFeed() {
       artistName: 'ブランデー戦記',
       url: 'assets/videos/burande.mp4',
       tags: ['J-POP', 'ボーカル'],
+    ),
+    FeedItem(
+      id: '2',
+      title: 'かくれんぼ',
+      artistName: 'Alia',
+      url: 'assets/videos/alia.mp4',
+      tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
       id: '4',
@@ -43,7 +43,7 @@ List<FeedItem> getDummyFeed() {
       title: '夜行性',
       artistName: 'Anonymouz アノニムーズ',
       url: 'assets/videos/nemurenai.mp4',
-      tags: ['アイドル', 'MV'],
+      tags: ['ポップス', 'J-POP'],
     ),
   ];
 }
