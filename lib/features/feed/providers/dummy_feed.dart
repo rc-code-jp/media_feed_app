@@ -11,13 +11,6 @@ List<FeedItem> getDummyFeed() {
       tags: ['アイドル', 'J-POP', 'バーチャル'],
     ),
     FeedItem(
-      id: '7',
-      title: '夜行性',
-      artistName: 'Anonymouz アノニムーズ',
-      url: 'assets/videos/nemurenai.mp4',
-      tags: ['アイドル', 'MV'],
-    ),
-    FeedItem(
       id: '2',
       title: '星になる',
       artistName: 'Islet feat.倚水',
@@ -32,6 +25,13 @@ List<FeedItem> getDummyFeed() {
       tags: ['アニメ'],
     ),
     FeedItem(
+      id: '99',
+      title: 'Musica',
+      artistName: 'ブランデー戦記',
+      url: 'assets/videos/burande.mp4',
+      tags: ['J-POP', 'ボーカル'],
+    ),
+    FeedItem(
       id: '4',
       title: 'Flutter♭',
       artistName: 'Flutter♭',
@@ -39,11 +39,11 @@ List<FeedItem> getDummyFeed() {
       tags: ['アイドル', 'ボーカル'],
     ),
     FeedItem(
-      id: '99',
-      title: 'Musica',
-      artistName: 'ブランデー戦記',
-      url: 'assets/videos/burande.mp4',
-      tags: ['J-POP', 'ボーカル'],
+      id: '7',
+      title: '夜行性',
+      artistName: 'Anonymouz アノニムーズ',
+      url: 'assets/videos/nemurenai.mp4',
+      tags: ['アイドル', 'MV'],
     ),
   ];
 }

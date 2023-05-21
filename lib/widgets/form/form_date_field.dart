@@ -59,13 +59,17 @@ class FormDateFieldState extends State<FormDateField> {
                 height: 50,
                 child: TextFormField(
                   controller: yearController,
-                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.phone,
                   cursorColor: AppColors.white,
                   style: const TextStyle(color: AppColors.white),
                   decoration: UtilStyles.fieldInputDecoration,
                   maxLength: 4,
                   onChanged: (value) {
                     updateValue(value);
+                    // 次のinputにフォーカスを移す
+                    if (value.length == 4) {
+                      FocusScope.of(context).nextFocus();
+                    }
                   },
                 ),
               ),
@@ -78,13 +82,17 @@ class FormDateFieldState extends State<FormDateField> {
                 height: 50,
                 child: TextFormField(
                   controller: monthController,
-                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.phone,
                   cursorColor: AppColors.white,
                   style: const TextStyle(color: AppColors.white),
                   decoration: UtilStyles.fieldInputDecoration,
                   maxLength: 2,
                   onChanged: (value) {
                     updateValue(value);
+                    // 次のinputにフォーカスを移す
+                    if (value.length == 2) {
+                      FocusScope.of(context).nextFocus();
+                    }
                   },
                 ),
               ),
@@ -97,13 +105,17 @@ class FormDateFieldState extends State<FormDateField> {
                 height: 50,
                 child: TextFormField(
                   controller: dayController,
-                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.phone,
                   cursorColor: AppColors.white,
                   style: const TextStyle(color: AppColors.white),
                   decoration: UtilStyles.fieldInputDecoration,
                   maxLength: 2,
                   onChanged: (value) {
                     updateValue(value);
+                    // フォーカスを外す
+                    if (value.length == 2) {
+                      FocusScope.of(context).unfocus();
+                    }
                   },
                 ),
               ),
