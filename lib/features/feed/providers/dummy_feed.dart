@@ -37,7 +37,6 @@ List<FeedItem> getDummyFeed() {
       artistName: 'Flutter♭',
       url: 'assets/videos/ff.mp4',
       tags: ['アイドル', 'ボーカル'],
-      progressSeconds: 20,
     ),
     FeedItem(
       id: '99',

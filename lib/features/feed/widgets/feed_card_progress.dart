@@ -27,8 +27,8 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
   void initState() {
     super.initState();
 
-    // 5秒ごと
-    _progressValueMax = widget.feedItem.progressSeconds / 5;
+    // 合計15秒だが、5秒ごとに1.0になるようにする
+    _progressValueMax = 15 / 5;
 
     // すでに視聴済みの場合は最大値にする
     if (widget.feedItem.isFinished) {
