@@ -1,4 +1,4 @@
-dev/stg
+stg
 
 ```
 flutterfire configure \

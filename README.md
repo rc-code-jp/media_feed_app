@@ -41,35 +41,7 @@ fvm flutter clean
 ### iOS
 
 Automatic manage signingで大丈夫。
-（dev,stg,prd分のprofileをimportする必要がある）
-
-```
-fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --export-method=ad-hoc
-
-open ./build/ios/ipa
-```
-
-## Android
-
-```
-fvm flutter build FIXME --release --dart-define-from-file=dart_defines/stg.json
-
-open ./build/ios/ipa
-```
-
-## テストリリースビルド 
-
-主にFirebase App Distribution用。
-
-```
-# 先にクリーンしておく
-fvm flutter clean
-```
-
-### iOS
-
-Automatic manage signingで大丈夫。
-（dev,stg,prd分のprofileをimportする必要がある）
+（stg,prd分のprofileをimportする必要がある）
 
 ```
 fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --export-method=ad-hoc
