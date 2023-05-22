@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vuuum_app/libraries/app_firebase.dart';
 import 'package:vuuum_app/libraries/auth_storage.dart';
 import 'package:vuuum_app/routes.dart';
 import 'package:vuuum_app/screens/main/main_screen.dart';
@@ -14,11 +15,11 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // Firebase初期化
-  // final fb = AppFirebase();
-  // await fb.initialize();
+  final fb = AppFirebase();
+  await fb.initialize();
 
   // 通知許可
-  // await fb.requestFcmPermission();
+  await fb.requestFcmPermission();
 
   // 起動
   runApp(

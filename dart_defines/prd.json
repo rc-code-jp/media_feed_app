@@ -1,5 +1,7 @@
 {
   "flavor": "prd",
   "appName": "Vuuum",
-  "appIdSuffix": ".prd"
+  "appIdSuffix": ".prd",
+  "googleServicePList": "GoogleService-Info-prd.plist",
+  "googleServiceJSON": "google-services-prd.json"
 }
