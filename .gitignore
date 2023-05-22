@@ -48,3 +48,6 @@ app.*.map.json
 
 # 不要なアイコン?
 android/app/src/main/res/mipmap*/
+
+# Firebase
+ios/GoogleService-Info.plist

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vuuum_app/libraries/app_firebase.dart';
 import 'package:vuuum_app/libraries/auth_storage.dart';
 import 'package:vuuum_app/styles/colors.dart';
 import 'package:vuuum_app/styles/utils.dart';
@@ -8,14 +10,13 @@ import 'package:vuuum_app/widgets/form/action_button.dart';
 class SettingScreen extends ConsumerWidget {
   const SettingScreen({Key? key}) : super(key: key);
 
-  Future<String> _getFcmToken() async {
-    // final messaging = FirebaseMessaging.instance;
-    // final token = await messaging.getToken();
+  Future<String> _copyFcmToken() async {
+    final fb = AppFirebase();
+    final token = await fb.getFcmToken();
     // // クリップボードにコピー
-    // final data = ClipboardData(text: token ?? '');
-    // await Clipboard.setData(data);
-    // return token ?? '';
-    return '';
+    final data = ClipboardData(text: token);
+    await Clipboard.setData(data);
+    return token;
   }
 
   @override
@@ -44,7 +45,7 @@ class SettingScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 20),
               FutureBuilder(
-                future: _getFcmToken(),
+                future: _copyFcmToken(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData == false) {
                     return const Text('Loading...');
