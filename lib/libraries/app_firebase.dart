@@ -33,8 +33,13 @@ class AppFirebase {
   }
 
   Future<String> getFcmToken() async {
-    final messaging = FirebaseMessaging.instance;
-    final token = await messaging.getToken();
-    return token ?? '';
+    try {
+      // エミュレーターだとトークンを取得できない。
+      final messaging = FirebaseMessaging.instance;
+      final token = await messaging.getToken();
+      return token ?? '';
+    } catch (e) {
+      return '';
+    }
   }
 }
