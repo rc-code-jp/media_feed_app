@@ -21,7 +21,22 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+task selectGoogleServicesJson(type: Copy) {
+    from "src/firebase/$googleServiceJSON"
+    into './'
+    rename "$googleServiceJSON", 'google-services.json'
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
+        task.dependsOn selectGoogleServicesJson
+    }
+}
+
 apply plugin: 'com.android.application'
+// START: FlutterFire Configuration
+apply plugin: 'com.google.gms.google-services'
+// END: FlutterFire Configuration
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 

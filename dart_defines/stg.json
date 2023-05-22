@@ -2,5 +2,6 @@
   "flavor": "stg",
   "appName": "Vuuum - stg",
   "appIdSuffix": ".stg",
-  "googleServicePList": "GoogleService-Info-prd.plist"
+  "googleServicePList": "GoogleService-Info-stg.plist",
+  "googleServiceJSON": "google-services-stg.json"
 }
