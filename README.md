@@ -96,6 +96,7 @@ fvm flutter pub run flutter_launcher_icons
 ├── android
 ├── assets        ... 共通資産
 ├── lib
+│   ├── firebase  ... Firebaseの設定ファイル
 │   ├── providers ... グローバルな状態管理
 │   ├── widgets   ... 共通コンポーネント
 │   ├── libraries ... ライブラリの初期化やラッパーなど
