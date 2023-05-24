@@ -17,6 +17,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
     initialPage: 0,
     viewportFraction: 1.0,
   );
+  bool isBusy = true;
 
   @override
   void initState() {
@@ -41,6 +42,9 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
       await ref.read(feedProvider.notifier).fetchFirstItems();
       await ref.read(feedProvider.notifier).changeVideo(0);
       await ref.read(feedProvider.notifier).loadVideo(1);
+      setState(() {
+        isBusy = false;
+      });
     } catch (e) {
       logger.info(e);
     }
@@ -50,7 +54,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
   Widget build(BuildContext context) {
     final feed = ref.watch(feedProvider);
 
-    if (feed.isEmpty) {
+    if (isBusy) {
       return const Center(
         child: CircularProgressIndicator(
           color: AppColors.white,

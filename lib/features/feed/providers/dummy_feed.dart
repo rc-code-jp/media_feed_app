@@ -3,13 +3,13 @@ import 'package:vuuum_app/features/feed/models/feed_item.dart';
 String getUrl(int value) {
   switch (value) {
     case 1:
-      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/asaki_sugar_test.m3u8';
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v2/fuzzy_Conton_Candy.m3u8';
     case 2:
-      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/ff_test.m3u8';
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v2/hoshimati.m3u8';
     case 3:
-      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/hoshimati_test.m3u8';
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v2/asaki_sugar.m3u8';
     default:
-      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/v_test.m3u8';
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v2/ano.m3u8';
   }
 }
 
