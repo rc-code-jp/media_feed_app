@@ -40,6 +40,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
     try {
       await ref.read(feedProvider.notifier).fetchFirstItems();
       await ref.read(feedProvider.notifier).changeVideo(0);
+      await ref.read(feedProvider.notifier).loadVideo(1);
     } catch (e) {
       logger.info(e);
     }
@@ -64,10 +65,12 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
       onPageChanged: (index) async {
         // 再生
         await ref.read(feedProvider.notifier).changeVideo(index);
+        await ref.read(feedProvider.notifier).loadVideo(index + 1);
 
         // 次のフィードを読み込む
         if (index == feed.length - 1) {
           await ref.read(feedProvider.notifier).fetchNextItems();
+          await ref.read(feedProvider.notifier).loadVideo(index + 1);
         }
       },
       itemBuilder: (context, index) {
