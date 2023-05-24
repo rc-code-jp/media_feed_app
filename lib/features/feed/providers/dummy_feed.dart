@@ -1,5 +1,18 @@
 import 'package:vuuum_app/features/feed/models/feed_item.dart';
 
+String getUrl(int value) {
+  switch (value) {
+    case 1:
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/asaki_sugar_test.m3u8';
+    case 2:
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/ff_test.m3u8';
+    case 3:
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/hoshimati_test.m3u8';
+    default:
+      return 'https://s3.ap-northeast-1.amazonaws.com/devs.butterfly.fan/bf_newproduct_test/output/v/v_test.m3u8';
+  }
+}
+
 // ダミー様なので本番では消す
 List<FeedItem> getDummyFeed() {
   return [
@@ -7,49 +20,56 @@ List<FeedItem> getDummyFeed() {
       id: '1',
       title: 'Stellar Stellar / THE FIRST TAKE',
       artistName: '星街すいせい',
-      url: 'assets/videos/hoshimati.mp4',
+      url: getUrl(1),
       tags: ['J-POP', 'バーチャル'],
     ),
     FeedItem(
       id: '5',
       title: '白昼夢',
       artistName: 'Islet',
-      url: 'assets/videos/hakuchumu.mp4',
+      url: getUrl(2),
       tags: ['ポップス', 'J-POP', 'アニメ'],
     ),
     FeedItem(
       id: '99',
       title: 'Musica',
       artistName: 'ブランデー戦記',
-      url: 'assets/videos/burande.mp4',
+      url: getUrl(3),
       tags: ['J-POP', 'ボーカル'],
     ),
     FeedItem(
       id: '2',
       title: 'かくれんぼ',
       artistName: 'Alia',
-      url: 'assets/videos/alia.mp4',
+      url: getUrl(4),
       tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
       id: '4',
       title: 'Flutter♭',
       artistName: 'Flutter♭',
-      url: 'assets/videos/ff.mp4',
+      url: getUrl(1),
       tags: ['アイドル', 'ボーカル'],
     ),
     FeedItem(
       id: '7',
       title: '夜行性',
       artistName: 'Anonymouz アノニムーズ',
-      url: 'assets/videos/nemurenai.mp4',
+      url: getUrl(2),
       tags: ['ポップス', 'J-POP'],
     ),
     FeedItem(
       id: '999',
-      title: '未来',
+      title: '未来1',
       artistName: 'Future Artist',
-      url: 'assets/videos/purple.mp4',
+      url: getUrl(3),
+      tags: ['ポップス', 'J-POP'],
+    ),
+    FeedItem(
+      id: '333',
+      title: '未来2',
+      artistName: 'Future Artist X',
+      url: getUrl(4),
       tags: ['ポップス', 'J-POP'],
     ),
   ];
