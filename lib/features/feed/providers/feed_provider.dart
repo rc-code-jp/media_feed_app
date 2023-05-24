@@ -34,6 +34,17 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
     state = [...state, ...items];
   }
 
+  // ビデオを読み込むだけ
+  Future<void> loadVideo(int feedIndex) async {
+    if (feedIndex > state.length - 1) {
+      return;
+    }
+    final feedItem = state[feedIndex];
+    if (!feedItem.hasVideoController()) {
+      await feedItem.loadVideoController();
+    }
+  }
+
   // ビデオを読み込んで再生する
   Future<void> changeVideo(int feedIndex) async {
     // 前の動画を停止する
@@ -42,12 +53,9 @@ class FeedStateNotifier extends StateNotifier<List<FeedItem>> {
       prevFeedItem.pauseVideo();
     }
 
-    // 後の動画を読み込んでから停止する
+    // 後の動画を停止
     if (feedIndex < state.length - 1) {
       final nextFeedItem = state[feedIndex + 1];
-      if (!nextFeedItem.hasVideoController()) {
-        await nextFeedItem.loadVideoController();
-      }
       nextFeedItem.pauseVideo();
     }
 
