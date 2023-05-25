@@ -45,12 +45,5 @@ List<FeedItem> getDummyFeed() {
       url: 'assets/videos/nemurenai.mp4',
       tags: ['ポップス', 'J-POP'],
     ),
-    FeedItem(
-      id: '999',
-      title: '未来',
-      artistName: 'Future Artist',
-      url: 'assets/videos/purple.mp4',
-      tags: ['ポップス', 'J-POP'],
-    ),
   ];
 }

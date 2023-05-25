@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:volume_controller/volume_controller.dart';
 import 'package:vuuum_app/features/feed/providers/feed_provider.dart';
 import 'package:vuuum_app/features/feed/widgets/feed_card.dart';
 import 'package:vuuum_app/libraries/logger.dart';
+import 'package:vuuum_app/providers/device_volume_provider.dart';
 import 'package:vuuum_app/styles/colors.dart';
 
 class FeedScreen extends ConsumerStatefulWidget {
@@ -14,15 +16,22 @@ class FeedScreen extends ConsumerStatefulWidget {
 }
 
 class FeedScreenState extends ConsumerState<FeedScreen> {
-  final _pageController = PageController(
+  final pageController = PageController(
     initialPage: 0,
     viewportFraction: 1.0,
   );
+  final volumeController = VolumeController();
 
   @override
   void initState() {
     super.initState();
 
+    // ボリュームを監視
+    volumeController.listener((volume) {
+      ref.read(deviceVolumeProvider.notifier).setState(volume);
+    });
+
+    // ウィジェットビルド後の処理
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       // データ取得
       await fetchData();
@@ -33,7 +42,8 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    pageController.dispose();
+    volumeController.removeListener();
     super.dispose();
   }
 
@@ -62,7 +72,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
 
     return PageView.builder(
       itemCount: feed.length,
-      controller: _pageController,
+      controller: pageController,
       scrollDirection: Axis.vertical,
       onPageChanged: (index) async {
         // 再生

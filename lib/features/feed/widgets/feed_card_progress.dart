@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vuuum_app/features/feed/models/feed_item.dart';
 import 'package:vuuum_app/features/feed/providers/feed_provider.dart';
 import 'package:vuuum_app/features/feed/widgets/progress_circle.dart';
+import 'package:vuuum_app/providers/device_volume_provider.dart';
 
 class FeedCardProgress extends ConsumerStatefulWidget {
   final FeedItem feedItem;
@@ -39,7 +40,8 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
 
     // タイマー
     _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
-      if (!widget.feedItem.isPlayingVideo()) {
+      final deviceVolume = ref.read(deviceVolumeProvider);
+      if (!widget.feedItem.isPlayingVideo() || deviceVolume == 0) {
         return;
       }
 

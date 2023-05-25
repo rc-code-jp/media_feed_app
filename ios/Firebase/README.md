@@ -9,6 +9,3 @@ plistのファイル名は環境設定dart_definesを参照
 ```
 \cp -f ${SRCROOT}/Firebase/${googleServicePList} ${SRCROOT}/GoogleService-Info.plist
 ```
-
-> 実際には、スクリプトによってコピーされた GoogleService-Info.plist が使用されることになるのですが、このままでは ${SRCROOT}/GoogleService-Info.plist ファイルへの参照がなくXcodeで認識できません。
-> Xcode上でRunner直下へ GoogleService-Info.plist ファイル（どの環境のものでも良い）をドラッグ＆ドロップで追加してファイルと参照を追加しましょう。
