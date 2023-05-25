@@ -17,57 +17,61 @@ class PlayHistoryScreen extends ConsumerWidget {
         foregroundColor: AppColors.white,
         elevation: 0,
       ),
-      body: Container(
-        decoration: UtilStyles.decorationGradient,
-        child: const DefaultTabController(
-          length: 2,
-          initialIndex: 0,
-          child: SafeArea(
-            child: Column(
-              children: [
-                // タブ
-                TabBar(
-                  labelColor: AppColors.white,
-                  unselectedLabelColor: AppColors.lightGrey,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  indicatorColor: AppColors.white,
-                  indicatorWeight: 2,
-                  tabs: [
-                    Tab(
-                      text: 'すべて',
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      decoration: UtilStyles.decorationGradient,
+      child: const DefaultTabController(
+        length: 2,
+        initialIndex: 0,
+        child: SafeArea(
+          child: Column(
+            children: [
+              // タブ
+              TabBar(
+                labelColor: AppColors.white,
+                unselectedLabelColor: AppColors.lightGrey,
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorColor: AppColors.white,
+                indicatorWeight: 2,
+                tabs: [
+                  Tab(
+                    text: 'すべて',
+                  ),
+                  Tab(
+                    text: '高評価',
+                  ),
+                ],
+              ),
+              // タブの中身
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 10,
+                        ),
+                        child: PlayHistoryList(),
+                      ),
                     ),
-                    Tab(
-                      text: '高評価',
+                    SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 10,
+                        ),
+                        child: PlayHistoryList(),
+                      ),
                     ),
                   ],
                 ),
-                // タブの中身
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      SingleChildScrollView(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 10,
-                          ),
-                          child: PlayHistoryList(),
-                        ),
-                      ),
-                      SingleChildScrollView(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 10,
-                          ),
-                          child: PlayHistoryList(),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

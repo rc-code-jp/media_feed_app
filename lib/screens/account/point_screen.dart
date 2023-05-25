@@ -18,35 +18,39 @@ class PointScreen extends ConsumerWidget {
         foregroundColor: AppColors.white,
         elevation: 0,
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: UtilStyles.decorationGradient,
-        child: const SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: PointTotal(),
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: UtilStyles.decorationGradient,
+      child: const SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: PointTotal(),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'ポイントは獲得から180日間有効です',
+              style: TextStyle(
+                color: AppColors.white,
+                fontSize: 14,
               ),
-              SizedBox(height: 20),
-              Text(
-                'ポイントは獲得から180日間有効です',
-                style: TextStyle(
-                  color: AppColors.white,
-                  fontSize: 14,
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: PointHistoryList(),
                 ),
               ),
-              SizedBox(height: 10),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: PointHistoryList(),
-                  ),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

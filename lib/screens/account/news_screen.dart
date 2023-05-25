@@ -16,13 +16,17 @@ class NewsScreen extends ConsumerWidget {
         foregroundColor: AppColors.white,
         elevation: 0,
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: UtilStyles.decorationGradient,
-        child: const SafeArea(
-          child: Column(
-            children: [Text('お知らせ')],
-          ),
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: UtilStyles.decorationGradient,
+      child: const SafeArea(
+        child: Column(
+          children: [Text('お知らせ')],
         ),
       ),
     );

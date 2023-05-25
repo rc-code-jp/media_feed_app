@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vuuum_app/features/feed/providers/feed_provider.dart';
 import 'package:vuuum_app/features/feed/widgets/feed_card.dart';
@@ -22,10 +23,11 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
   void initState() {
     super.initState();
 
-    // build後にデータを取得
-    // FIXME: もっと良い方法があるはず
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await _fetchData();
+      // データ取得
+      await fetchData();
+      // スプラッシュを消す
+      FlutterNativeSplash.remove();
     });
   }
 
@@ -36,7 +38,7 @@ class FeedScreenState extends ConsumerState<FeedScreen> {
   }
 
   // データを取得
-  Future<void> _fetchData() async {
+  Future<void> fetchData() async {
     try {
       await ref.read(feedProvider.notifier).fetchFirstItems();
       await ref.read(feedProvider.notifier).changeVideo(0);

@@ -29,32 +29,36 @@ class SettingScreen extends ConsumerWidget {
         foregroundColor: AppColors.white,
         elevation: 0,
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: UtilStyles.decorationGradient,
-        child: SafeArea(
-          child: Column(
-            children: [
-              ActionButton(
-                onPressed: () {
-                  AuthStorage().delete();
-                  // スタート画面へ遷移
-                  Navigator.pushNamed(context, '/start');
-                },
-                text: 'ログアウト',
-              ),
-              const SizedBox(height: 20),
-              FutureBuilder(
-                future: _copyFcmToken(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData == false) {
-                    return const Text('Loading...');
-                  }
-                  return Text('FCM TOKEN: ${snapshot.data}');
-                },
-              ),
-            ],
-          ),
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: UtilStyles.decorationGradient,
+      child: SafeArea(
+        child: Column(
+          children: [
+            ActionButton(
+              onPressed: () {
+                AuthStorage().delete();
+                // スタート画面へ遷移
+                Navigator.pushNamed(context, '/start');
+              },
+              text: 'ログアウト',
+            ),
+            const SizedBox(height: 20),
+            FutureBuilder(
+              future: _copyFcmToken(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData == false) {
+                  return const Text('Loading...');
+                }
+                return Text('FCM TOKEN: ${snapshot.data}');
+              },
+            ),
+          ],
         ),
       ),
     );

@@ -35,10 +35,6 @@ class MyApp extends ConsumerWidget {
   // ログインチェック
   Future<bool> checkLoggedIn() async {
     final hasToken = await AuthStorage().has();
-    // 1秒待つ
-    await Future.delayed(const Duration(seconds: 1));
-    // スプラッシュを消す
-    FlutterNativeSplash.remove();
     return hasToken;
   }
 

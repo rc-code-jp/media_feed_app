@@ -17,15 +17,19 @@ class SignUpUserScreen extends ConsumerWidget {
         foregroundColor: AppColors.white,
         elevation: 0,
       ),
-      body: Container(
-        decoration: UtilStyles.decorationGradient,
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SignUpUserForm(),
-          ],
-        ),
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      decoration: UtilStyles.decorationGradient,
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SignUpUserForm(),
+        ],
       ),
     );
   }

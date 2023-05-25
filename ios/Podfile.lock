@@ -127,6 +127,8 @@ PODS:
   - Toast (4.0.0)
   - video_player_avfoundation (0.0.1):
     - Flutter
+  - volume_controller (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
@@ -141,6 +143,7 @@ DEPENDENCIES:
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - smart_auth (from `.symlinks/plugins/smart_auth/ios`)
   - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/ios`)
+  - volume_controller (from `.symlinks/plugins/volume_controller/ios`)
 
 SPEC REPOS:
   trunk:
@@ -182,6 +185,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/smart_auth/ios"
   video_player_avfoundation:
     :path: ".symlinks/plugins/video_player_avfoundation/ios"
+  volume_controller:
+    :path: ".symlinks/plugins/volume_controller/ios"
 
 SPEC CHECKSUMS:
   Firebase: bd152f0f3d278c4060c5c71359db08ebcfd5a3e2
@@ -208,6 +213,7 @@ SPEC CHECKSUMS:
   smart_auth: 4bedbc118723912d0e45a07e8ab34039c19e04f2
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   video_player_avfoundation: 81e49bb3d9fb63dccf9fa0f6d877dc3ddbeac126
+  volume_controller: 531ddf792994285c9b17f9d8a7e4dcdd29b3eae9
 
 PODFILE CHECKSUM: 5e713a0a0c04d78e497ea429bd60cf024118fa54
 

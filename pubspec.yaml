@@ -20,6 +20,7 @@ dependencies:
   share_plus: ^7.0.0
   flutter_secure_storage: ^8.0.0
   package_info_plus: ^4.0.0
+  volume_controller: ^2.0.7
   pinput: ^2.2.31
   flutter_native_splash: ^2.2.19
   fluttertoast: ^8.2.1
@@ -48,7 +49,6 @@ flutter:
     # 画像（ダミー）
     - assets/images/artist.png
     # 動画（ダミー）
-    - assets/videos/purple.mp4
     - assets/videos/burande.mp4
     - assets/videos/ff.mp4
     - assets/videos/hakuchumu.mp4

@@ -42,39 +42,43 @@ class TutorialScreenState extends ConsumerState<TutorialScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: UtilStyles.decorationGradient,
-        child: Stack(
-          children: [
-            TutorialPageView(
-              pageController: _pageController,
-            ),
-            // ページインジケーターとスキップボタン
-            TutorialActions(
-              onBack: () {
-                if (_currentPage == 0) {
-                  // スタートページへ
-                  Navigator.pop(
-                    context,
-                  );
-                } else {
-                  _pageController.previousPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.linear,
-                  );
-                }
-              },
-              onForward: _currentPage < 2
-                  ? () {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.linear,
-                      );
-                    }
-                  : null,
-            )
-          ],
-        ),
+      body: body(context),
+    );
+  }
+
+  Widget body(BuildContext context) {
+    return Container(
+      decoration: UtilStyles.decorationGradient,
+      child: Stack(
+        children: [
+          TutorialPageView(
+            pageController: _pageController,
+          ),
+          // ページインジケーターとスキップボタン
+          TutorialActions(
+            onBack: () {
+              if (_currentPage == 0) {
+                // スタートページへ
+                Navigator.pop(
+                  context,
+                );
+              } else {
+                _pageController.previousPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.linear,
+                );
+              }
+            },
+            onForward: _currentPage < 2
+                ? () {
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.linear,
+                    );
+                  }
+                : null,
+          )
+        ],
       ),
     );
   }
