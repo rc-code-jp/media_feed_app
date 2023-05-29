@@ -36,7 +36,7 @@ class FeedCardProgressState extends ConsumerState<FeedCardProgress> {
       _progressValue = _progressValueMax;
     }
 
-    final unFinishedValue = _progressValueMax + 1;
+    final unFinishedValue = _progressValueMax + 0.5;
 
     // タイマー
     _timer = Timer.periodic(const Duration(milliseconds: 100), (_) {

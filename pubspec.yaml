@@ -2,7 +2,7 @@ name: vuuum_app
 description: vuuum_app
 publish_to: "none"
 
-version: 0.2.17+1
+version: 0.2.13+1
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -49,9 +49,9 @@ flutter:
     # 画像（ダミー）
     - assets/images/artist.png
     # 動画（ダミー）
-    - assets/videos/burande.mp4
-    - assets/videos/ff.mp4
+    - assets/videos/asaki_sugar.mp4
+    - assets/videos/fuzzy_Conton_Candy.mp4
     - assets/videos/hakuchumu.mp4
     - assets/videos/hoshimati.mp4
-    - assets/videos/alia.mp4
     - assets/videos/nemurenai.mp4
+    - assets/videos/yosugala-yoakenouta.me.mp4
