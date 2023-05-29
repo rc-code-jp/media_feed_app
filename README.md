@@ -13,9 +13,18 @@
 
 ### lifthook の登録
 
+gitのcommitに反応してLintを実行する。
+
 ```
 lefthook install
 ```
+
+### Firebase設定ファイル
+
+Firebaseからplistおよびjsonをダウンロードして各フォルダに格納する。
+
+- ios/Firebase/README.md
+- android/app/src/firebase/README.md
 
 ### パッケージインストール
 
@@ -26,7 +35,6 @@ fvm flutter pub get
 ## 起動
 
 起動は VSCode の起動コマンドを参照。
-
 > `.vscode/launch.json`
 
 ## テストリリースビルド 
@@ -38,7 +46,7 @@ fvm flutter pub get
 fvm flutter clean
 ```
 
-### iOS
+### iOS - stg 
 
 Automatic manage signingで大丈夫。
 （stg,prd分のprofileをimportする必要がある）
@@ -49,7 +57,7 @@ fvm flutter build ipa --release --dart-define-from-file=dart_defines/stg.json --
 open ./build/ios/ipa
 ```
 
-## Android
+## Android - stg 
 
 ```
 fvm flutter build apk --release --dart-define-from-file=dart_defines/stg.json
@@ -60,13 +68,22 @@ open ./build/app/outputs/flutter-apk
 
 ## 本番リリースビルド 
 
-### iOS
+### iOS - prd
 
-TODO...
+```
+fvm flutter build ipa --release --dart-define-from-file=dart_defines/prd.json
 
-### Android
+open ./build/ios/ipa
+```
 
-TODO...
+### Android - prd
+
+```
+fvm flutter build apk --release --dart-define-from-file=dart_defines/prd.json
+
+# 出力フォルダを開く
+open ./build/app/outputs/flutter-apk
+```
 
 ## スプラッシュ画面の生成
 
